@@ -13,7 +13,9 @@ tags:
 
 ## Concepts clés
 
-- *(à peupler)*
+### Concepts FP / fonctionnels
+- [[Concept - Une closure capture son environnement lexical à la création]]
+- [[Concept - Un thunk est une fonction qui retarde l'évaluation]]
 
 ## Sous-domaines
 
