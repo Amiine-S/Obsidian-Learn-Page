@@ -1,5 +1,5 @@
 ---
-title: Veille — Learn
+title: Learn
 ---
 
 # Veille tech
