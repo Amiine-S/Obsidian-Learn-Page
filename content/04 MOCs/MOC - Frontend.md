@@ -21,6 +21,11 @@ tags:
 - [[Concept - Le type Effect rend les dépendances et erreurs explicites dans la signature]]
 - [[Concept - Effect-TS fait la DI via des Layers composables au lieu de classes annotées]]
 
+### State management React — Effect Atom
+- [[Concept - Effect Atom unifie state client serveur et DI dans des atomes basés sur Effect]]
+- [[Concept - Atom.runtime branche les Layers Effect-TS dans le state management React]]
+- [[Concept - Les atoms d'Effect Atom se libèrent automatiquement avec keepAlive comme opt-out]]
+
 ### Tooling moderne (Rust/Go)
 - [[Concept - L'écosystème JS migre vers des outils en Rust et Go pour la perf]]
 - [[Concept - tsgo est le portage Go de TypeScript par Microsoft pour 10x la vitesse]]
