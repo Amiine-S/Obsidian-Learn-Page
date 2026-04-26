@@ -751,12 +751,13 @@ h4:hover .heading-anchor {
   border: 1px solid var(--border-soft);
 }
 
-/* Topics row sur les cards */
+/* Topics row sur les cards — toujours en bas, peu importe la hauteur du contenu */
 .card-topics {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-top: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.6rem;
 }
 
 /* ============================================================================
