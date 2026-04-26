@@ -33,7 +33,6 @@ backlinks:
   - les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference
   - rust
 topics:
-  - architecture
   - rust
   - typescript
 ---

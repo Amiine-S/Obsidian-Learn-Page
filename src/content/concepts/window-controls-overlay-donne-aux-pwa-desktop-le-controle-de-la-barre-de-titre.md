@@ -31,7 +31,6 @@ backlinks:
   - les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives
   - frontend
 topics:
-  - architecture
   - frontend
   - typescript
 ---

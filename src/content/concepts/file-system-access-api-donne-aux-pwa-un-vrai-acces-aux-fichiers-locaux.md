@@ -33,7 +33,6 @@ backlinks:
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
   - frontend
 topics:
-  - architecture
   - frontend
   - typescript
 ---

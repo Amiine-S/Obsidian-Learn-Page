@@ -231,12 +231,19 @@ const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = 
     ],
   },
   architecture: {
+    // Strict : uniquement les vrais signaux d'architecture logicielle et de paradigmes.
+    // Les concepts FP (closure, thunk, monad, immutable…) ne déclenchent PAS architecture
+    // — ils sont des concepts JS, pas des décisions architecturales.
     patterns: [
-      /\bclean arch/i, /\bhexagonal\b/i, /\bDDD\b/, /\binversion de d[ée]pendance/i,
-      /\bport(s)? & adapter/i, /\bvertical slice\b/i, /\bover[- ]engineer/i,
-      // FP / paradigmes (folded)
-      /\bfonctionnel/i, /\bfunctional programming/i, /\bd[ée]claratif/i, /\bd[ée]clarative/i,
-      /\bimp[ée]rati[fv]/i, /\bpure function/i, /\bmonad\b/i, /\bimmutable\b/i, /\bcurry/i,
+      /\bclean arch/i, /\bhexagonal\b/i, /\bDDD\b/,
+      /\bdomain[- ]driven design\b/i,
+      /\binversion de d[ée]pendance\b/i, /\bdependency inversion\b/i,
+      /\bport(s)? & adapter/i, /\bports? and adapters?\b/i,
+      /\bvertical slice\b/i, /\bover[- ]engineer/i,
+      /\bcouches? logique\b/i, /\bcouches? m[ée]tier\b/i,
+      /\bd[ée]claratif/i, /\bd[ée]clarative/i,
+      /\bimp[ée]rati[fv]/i, /\bimperative\b/i,
+      /\bSOLID principles\b/i, /\bsingle responsibility\b/i,
     ],
   },
   database: {
@@ -278,8 +285,9 @@ function inferTopicsFromContent(title: string, body: string): Set<string> {
 const ALLOWED_TOPICS = new Set(Object.keys(TOPIC_RULES))
 
 // Aliasing pour normaliser les vieux `domain` ou tags vers la nouvelle liste.
+// fp n'est PLUS un alias d'architecture (les concepts FP sont du JS, pas de l'archi).
 const TOPIC_ALIASES: Record<string, string> = {
-  fp: 'architecture',
+  fp: 'frontend',
   systems: 'rust',
   performance: 'devops',
   tooling: 'devops',

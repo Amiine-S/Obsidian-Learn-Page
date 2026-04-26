@@ -33,7 +33,6 @@ backlinks:
     les-traits-rust-offrent-du-polymorphisme-a-cout-zero-grace-au-dispatch-statique
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
 topics:
-  - architecture
   - backend
   - devops
   - frontend
