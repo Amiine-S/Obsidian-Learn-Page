@@ -886,6 +886,57 @@ h4:hover .heading-anchor {
   font-size: 1.05rem;
 }
 
+/* Segmented control : Tout / Sources / Concepts */
+.kind-filter {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--font-ui);
+}
+
+.kind-filter button {
+  appearance: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--fg-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.kind-filter button:hover {
+  color: var(--fg-strong);
+}
+
+.kind-filter button.active {
+  background: var(--bg-elev);
+  color: var(--fg-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.kind-filter-count {
+  font-size: 0.78rem;
+  color: var(--fg-subtle);
+  background: var(--bg-soft);
+  padding: 0.1em 0.5em;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kind-filter button.active .kind-filter-count {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
 /* Infinite scroll sentinel */
 .infinite-sentinel {
   text-align: center;

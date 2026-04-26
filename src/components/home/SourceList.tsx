@@ -21,14 +21,23 @@ const PAGE_SIZE = 12
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
 
+type KindFilter = 'all' | 'source' | 'concept'
+
 export default function SourceList(props: Props) {
   const [active, setActive] = createSignal<Set<string>>(new Set())
+  const [kindFilter, setKindFilter] = createSignal<KindFilter>('all')
   const [shown, setShown] = createSignal(PAGE_SIZE)
   let sentinel: HTMLDivElement | undefined
 
+  const byKind = createMemo(() => {
+    const k = kindFilter()
+    if (k === 'all') return props.items
+    return props.items.filter((i) => i.kind === k)
+  })
+
   const allTopics = createMemo(() => {
     const counts = new Map<string, number>()
-    for (const s of props.items) {
+    for (const s of byKind()) {
       for (const t of s.topics) counts.set(t, (counts.get(t) ?? 0) + 1)
     }
     return [...counts.entries()].sort((a, b) => b[1] - a[1])
@@ -36,16 +45,20 @@ export default function SourceList(props: Props) {
 
   const filtered = createMemo(() => {
     const sel = active()
-    if (sel.size === 0) return props.items
-    return props.items.filter((s) => s.topics.some((t) => sel.has(t)))
+    if (sel.size === 0) return byKind()
+    return byKind().filter((s) => s.topics.some((t) => sel.has(t)))
   })
+
+  const sourceCount = createMemo(() => props.items.filter((i) => i.kind === 'source').length)
+  const conceptCount = createMemo(() => props.items.filter((i) => i.kind === 'concept').length)
 
   const visible = createMemo(() => filtered().slice(0, shown()))
   const hasMore = createMemo(() => shown() < filtered().length)
 
-  // Reset pagination quand le filtre change
+  // Reset pagination quand un filtre change
   createEffect(() => {
-    active() // track
+    active()
+    kindFilter()
     setShown(PAGE_SIZE)
   })
 
@@ -65,7 +78,7 @@ export default function SourceList(props: Props) {
 
   const toggle = (topic: string) => {
     setActive((prev) => {
-      const next = new Set(prev)
+      const next = new Set<string>(prev)
       if (next.has(topic)) next.delete(topic)
       else next.add(topic)
       return next
@@ -75,6 +88,38 @@ export default function SourceList(props: Props) {
 
   return (
     <>
+      <section style={{ 'margin-bottom': '2rem' }}>
+        <div class="kind-filter" role="tablist">
+          <button
+            role="tab"
+            type="button"
+            classList={{ active: kindFilter() === 'all' }}
+            aria-selected={kindFilter() === 'all'}
+            onClick={() => setKindFilter('all')}
+          >
+            Tout <span class="kind-filter-count">{props.items.length}</span>
+          </button>
+          <button
+            role="tab"
+            type="button"
+            classList={{ active: kindFilter() === 'source' }}
+            aria-selected={kindFilter() === 'source'}
+            onClick={() => setKindFilter('source')}
+          >
+            Sources <span class="kind-filter-count">{sourceCount()}</span>
+          </button>
+          <button
+            role="tab"
+            type="button"
+            classList={{ active: kindFilter() === 'concept' }}
+            aria-selected={kindFilter() === 'concept'}
+            onClick={() => setKindFilter('concept')}
+          >
+            Concepts <span class="kind-filter-count">{conceptCount()}</span>
+          </button>
+        </div>
+      </section>
+
       <section style={{ 'margin-bottom': '2.5rem' }}>
         <div class="filter-header">
           <h2 class="section-title" style={{ margin: 0 }}>
