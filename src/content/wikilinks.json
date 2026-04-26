@@ -1,0 +1,377 @@
+{
+  "2026-04-25 - closure et thunk en javascript": {
+    "slug": "2026-04-25-closure-et-thunk-en-javascript",
+    "collection": "sources",
+    "title": "Closure et Thunk en JavaScript",
+    "excerpt": "1. Une **closure** est une fonction qui **se souvient des variables de son environnement** (scope) au moment où elle a été créée — même si on l'appelle bien plus tard, ailleurs. 2. Un **thunk** est une fonction qui **enveloppe un calcul pour le différer** : au lieu de faire le ca"
+  },
+  "2026-04-25 - effect-ts - pourquoi et pour qui": {
+    "slug": "2026-04-25-effect-ts-pourquoi-et-pour-qui",
+    "collection": "sources",
+    "title": "Effect-TS — pourquoi et pour qui",
+    "excerpt": "1. **Effect-TS** est une lib TypeScript inspirée de **ZIO (Scala)** qui modélise tout ce qui peut \"se passer\" dans un programme via un seul type : `Effect<A, E, R>` = \"calcule un `A`, peut échouer avec `E`, requiert `R` du contexte\". 2. Elle remplace : exceptions silencieuses → *"
+  },
+  "2026-04-25 - introduction à rust pour un dev typescript": {
+    "slug": "2026-04-25-introduction-a-rust-pour-un-dev-typescript",
+    "collection": "sources",
+    "title": "Introduction à Rust pour un dev TypeScript",
+    "excerpt": "1. Rust est un **langage système** créé chez Mozilla (2010, 1.0 en 2015), maintenant porté par la Rust Foundation. 2. Son objectif : offrir **les performances de C/C++ + la sécurité mémoire + la concurrence sans data races**, simultanément. 3. Sa grande idée : un **système d'owne"
+  },
+  "2026-04-25 - tsgo oxlint oxfmt - l'écosystème js passe au natif": {
+    "slug": "2026-04-25-tsgo-oxlint-oxfmt-l-ecosysteme-js-passe-au-natif",
+    "collection": "sources",
+    "title": "tsgo, oxlint, oxfmt — l'écosystème JS passe au natif",
+    "excerpt": "1. **tsgo** : portage de TypeScript en **Go** par Microsoft (annoncé en mars 2025 par Anders Hejlsberg). Vise ~10× la vitesse de type-checking. Sera la base de **TypeScript 7**. 2. **oxlint** : linter Rust de l'écosystème **oxc** (par Boshen). 50-100× plus rapide qu'ESLint. Stabl"
+  },
+  "2026-04-26 - clean architecture hybride sans over-engineering": {
+    "slug": "2026-04-26-clean-architecture-hybride-sans-over-engineering",
+    "collection": "sources",
+    "title": "Clean Architecture hybride — sans over-engineering",
+    "excerpt": "1. La Clean Architecture standard prescrit **4 couches** (Entities, Use Cases, Interface Adapters, Frameworks). Sur un projet petit/moyen, 80% de cette structure est du **scaffolding sans valeur métier**. 2. L'**idée à garder** : la **règle de dépendance** — les couches externes"
+  },
+  "2026-04-26 - effect atom - state management react sur effect-ts": {
+    "slug": "2026-04-26-effect-atom-state-management-react-sur-effect-ts",
+    "collection": "sources",
+    "title": "Effect Atom — state management React sur Effect-TS",
+    "excerpt": "1. **Effect Atom** est une lib de state management React (et Vue/Solid) construite sur Effect-TS, par **Tim Smart** (core contributor Effect). Encore en pré-1.0 (0.5.x), mais déjà utilisable. 2. L'API ressemble à **Jotai** (atoms réactifs, hooks `useAtomValue` / `useAtomSet` / `u"
+  },
+  "2026-04-26 - effect-ts - premier serveur http avec @effect-platform": {
+    "slug": "2026-04-26-effect-ts-premier-serveur-http-avec-effect-platform",
+    "collection": "sources",
+    "title": "Effect-TS — premier serveur HTTP avec @effect/platform",
+    "excerpt": "1. **`@effect/platform`** est l'interface abstraite (HTTP, FS, runtime). **`@effect/platform-node`** (ou `-bun`, `-deno`) est l'implémentation concrète. Tu écris contre `platform`, tu lances avec `platform-node`. 2. Deux APIs cohabitent : **`HttpRouter`** (impérative, ressemble à"
+  },
+  "2026-04-26 - javascript en profondeur - concepts mal connus": {
+    "slug": "2026-04-26-javascript-en-profondeur-concepts-mal-connus",
+    "collection": "sources",
+    "title": "JavaScript en profondeur — concepts mal connus",
+    "excerpt": "1. **L'event loop** est le cœur de tout — comprendre microtasks vs macrotasks, et que `requestAnimationFrame` n'est ni l'un ni l'autre, change ta façon de débugger. 2. **`this`** n'est PAS lié à la définition d'une fonction — il est lié à **comment elle est appelée**. C'est la so"
+  },
+  "2026-04-26 - nouveautés pwa en 2026": {
+    "slug": "2026-04-26-nouveautes-pwa-en-2026",
+    "collection": "sources",
+    "title": "Nouveautés PWA en 2026",
+    "excerpt": "1. Les PWA 2026 ont **fermé une grande partie de l'écart fonctionnel** avec les apps natives : accès au système de fichiers réel, control de la barre de titre, push sur iOS, biométrie via WebAuthn, USB/Bluetooth, paiement. 2. **File System Access API** : tu peux ouvrir, modifier"
+  },
+  "2026-04-26 - programmation impérative vs déclarative": {
+    "slug": "2026-04-26-programmation-imperative-vs-declarative",
+    "collection": "sources",
+    "title": "Programmation impérative vs déclarative",
+    "excerpt": "1. **Impératif** = \"comment\" : tu décris **les étapes** que la machine doit exécuter (boucles, mutations, séquences). Proche du modèle CPU. 2. **Déclaratif** = \"quoi\" : tu décris **le résultat voulu** ; un moteur sous-jacent calcule comment l'atteindre. Plus proche du domaine mét"
+  },
+  "2026-04-26 - rust - borrowing références et lifetimes en pratique": {
+    "slug": "2026-04-26-rust-borrowing-references-et-lifetimes-en-pratique",
+    "collection": "sources",
+    "title": "Rust — borrowing, références et lifetimes en pratique",
+    "excerpt": "1. **Borrowing** = accéder à une valeur **sans** prendre l'ownership. Une référence est un pointeur sûr, vérifié à la compilation, distinct de l'ownership. 2. **Règle d'or** du borrow checker : à un instant T, tu peux avoir soit **une seule référence mutable**, soit **N référence"
+  },
+  "2026-04-26 - solidjs - réactivité fine-grained vs react et vue": {
+    "slug": "2026-04-26-solidjs-reactivite-fine-grained-vs-react-et-vue",
+    "collection": "sources",
+    "title": "SolidJS — réactivité fine-grained vs React et Vue",
+    "excerpt": "1. **SolidJS** est un framework UI créé par **Ryan Carniato**. Syntaxe JSX quasi-identique à React, mais **moteur d'exécution radicalement différent** : pas de Virtual DOM, pas de re-render de composant, mise à jour fine-grained du DOM réel. 2. Le **composant ne s'exécute qu'une"
+  },
+  "concept - atom.runtime branche les layers effect-ts dans le state management react": {
+    "slug": "atomruntime-branche-les-layers-effect-ts-dans-le-state-management-react",
+    "collection": "concepts",
+    "title": "Concept - Atom.runtime branche les Layers Effect-TS dans le state management React",
+    "oneLiner": "`Atom.runtime(layer)` est le pont qui prend un **`Layer<…>` Effect-TS** et le transforme en **runtime accessible depuis React** — chaque atom créé via ce runtime obtient automatiquement les services du Layer en injection.",
+    "excerpt": "C'est la mécanique qui fait passer la DI typée d'Effect-TS du backend au frontend. Sans `Atom.runtime`, tu aurais des atoms qui peuvent contenir des Effects, mais pas de moyen propre d'injecter des dépendances. Avec, tu as un **graphe DI compile-time** depuis ton composant React"
+  },
+  "concept - box rc arc gèrent l'ownership partagé selon le besoin de threading": {
+    "slug": "box-rc-arc-gerent-l-ownership-partage-selon-le-besoin-de-threading",
+    "collection": "concepts",
+    "title": "Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading",
+    "oneLiner": "`Box<T>`, `Rc<T>` et `Arc<T>` sont les **trois smart pointers** principaux de Rust pour allouer sur le tas et/ou partager l'ownership : `Box` = un seul propriétaire, `Rc` = N propriétaires mono-thread, `Arc` = N propriétaires multi-thread — chacun avec un coût et une zone d'usage précis.",
+    "excerpt": "L'ownership unique de Rust est la règle par défaut, et la meilleure dans 80% des cas. Mais beaucoup de structures réalistes ont besoin de **partager** une valeur entre plusieurs entités (graphe d'objets, cache, état partagé entre threads). Au lieu de cacher ça sous un GC, Rust te"
+  },
+  "concept - cargo unifie build test doc et lint en un seul outil": {
+    "slug": "cargo-unifie-build-test-doc-et-lint-en-un-seul-outil",
+    "collection": "concepts",
+    "title": "Concept - Cargo unifie build test doc et lint en un seul outil",
+    "oneLiner": "Là où l'écosystème JS empile `npm` + `tsc` + `vite` + `vitest` + `eslint` + `prettier` + `typedoc`, Rust met **tout** dans `cargo` — un seul outil officiel, intégré, cohérent.",
+    "excerpt": "Quand tu démarres un projet Node, tu choisis : npm ou pnpm ou yarn ? jest ou vitest ? webpack, vite, esbuild, ou turbopack ? eslint config airbnb ou standard ? prettier ? lint-staged ? husky ? Décisions **avant d'écrire une ligne**."
+  },
+  "concept - clean architecture inverse les dépendances pour isoler le domaine": {
+    "slug": "clean-architecture-inverse-les-dependances-pour-isoler-le-domaine",
+    "collection": "concepts",
+    "title": "Concept - Clean Architecture inverse les dépendances pour isoler le domaine",
+    "oneLiner": "La Clean Architecture (Uncle Bob) repose sur **une seule règle structurante** — la **règle de dépendance** : les couches externes (frameworks, DB, UI) **dépendent** des couches internes (logique métier, entités), **jamais l'inverse** — ce qui rend le domaine indépendant de la technologie.",
+    "excerpt": "C'est l'**idée centrale** à retenir de toute l'architecture Bob, hexagonale, ports & adapters, onion architecture. Toutes ces approches partagent le même cœur : **isoler le métier des choix techniques**, pour que : - Le métier soit testable sans frameworks - Tu puisses changer de"
+  },
+  "concept - effect atom unifie state client serveur et di dans des atomes basés sur effect": {
+    "slug": "effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect",
+    "collection": "concepts",
+    "title": "Concept - Effect Atom unifie state client serveur et DI dans des atomes basés sur Effect",
+    "oneLiner": "Effect Atom propose **une seule primitive** — l'`Atom` — pour modéliser à la fois le state local, le state serveur, la DI et les effets asynchrones, le tout en s'appuyant sur le runtime Effect-TS. Une lib remplace **Jotai + TanStack Query + Zustand + Context** dans un projet qui a déjà adopté Effect.",
+    "excerpt": "Sur une app React 2025+, on jongle typiquement avec : - **TanStack Query** pour le server state (fetch, cache, retry) - **Jotai/Zustand** pour le state global - **Context API** pour la DI - **Promise + AbortController** pour la gestion async - **Zod** pour la validation"
+  },
+  "concept - effect-ts fait la di via des layers composables au lieu de classes annotées": {
+    "slug": "effect-ts-fait-la-di-via-des-layers-composables-au-lieu-de-classes-annotees",
+    "collection": "concepts",
+    "title": "Concept - Effect-TS fait la DI via des Layers composables au lieu de classes annotées",
+    "oneLiner": "Là où NestJS résout les dépendances **au runtime** via des décorateurs (`@Injectable`) et un container, Effect-TS les résout **au compile-time** via des `Layer<RIn, E, ROut>` qui décrivent comment construire un service à partir d'autres services.",
+    "excerpt": "C'est probablement le **moment AHA** pour un dev NestJS qui découvre Effect-TS. La DI NestJS est familière mais a deux pièges connus : - Le graphe d'injection est validé **au démarrage de l'app**, pas par le compilateur → tu peux livrer en prod un graphe cassé. - Les modules circ"
+  },
+  "concept - en rust l'absence et l'erreur sont des valeurs typées avec option et result": {
+    "slug": "en-rust-l-absence-et-l-erreur-sont-des-valeurs-typees-avec-option-et-result",
+    "collection": "concepts",
+    "title": "Concept - En Rust l'absence et l'erreur sont des valeurs typées avec Option et Result",
+    "oneLiner": "Rust n'a **ni `null` ni exceptions** : l'absence d'une valeur s'exprime via `Option<T>`, l'erreur via `Result<T, E>`, et le compilateur **t'oblige** à gérer les deux cas.",
+    "excerpt": "Deux des plus grosses sources de bugs dans le code TS/JS :"
+  },
+  "concept - file system access api donne aux pwa un vrai accès aux fichiers locaux": {
+    "slug": "file-system-access-api-donne-aux-pwa-un-vrai-acces-aux-fichiers-locaux",
+    "collection": "concepts",
+    "title": "Concept - File System Access API donne aux PWA un vrai accès aux fichiers locaux",
+    "oneLiner": "La **File System Access API** permet à une page web (et donc à une PWA) d'**ouvrir, lire, modifier et sauvegarder** des fichiers sur le système de fichiers réel de l'utilisateur — et non plus seulement de blobs sandboxés — moyennant **une permission explicite par session**.",
+    "excerpt": "C'est l'API qui ferme l'un des derniers grands écarts entre web app et app native. Avant : si tu voulais modifier un fichier `.md` ou un `.png`, tu devais le faire **uploader**, le travailler côté JS, le **télécharger** modifié — l'utilisateur récupérait un nouveau fichier dans s"
+  },
+  "concept - httpapi décrit un serveur effect-ts comme un schéma typé end-to-end": {
+    "slug": "httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end",
+    "collection": "concepts",
+    "title": "Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end",
+    "oneLiner": "`HttpApi` est une **description déclarative** de la surface d'une API : pour chaque endpoint, tu déclares la méthode, le path, les schémas (path, query, body, response, erreurs) — cette spec devient une **source unique de vérité** dont sont dérivés le serveur, le client typé, l'OpenAPI, et la validation.",
+    "excerpt": "C'est l'API \"haut niveau\" de `@effect/platform` HTTP, par opposition à `HttpRouter` (impératif, plus proche d'Express). Le passage de l'un à l'autre est le moment où une API Effect-TS arrête de ressembler à un Express en mieux et **devient quelque chose de qualitativement différe"
+  },
+  "concept - httpapibuilder lie un handler effect à chaque endpoint déclaré": {
+    "slug": "httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare",
+    "collection": "concepts",
+    "title": "Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré",
+    "oneLiner": "`HttpApiBuilder` est le pont entre la **spec** (`HttpApi`) et l'**implémentation** : pour chaque endpoint déclaré dans le schéma, tu fournis un **handler Effect typé** dont le compilateur vérifie que l'input et l'output matchent la spec — impossible d'oublier un endpoint, impossible de retourner le mauvais type.",
+    "excerpt": "C'est ici que le contrat entre \"déclaration\" et \"code qui tourne\" est rendu **vérifiable par le compilateur**. Sans ce pont, la spec serait juste de la documentation que rien ne force à respecter (cf. les annotations Swagger qui mentent à moitié dans la plupart des projets)."
+  },
+  "concept - l'event loop traite les microtasks avant chaque rendu et entre macrotasks": {
+    "slug": "l-event-loop-traite-les-microtasks-avant-chaque-rendu-et-entre-macrotasks",
+    "collection": "concepts",
+    "title": "Concept - L'event loop traite les microtasks avant chaque rendu et entre macrotasks",
+    "oneLiner": "L'**event loop JS** alterne : exécuter le code synchrone jusqu'à pile vide, **vider toute la microtask queue** (Promises, `queueMicrotask`), prendre **une seule** macrotask (`setTimeout`, événements DOM, I/O), puis recommencer — c'est cette priorité microtask > macrotask qui explique l'ordre d'exécution étrange des Promises et timeouts.",
+    "excerpt": "L'event loop est **invisible** quand ton code marche, mais inévitable dès qu'il ne marche pas. Comprendre la distinction microtask / macrotask, c'est : - Pouvoir prédire l'ordre de logs entre `setTimeout(fn, 0)` et `Promise.resolve().then(fn)` - Comprendre pourquoi un freeze UI p"
+  },
+  "concept - l'over-engineering vient de couches sans valeur métier qui les justifie": {
+    "slug": "l-over-engineering-vient-de-couches-sans-valeur-metier-qui-les-justifie",
+    "collection": "concepts",
+    "title": "Concept - L'over-engineering vient de couches sans valeur métier qui les justifie",
+    "oneLiner": "L'**over-engineering architectural** se reconnaît à un signe : une couche, une interface, un DTO, un mapper qui **n'isole rien de réel** parce qu'il n'y a qu'une seule implémentation, jamais de variation, et que personne ne traverse cette frontière — c'est un coût permanent de maintenance pour un bénéfice imaginaire.",
+    "excerpt": "C'est la critique principale faite à l'application orthodoxe de la Clean Architecture, du DDD complet, ou des \"best practices\" empilées : **on paye le prix d'une protection qu'on n'utilise pas**."
+  },
+  "concept - l'ownership de rust remplace garbage collector et malloc-free": {
+    "slug": "l-ownership-de-rust-remplace-garbage-collector-et-malloc-free",
+    "collection": "concepts",
+    "title": "Concept - L'ownership de Rust remplace garbage collector et malloc-free",
+    "oneLiner": "Chaque valeur a un seul propriétaire, libérée automatiquement à la fin de son scope — la mémoire est gérée **à la compilation**, sans garbage collector et sans `free()` manuel.",
+    "excerpt": "C'est **l'idée centrale** de Rust. Toute sa singularité par rapport aux autres langages part d'ici. Si tu comprends ownership, tu comprends 80 % de ce qui rend Rust différent."
+  },
+  "concept - l'écosystème js migre vers des outils en rust et go pour la perf": {
+    "slug": "l-ecosysteme-js-migre-vers-des-outils-en-rust-et-go-pour-la-perf",
+    "collection": "concepts",
+    "title": "Concept - L'écosystème JS migre vers des outils en Rust et Go pour la perf",
+    "oneLiner": "Tout l'outillage JS — bundlers, linters, formatters, type-checkers, runtimes — est en cours de **réécriture en Rust ou Go** pour gagner 5× à 100× sur les workloads CPU-bound (parsing, AST, traversal).",
+    "excerpt": "C'est une **rupture de génération** silencieuse mais profonde. Pendant 15 ans, le tooling JS a été écrit en JS — naturel, accessible, contributions ouvertes. Mais les monorepos modernes (Nx, Turbo, Bazel) tapent dans 10⁴ à 10⁶ fichiers, et V8 atteint un mur sur ce type de workloa"
+  },
+  "concept - la chaîne de prototypes structure l'héritage en javascript": {
+    "slug": "la-chaine-de-prototypes-structure-l-heritage-en-javascript",
+    "collection": "concepts",
+    "title": "Concept - La chaîne de prototypes structure l'héritage en JavaScript",
+    "oneLiner": "En JS, **chaque objet pointe vers un autre objet** via `__proto__` (son prototype) — quand on accède à une propriété qui n'existe pas, le moteur **remonte la chaîne** jusqu'à la trouver ou jusqu'à `null` — c'est ce mécanisme de \"**prototype chain**\" qui implémente tout l'héritage, y compris derrière les `class` ES6.",
+    "excerpt": "Les `class` ES6 sont du **sucre syntaxique** au-dessus du système de prototypes, qui existe depuis 1995. Comprendre la chaîne de prototypes te permet : - De lire correctement n'importe quel code JS classique (jQuery, libs anciennes) - De comprendre `Object.create`, `Object.getPro"
+  },
+  "concept - la réactivité fine-grained met à jour seulement le dom affecté": {
+    "slug": "la-reactivite-fine-grained-met-a-jour-seulement-le-dom-affecte",
+    "collection": "concepts",
+    "title": "Concept - La réactivité fine-grained met à jour seulement le DOM affecté",
+    "oneLiner": "La **réactivité fine-grained** consiste à attacher chaque morceau du DOM à ses dépendances réactives précises, de sorte qu'un changement d'état ne déclenche que la mise à jour des nœuds DOM qui dépendent réellement de cette donnée — pas du composant entier, pas d'un sous-arbre, **juste le nœud**.",
+    "excerpt": "C'est l'idée centrale qui sépare les frameworks dits \"à signals\" (Solid, Angular ≥17, Vue 3+, Preact Signals, Qwik) du modèle Virtual DOM \"coarse-grained\" (React classique)."
+  },
+  "concept - le borrowing rust permet d'accéder à une valeur sans en prendre l'ownership": {
+    "slug": "le-borrowing-rust-permet-d-acceder-a-une-valeur-sans-en-prendre-l-ownership",
+    "collection": "concepts",
+    "title": "Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership",
+    "oneLiner": "Le **borrowing** consiste à passer une **référence** (`&T` ou `&mut T`) à une fonction au lieu de transférer l'ownership : la fonction peut **lire** (et éventuellement modifier) la valeur, mais **la valeur reste possédée par l'appelant** — c'est le mécanisme principal pour partager des données sans les déplacer.",
+    "excerpt": "Sans borrowing, Rust serait inutilisable : chaque appel de fonction transférerait l'ownership et tu devrais soit cloner partout, soit retourner la valeur à chaque fois (\"fn that takes a String and returns it back\"). Le borrowing résout ce problème **sans introduire de risque mémo"
+  },
+  "concept - le déclaratif transfère la complexité d'exécution au moteur sous-jacent": {
+    "slug": "le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent",
+    "collection": "concepts",
+    "title": "Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent",
+    "oneLiner": "Programmer en déclaratif ne fait pas disparaître la complexité de l'exécution — ça **la déplace** vers le moteur (compilateur, runtime, query planner) — donc plus le moteur est puissant, plus le déclaratif est utilisable, et plus son **abstraction peut fuir** quand le moteur prend de mauvaises décisions.",
+    "excerpt": "C'est le piège classique du déclaratif \"naïf\" : on imagine qu'écrire en haut niveau supprime les considérations de perf, d'allocation, de scheduling. **Ce n'est pas vrai.** Quelque part, **quelqu'un** doit décider comment exécuter ton intent. En déclaratif, ce quelqu'un est le mo"
+  },
+  "concept - le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs": {
+    "slug": "le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs",
+    "collection": "concepts",
+    "title": "Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs",
+    "oneLiner": "Le **hoisting** est le mécanisme par lequel JS \"remonte\" les **déclarations** de variables et fonctions en haut de leur scope, mais pas leurs **valeurs** — d'où le piège classique : `var` est `undefined` avant son `=`, alors que `let`/`const` lèvent une erreur `ReferenceError` (Temporal Dead Zone) jusqu'à leur déclaration.",
+    "excerpt": "Le hoisting cause des bugs subtils, surtout dans : - Des modules avec des cycles d'imports - Des classes où on essaie d'utiliser un field avant son init - Des refactors de `var` → `let` (TDZ apparaît) - Des codes legacy qui utilisaient le hoisting comme feature (`function` declar"
+  },
+  "concept - le runtime effect-ts injecte les layers dans le pipeline du serveur http": {
+    "slug": "le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http",
+    "collection": "concepts",
+    "title": "Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP",
+    "oneLiner": "Quand un serveur Effect-TS démarre via `NodeHttpServer.layer` + `NodeRuntime.runMain`, le runtime construit **un graphe de Layers** (DB, logger, services, HttpServer) puis **rend chaque service disponible aux handlers** : tu n'écris jamais `new ServiceX(...)`, tu déclares `yield* ServiceX` dans ton Effect, et le runtime injecte la bonne instance.",
+    "excerpt": "C'est le mécanisme qui transpose la **DI Effect-TS** au monde du serveur HTTP. Sans lui, tu aurais soit : - Des singletons globaux (impossibles à tester proprement) - Du React Context-style (fragile) - Une DI à base de classes décorées style NestJS (verbose)"
+  },
+  "concept - le type effect rend les dépendances et erreurs explicites dans la signature": {
+    "slug": "le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature",
+    "collection": "concepts",
+    "title": "Concept - Le type Effect rend les dépendances et erreurs explicites dans la signature",
+    "oneLiner": "`Effect<A, E, R>` — \"calcule un `A`, peut échouer avec `E`, requiert un `R` dans son contexte\" — rend **visibles dans la signature de retour** trois choses que TypeScript laisse normalement invisibles : ce que la fonction renvoie, ce qu'elle peut casser, et ce dont elle a besoin.",
+    "excerpt": "C'est l'**innovation fondamentale** d'Effect-TS — toutes les autres features (Layers, Fibers, Schema) gravitent autour. Si tu comprends `Effect<A, E, R>`, tu comprends pourquoi Effect-TS existe."
+  },
+  "concept - les atoms d'effect atom se libèrent automatiquement avec keepalive comme opt-out": {
+    "slug": "les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out",
+    "collection": "concepts",
+    "title": "Concept - Les atoms d'Effect Atom se libèrent automatiquement avec keepAlive comme opt-out",
+    "oneLiner": "Quand plus aucun composant ne consomme un atom, **Effect Atom le libère automatiquement** : ses ressources Effect sont fermées, ses finalizers exécutés. Pour persister un atom au-delà des démontages, on opt-out explicitement avec `Atom.keepAlive`.",
+    "excerpt": "C'est l'**inversion** par rapport à Redux/Zustand/Jotai (où le state vit pour toujours par défaut), et ça résout en passant la moitié des problèmes de cache de TanStack Query (où il faut configurer `staleTime`, `cacheTime`, `gcTime` à la main)."
+  },
+  "concept - les coercitions implicites de javascript suivent des règles précises mais piégeuses": {
+    "slug": "les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses",
+    "collection": "concepts",
+    "title": "Concept - Les coercitions implicites de JavaScript suivent des règles précises mais piégeuses",
+    "oneLiner": "JS effectue des **conversions de type implicites** dans plein d'opérations (`==`, `+`, `-`, `<`, `if (x)`, `!x`) — ces règles sont **déterministes et documentées**, mais leur côté contre-intuitif (`[] == ![]`, `\"0\" == false`) est la raison pour laquelle on utilise **toujours `===`** et qu'on évite les ambigüités de type sur `+`.",
+    "excerpt": "Les coercitions sont **partout** en JS, même quand on croit les éviter. Comprendre : - **Quand `==` coerce** (= toujours, sauf entre types identiques) - **Comment `+` se comporte** (string si l'un des opérandes est string, sinon number) - **La distinction truthy/falsy vs `==` vs"
+  },
+  "concept - les lifetimes rust expriment la durée de validité d'une référence": {
+    "slug": "les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference",
+    "collection": "concepts",
+    "title": "Concept - Les lifetimes Rust expriment la durée de validité d'une référence",
+    "oneLiner": "Un **lifetime** est une **annotation de durée de validité** attachée à une référence — `&'a T` signifie \"une référence valide pendant le lifetime nommé `'a`\" — et le compilateur s'en sert pour garantir qu'**aucune référence ne survit à la valeur qu'elle pointe** (pas de dangling reference).",
+    "excerpt": "Sans lifetimes, Rust ne pourrait pas vérifier la sûreté du borrowing pour les fonctions et structs **génériques**. C'est l'extension naturelle des règles d'ownership à des cas où le compilateur a besoin d'aide pour comprendre **quelle entrée alimente quelle sortie**."
+  },
+  "concept - les pwa 2026 ferment l'écart fonctionnel avec les apps natives": {
+    "slug": "les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives",
+    "collection": "concepts",
+    "title": "Concept - Les PWA 2026 ferment l'écart fonctionnel avec les apps natives",
+    "oneLiner": "En 2026, l'**écart de capacités** entre PWA et apps natives s'est massivement réduit grâce aux APIs nouvelles ou stabilisées (File System Access, Window Controls Overlay, Web Push iOS, WebAuthn, USB/Bluetooth/Serial, Web Payment) — au point où une **PWA bien faite est fonctionnellement comparable** à une app native pour la plupart des cas B2B et workforce.",
+    "excerpt": "Le débat \"PWA vs natif\" en 2018-2020 se tranchait souvent en faveur du natif : trop de capacités manquaient (FS, push iOS, intégration OS). En 2026, l'argument fonctionnel est largement neutralisé. Le critère devient : - **Découvrabilité** (App Store SEO vs URL/PWA) - **Adhérence"
+  },
+  "concept - les traits rust offrent du polymorphisme à coût zéro grâce au dispatch statique": {
+    "slug": "les-traits-rust-offrent-du-polymorphisme-a-cout-zero-grace-au-dispatch-statique",
+    "collection": "concepts",
+    "title": "Concept - Les traits Rust offrent du polymorphisme à coût zéro grâce au dispatch statique",
+    "oneLiner": "Un `trait` Rust ressemble à une `interface` TS, mais l'appel d'une méthode sur un générique compile en **code spécialisé** (monomorphisation) — donc aussi rapide qu'un appel direct, sans vtable.",
+    "excerpt": "Les traits sont **le mécanisme de polymorphisme** de Rust. Tout ce que tu fais via classes/héritage/interfaces en TS, tu le fais via traits en Rust. Comprendre les traits, c'est comprendre comment on structure du code Rust idiomatique."
+  },
+  "concept - oxlint et oxfmt portent eslint et prettier en rust pour 50-100x la vitesse": {
+    "slug": "oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse",
+    "collection": "concepts",
+    "title": "Concept - oxlint et oxfmt portent ESLint et Prettier en Rust pour 50-100x la vitesse",
+    "oneLiner": "**oxlint** (linter) et **oxfmt** (formatter) sont les briques Rust de l'écosystème **oxc**, qui réécrit toute la chaîne de tooling JS en Rust. Gain typique : 50-100× plus rapide qu'ESLint/Prettier sur les mêmes opérations.",
+    "excerpt": "ESLint et Prettier sont **les goulots d'étranglement les plus fréquents** d'un projet TS moderne après tsc : - ESLint : full lint d'un repo monolithique = 30s à plusieurs minutes - Prettier : formattage de tous les fichiers = idem - Pre-commit hooks deviennent insupportables sur"
+  },
+  "concept - programmation impérative décrit comment quand le déclaratif décrit quoi": {
+    "slug": "programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi",
+    "collection": "concepts",
+    "title": "Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi",
+    "oneLiner": "La distinction **impératif vs déclaratif** est une question de **niveau d'abstraction** : un programme impératif décrit **les étapes** à exécuter (mutations, séquence, contrôle de flux), un programme déclaratif décrit **le résultat voulu** et délègue les étapes à un moteur — c'est un curseur, pas une dichotomie.",
+    "excerpt": "C'est le critère structurant qui sépare beaucoup d'outils modernes de leurs ancêtres : - jQuery (impératif) → React (déclaratif) - Bash scripts (impératif) → Terraform (déclaratif) - callbacks (impératif) → Effect / RxJS (déclaratif)"
+  },
+  "concept - rust vise sécurité mémoire performance et concurrence simultanément": {
+    "slug": "rust-vise-securite-memoire-performance-et-concurrence-simultanement",
+    "collection": "concepts",
+    "title": "Concept - Rust vise sécurité mémoire performance et concurrence simultanément",
+    "oneLiner": "Rust est conçu pour offrir **les trois en même temps** — sécurité mémoire, performance native, concurrence sans data races — là où les langages précédents en abandonnaient toujours au moins un.",
+    "excerpt": "Pendant des décennies, choisir un langage = faire des compromis sur ce trilemme :"
+  },
+  "concept - signal memo effect sont les trois primitives réactives de solidjs": {
+    "slug": "signal-memo-effect-sont-les-trois-primitives-reactives-de-solidjs",
+    "collection": "concepts",
+    "title": "Concept - Signal Memo Effect sont les trois primitives réactives de SolidJS",
+    "oneLiner": "SolidJS expose **trois primitives réactives** qui suffisent à tout exprimer : `createSignal` (état modifiable), `createMemo` (valeur dérivée mémoïsée), `createEffect` (effet de bord auto-tracké) — les autres APIs (`createResource`, `createStore`, `<For>`) ne sont que des compositions de ces trois-là.",
+    "excerpt": "Comprendre ces trois primitives, c'est comprendre Solid à 80%. Et c'est aussi comprendre **Vue 3 (`ref` / `computed` / `watchEffect`)**, **Angular signals (`signal` / `computed` / `effect`)**, **Preact Signals (`signal` / `computed` / `effect`)** — le triplet est conceptuellement"
+  },
+  "concept - signals contre virtual dom deux modèles opposés de mise à jour ui": {
+    "slug": "signals-contre-virtual-dom-deux-modeles-opposes-de-mise-a-jour-ui",
+    "collection": "concepts",
+    "title": "Concept - Signals contre Virtual DOM deux modèles opposés de mise à jour UI",
+    "oneLiner": "**Virtual DOM** (React) et **signals** (Solid, Vue, Angular) sont deux stratégies opposées pour répondre à \"comment mettre à jour le DOM quand l'état change\" : le VDOM ré-exécute et diffe, les signals trackent et patchent directement — chaque modèle a sa contrepartie en DX, perf, et complexité.",
+    "excerpt": "Cette opposition est devenue **le débat structurant du frontend en 2025-2026**. React reste majoritaire en parts de marché, mais l'industrie converge vers les signals : **Vue 4, Angular 20, Preact, Qwik, Solid** sont tous signal-first, et le **React Compiler** est explicitement u"
+  },
+  "concept - solidjs exécute son composant une seule fois et lie le dom aux signaux": {
+    "slug": "solidjs-execute-son-composant-une-seule-fois-et-lie-le-dom-aux-signaux",
+    "collection": "concepts",
+    "title": "Concept - SolidJS exécute son composant une seule fois et lie le DOM aux signaux",
+    "oneLiner": "En SolidJS, **le corps du composant est exécuté une seule fois** au montage : son rôle est de **construire le DOM** et d'**y attacher des bindings réactifs aux signals** — les mises à jour ultérieures contournent complètement le composant.",
+    "excerpt": "C'est la rupture mentale la plus dure pour un dev React. En React, on est habitué à dire \"ce composant re-render quand son state change\". En Solid, **le composant est juste un constructeur**. Une fois exécuté, il disparaît : il ne reste que le DOM et les bindings réactifs au sign"
+  },
+  "concept - this en javascript dépend du site d'appel pas de la définition": {
+    "slug": "this-en-javascript-depend-du-site-d-appel-pas-de-la-definition",
+    "collection": "concepts",
+    "title": "Concept - this en JavaScript dépend du site d'appel pas de la définition",
+    "oneLiner": "Contrairement à la plupart des langages OO, **`this` en JavaScript n'est pas lié à la définition d'une fonction** — il est lié au **site d'appel** (où et comment la fonction est invoquée), ce qui produit des comportements surprenants quand on passe une méthode comme callback ou qu'on déstructure une fonction d'un objet.",
+    "excerpt": "C'est **la** source de bugs JS classique. Toute personne qui code JS finit par écrire `this is undefined` sans comprendre pourquoi. Comprendre les règles de binding te fait : - Lire correctement n'importe quel code JS classique - Savoir quand `bind`, `call`, `apply` sont nécessai"
+  },
+  "concept - tsgo est le portage go de typescript par microsoft pour 10x la vitesse": {
+    "slug": "tsgo-est-le-portage-go-de-typescript-par-microsoft-pour-10x-la-vitesse",
+    "collection": "concepts",
+    "title": "Concept - tsgo est le portage Go de TypeScript par Microsoft pour 10x la vitesse",
+    "oneLiner": "Annoncé en mars 2025 par Anders Hejlsberg, **tsgo** est la réimplémentation officielle de `tsc` en **Go**, visant un type-checking ~10× plus rapide. Sera la base de **TypeScript 7**.",
+    "excerpt": "`tsc` est devenu le **goulot d'étranglement** de plein de projets : on type-check 30 secondes à plusieurs minutes à chaque commit, à chaque CI. Le LSP (intellisense IDE) rame sur les gros monorepos. Microsoft a évalué les options, et plutôt que d'optimiser à la marge, a fait un *"
+  },
+  "concept - un thunk est une fonction qui retarde l'évaluation": {
+    "slug": "un-thunk-est-une-fonction-qui-retarde-l-evaluation",
+    "collection": "concepts",
+    "title": "Concept - Un thunk est une fonction qui retarde l'évaluation",
+    "oneLiner": "Un thunk est **une fonction sans argument** dont le seul rôle est d'**emballer un calcul ou un effet pour qu'il soit exécuté plus tard** — pas maintenant, à la demande de l'appelant.",
+    "excerpt": "C'est l'outil de base pour **différer** quelque chose de coûteux ou d'imprécis-dans-le-temps. Tu en utilises en React, Redux, lazy loading, et dès que tu vois un argument typé `() => T`, tu manipules un thunk même si on ne l'appelle pas comme ça."
+  },
+  "concept - une archi pragmatique commence par 2 couches et n'en ajoute qu'au besoin": {
+    "slug": "une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin",
+    "collection": "concepts",
+    "title": "Concept - Une archi pragmatique commence par 2 couches et n'en ajoute qu'au besoin",
+    "oneLiner": "Une approche pragmatique de la Clean Architecture commence par **2 couches** (`domain` / `infrastructure`) et n'introduit une 3e ou 4e couche **que face à un signe concret de douleur** — et non par anticipation — ce qui maximise la valeur tout en minimisant le coût de maintenance.",
+    "excerpt": "C'est la **stratégie incrémentale** qui résout le dilemme entre \"j'écris un spaghetti de 30 lignes en Express\" et \"je déploie 4 couches plus DTOs+mappers pour un CRUD\". Elle s'aligne avec : - **YAGNI** (You Aren't Gonna Need It) - **Make the change easy, then make the easy change"
+  },
+  "concept - une closure capture son environnement lexical à la création": {
+    "slug": "une-closure-capture-son-environnement-lexical-a-la-creation",
+    "collection": "concepts",
+    "title": "Concept - Une closure capture son environnement lexical à la création",
+    "oneLiner": "Une closure est une fonction qui **se souvient** des variables de son scope englobant **au moment où elle a été définie** — et continue d'y accéder même quand le scope parent a fini son exécution.",
+    "excerpt": "C'est le mécanisme **invisible** derrière la moitié du code JS qu'on écrit : hooks React, callbacks, factories, decorators NestJS, middleware Express. Ne pas comprendre les closures = être surpris par des bugs comme le \"stale closure problem\" en React, ou des fuites mémoire silen"
+  },
+  "concept - une seule référence mutable ou plusieurs immutables règle anti-data-race": {
+    "slug": "une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race",
+    "collection": "concepts",
+    "title": "Concept - Une seule référence mutable ou plusieurs immutables règle anti-data-race",
+    "oneLiner": "À tout instant, sur une même valeur, le borrow checker n'autorise **qu'une seule référence mutable** (`&mut T`) **OU** **plusieurs références immutables** (`&T`) — jamais les deux à la fois — règle qui élimine les data races par construction, à la compilation.",
+    "excerpt": "C'est le théorème central du borrow checker, parfois appelé **\"aliasing XOR mutability\"**. Il sous-tend la promesse principale de Rust : **safe concurrency without garbage collection**. Sans cette règle, tu n'aurais ni \"pas de use-after-free\" (parce qu'un alias survivrait au prop"
+  },
+  "concept - window controls overlay donne aux pwa desktop le contrôle de la barre de titre": {
+    "slug": "window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre",
+    "collection": "concepts",
+    "title": "Concept - Window Controls Overlay donne aux PWA desktop le contrôle de la barre de titre",
+    "oneLiner": "**Window Controls Overlay (WCO)** est une feature PWA qui permet à l'app installée en desktop de **dessiner ses propres éléments dans la zone de la barre de titre** — l'OS conserve uniquement les contrôles de fenêtre (min/max/close), tout le reste devient ton header personnalisé.",
+    "excerpt": "Visuellement, c'est ce qui sépare une \"PWA installée\" d'une \"vraie app native\" : la PWA classique a une barre de titre OS générique en haut (qui dit le nom de l'app et c'est tout). Une app native (Slack, Discord, VS Code) utilise toute la fenêtre — la barre de titre intègre le lo"
+  },
+  "moc - architecture & fondamentaux": {
+    "slug": "architecture-fondamentaux",
+    "collection": "mocs",
+    "title": "MOC - Architecture & Fondamentaux",
+    "excerpt": "- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation"
+  },
+  "moc - backend & infra": {
+    "slug": "backend-infra",
+    "collection": "mocs",
+    "title": "MOC - Backend & Infra",
+    "excerpt": "- Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end - Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré - Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP"
+  },
+  "moc - frontend": {
+    "slug": "frontend",
+    "collection": "mocs",
+    "title": "MOC - Frontend",
+    "excerpt": "- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation"
+  },
+  "moc - ia & llms": {
+    "slug": "ia-llms",
+    "collection": "mocs",
+    "title": "MOC - IA & LLMs",
+    "excerpt": "- *(à peupler)*"
+  },
+  "moc - rust": {
+    "slug": "rust",
+    "collection": "mocs",
+    "title": "MOC - Rust",
+    "excerpt": "- Concept - Rust vise sécurité mémoire performance et concurrence simultanément"
+  }
+}

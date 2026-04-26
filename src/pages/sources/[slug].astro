@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '~/layouts/BaseLayout.astro'
+import ReadingProgress from '~/components/layout/ReadingProgress.tsx'
+
+export async function getStaticPaths() {
+  const sources = await getCollection('sources')
+  return sources.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+const concepts = await getCollection('concepts')
+const related = entry.data.related
+  .map((slug) => concepts.find((c) => c.id === slug))
+  .filter((c): c is NonNullable<typeof c> => c !== undefined)
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.excerpt} pageType="source">
+  <ReadingProgress client:load />
+
+  <div class="container-prose">
+    <article class="article">
+      <header class="article-header">
+        <div class="article-eyebrow">
+          <span class="badge" data-domain={entry.data.domain}>{entry.data.domain}</span>
+          <span>·</span>
+          <span>Source · {entry.data.format}</span>
+        </div>
+
+        <h1>{entry.data.title}</h1>
+
+        <div class="article-meta">
+          <span class="article-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <time datetime={entry.data.digested.toISOString()}>{fmtDate(entry.data.digested)}</time>
+          </span>
+          <span class="article-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            {entry.data.level}
+          </span>
+          {entry.data.author && (
+            <span class="article-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              {entry.data.author}
+            </span>
+          )}
+          {entry.data.url && (
+            <a href={entry.data.url} target="_blank" rel="noopener" class="article-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L11.7 5.7"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07L13 18.3"/></svg>
+              Source originale
+            </a>
+          )}
+        </div>
+      </header>
+
+      <div class="article-body prose">
+        <Content />
+      </div>
+    </article>
+
+    {related.length > 0 && (
+      <section class="related-section">
+        <h2 class="section-title">Concepts dérivés</h2>
+        <div class="entry-grid">
+          {related.map((c) => (
+            <article class="entry-card">
+              <div class="meta">
+                <span class="badge" data-domain={c.data.domain}>{c.data.domain}</span>
+                <span>·</span>
+                <span>concept</span>
+              </div>
+              <h3>
+                <a href={`${base}/concepts/${c.id}`}>{c.data.title.replace(/^Concept - /, '')}</a>
+              </h3>
+              {c.data.oneLiner && <p class="excerpt">{c.data.oneLiner}</p>}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

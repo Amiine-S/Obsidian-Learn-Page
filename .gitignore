@@ -1,0 +1,32 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+.pnpm-store/
+
+# env
+.env
+.env.production
+.env.local
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+*.log
+
+# pagefind output (regenerated each build)
+src/pages/pagefind/
+
+# sync cache (hash-based incremental)
+.sync-cache.json

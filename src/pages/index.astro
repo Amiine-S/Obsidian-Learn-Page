@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content'
+import BaseLayout from '~/layouts/BaseLayout.astro'
+
+const sources = (await getCollection('sources')).sort(
+  (a, b) => b.data.digested.valueOf() - a.data.digested.valueOf()
+)
+const recent = sources.slice(0, 3)
+const rest = sources.slice(3)
+
+const mocs = (await getCollection('mocs')).sort((a, b) => a.data.title.localeCompare(b.data.title))
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
+
+const totalConcepts = (await getCollection('concepts')).length
+---
+
+<BaseLayout
+  title="Veille"
+  description="Veille tech personnelle d'Amine — articles, vidéos et talks digérés en notes liées par domaine (Rust, Frontend, Backend, IA, Architecture)."
+  pageType="home"
+>
+  <div class="container-prose">
+    <section class="hero">
+      <div class="hero-meta">{sources.length} sources · {totalConcepts} concepts</div>
+      <h1>Veille tech</h1>
+      <p class="hero-tagline">
+        Mes notes de lecture sur ce que j'apprends — articles, vidéos, talks digérés en concepts atomiques liés.
+      </p>
+    </section>
+  </div>
+
+  <div class="container">
+    <section style="margin-bottom: 4rem;">
+      <h2 class="section-title">Domaines</h2>
+      <div class="flex wrap gap-sm">
+        {mocs.map((m) => (
+          <a class="badge-soft" href={`${base}/mocs/${m.id}`}>
+            {m.data.title.replace(/^MOC - /, '')}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Dernier digest</h2>
+      <div class="entry-grid">
+        {recent.map((s) => (
+          <article class="entry-card">
+            <div class="meta">
+              <time datetime={s.data.digested.toISOString()}>{fmtDate(s.data.digested)}</time>
+              <span class="badge" data-domain={s.data.domain}>{s.data.domain}</span>
+              <span>·</span>
+              <span>{s.data.format}</span>
+            </div>
+            <h3>
+              <a href={`${base}/sources/${s.id}`}>{s.data.title}</a>
+            </h3>
+            <p class="excerpt">{s.data.excerpt}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {rest.length > 0 && (
+      <section>
+        <h2 class="section-title">Archive</h2>
+        <div class="entry-grid">
+          {rest.map((s) => (
+            <article class="entry-card">
+              <div class="meta">
+                <time datetime={s.data.digested.toISOString()}>{fmtDate(s.data.digested)}</time>
+                <span class="badge" data-domain={s.data.domain}>{s.data.domain}</span>
+              </div>
+              <h3>
+                <a href={`${base}/sources/${s.id}`}>{s.data.title}</a>
+              </h3>
+              <p class="excerpt">{s.data.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '~/layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+  const concepts = await getCollection('concepts')
+  return concepts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+const allConcepts = await getCollection('concepts')
+const allSources = await getCollection('sources')
+
+const related = entry.data.related
+  .map((slug) => allConcepts.find((c) => c.id === slug))
+  .filter((c): c is NonNullable<typeof c> => c !== undefined)
+
+const backlinkConcepts = entry.data.backlinks
+  .map((slug) => allConcepts.find((c) => c.id === slug))
+  .filter((c): c is NonNullable<typeof c> => c !== undefined)
+
+const backlinkSources = entry.data.backlinks
+  .map((slug) => allSources.find((s) => s.id === slug))
+  .filter((s): s is NonNullable<typeof s> => s !== undefined)
+
+const cleanTitle = entry.data.title.replace(/^Concept - /, '')
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+---
+
+<BaseLayout title={cleanTitle} description={entry.data.oneLiner ?? entry.data.excerpt} pageType="concept">
+  <div class="container-prose">
+    <article class="article">
+      <header class="article-header">
+        <div class="article-eyebrow">
+          <span class="badge" data-domain={entry.data.domain}>{entry.data.domain}</span>
+          <span>·</span>
+          <span>Concept atomique</span>
+        </div>
+        <h1>{cleanTitle}</h1>
+      </header>
+
+      {entry.data.oneLiner && <div class="oneliner">{entry.data.oneLiner}</div>}
+
+      <div class="article-body prose">
+        <Content />
+      </div>
+    </article>
+
+    {(related.length > 0 || backlinkConcepts.length > 0 || backlinkSources.length > 0) && (
+      <section class="related-section">
+        <h2 class="section-title">Connexions</h2>
+        <div class="entry-grid">
+          {[...related, ...backlinkConcepts]
+            .filter((c, i, arr) => arr.findIndex((x) => x.id === c.id) === i)
+            .map((c) => (
+              <article class="entry-card">
+                <div class="meta">
+                  <span class="badge" data-domain={c.data.domain}>{c.data.domain}</span>
+                  <span>·</span>
+                  <span>concept</span>
+                </div>
+                <h3>
+                  <a href={`${base}/concepts/${c.id}`}>{c.data.title.replace(/^Concept - /, '')}</a>
+                </h3>
+                {c.data.oneLiner && <p class="excerpt">{c.data.oneLiner}</p>}
+              </article>
+            ))}
+          {backlinkSources.map((s) => (
+            <article class="entry-card">
+              <div class="meta">
+                <span class="badge" data-domain={s.data.domain}>{s.data.domain}</span>
+                <span>·</span>
+                <span>source</span>
+              </div>
+              <h3>
+                <a href={`${base}/sources/${s.id}`}>{s.data.title}</a>
+              </h3>
+              <p class="excerpt">{s.data.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

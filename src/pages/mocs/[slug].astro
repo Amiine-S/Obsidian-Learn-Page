@@ -1,0 +1,96 @@
+---
+import { getCollection, render } from 'astro:content'
+import BaseLayout from '~/layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+  const mocs = await getCollection('mocs')
+  return mocs.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+const allConcepts = await getCollection('concepts')
+const allSources = await getCollection('sources')
+
+const domainConcepts = allConcepts
+  .filter((c) => c.data.domain === entry.data.domain)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title))
+
+const domainSources = allSources
+  .filter((s) => s.data.domain === entry.data.domain)
+  .sort((a, b) => b.data.digested.valueOf() - a.data.digested.valueOf())
+
+const cleanTitle = entry.data.title.replace(/^MOC - /, '')
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
+---
+
+<BaseLayout title={cleanTitle} description={entry.data.excerpt} pageType="moc">
+  <div class="container-prose">
+    <article class="article">
+      <header class="article-header">
+        <div class="article-eyebrow">
+          <span class="badge" data-domain={entry.data.domain}>{entry.data.domain}</span>
+          <span>·</span>
+          <span>Map of Content</span>
+        </div>
+        <h1>{cleanTitle}</h1>
+        <p class="article-tagline">
+          {domainSources.length} sources · {domainConcepts.length} concepts dans ce domaine.
+        </p>
+      </header>
+
+      <div class="article-body prose">
+        <Content />
+      </div>
+    </article>
+  </div>
+
+  <div class="container">
+    {domainSources.length > 0 && (
+      <section class="related-section">
+        <h2 class="section-title">Sources</h2>
+        <div class="entry-grid">
+          {domainSources.map((s) => (
+            <article class="entry-card">
+              <div class="meta">
+                <time datetime={s.data.digested.toISOString()}>{fmtDate(s.data.digested)}</time>
+                <span>·</span>
+                <span>{s.data.format}</span>
+              </div>
+              <h3>
+                <a href={`${base}/sources/${s.id}`}>{s.data.title}</a>
+              </h3>
+              <p class="excerpt">{s.data.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {domainConcepts.length > 0 && (
+      <section class="related-section">
+        <h2 class="section-title">Concepts</h2>
+        <div class="entry-grid">
+          {domainConcepts.map((c) => (
+            <article class="entry-card">
+              <div class="meta">
+                <span class="badge" data-domain={c.data.domain}>{c.data.domain}</span>
+              </div>
+              <h3>
+                <a href={`${base}/concepts/${c.id}`}>{c.data.title.replace(/^Concept - /, '')}</a>
+              </h3>
+              {c.data.oneLiner && <p class="excerpt">{c.data.oneLiner}</p>}
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

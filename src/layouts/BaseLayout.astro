@@ -1,0 +1,92 @@
+---
+import '../styles/global.css'
+import ThemeToggle from '~/components/layout/ThemeToggle.tsx'
+
+interface Props {
+  title: string
+  description?: string
+  pageType?: 'home' | 'source' | 'concept' | 'moc' | 'error'
+}
+
+const { title, description, pageType } = Astro.props
+const isHome = pageType === 'home'
+const fullTitle = isHome ? 'Veille tech — Amine' : `${title} · Veille tech`
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+const currentPath = Astro.url.pathname.replace(/\/$/, '')
+
+const navItems: { href: string; label: string; match?: string }[] = [
+  { href: `${base}/mocs/rust`, label: 'Rust', match: '/mocs/rust' },
+  { href: `${base}/mocs/frontend`, label: 'Frontend', match: '/mocs/frontend' },
+  { href: `${base}/mocs/backend-infra`, label: 'Backend', match: '/mocs/backend-infra' },
+  { href: `${base}/mocs/architecture-fondamentaux`, label: 'Archi', match: '/mocs/architecture' },
+  { href: `${base}/mocs/ia-llms`, label: 'IA', match: '/mocs/ia' },
+]
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="alternate" type="application/rss+xml" title="Veille tech" href={`${base}/rss.xml`} />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:type" content={pageType === 'source' ? 'article' : 'website'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {/* Theme : applique data-theme avant le paint pour éviter le flash */}
+    <script is:inline>
+      ;(() => {
+        try {
+          const t = localStorage.getItem('theme')
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t)
+          }
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="brand" href={`${base}/`}>
+          <span class="brand-mark">V</span>
+          Veille
+        </a>
+        <nav class="site-nav">
+          {navItems.map((item) => (
+            <a
+              href={item.href}
+              aria-current={item.match && currentPath.includes(item.match) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
+          <span class="site-nav-actions">
+            <ThemeToggle client:load />
+          </span>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <span>
+          © Amine — veille tech personnelle
+        </span>
+        <span class="flex gap-md">
+          <a href={`${base}/rss.xml`}>RSS</a>
+          <a href="https://github.com/Amiine-S/Obsidian-Learn-Page">GitHub</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
