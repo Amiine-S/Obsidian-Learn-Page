@@ -23,7 +23,7 @@ const fmtDate = (iso: string) =>
 
 export default function SourceList(props: Props) {
   const [active, setActive] = createSignal<Set<string>>(new Set())
-  const [showConcepts, setShowConcepts] = createSignal(true)
+  const [showConcepts, setShowConcepts] = createSignal(false)
   const [shown, setShown] = createSignal(PAGE_SIZE)
   let sentinel: HTMLDivElement | undefined
 
@@ -83,32 +83,31 @@ export default function SourceList(props: Props) {
 
   return (
     <>
-      <section style={{ 'margin-bottom': '2rem' }}>
-        <label class="ios-toggle">
-          <input
-            type="checkbox"
-            checked={showConcepts()}
-            onChange={(e) => setShowConcepts(e.currentTarget.checked)}
-          />
-          <span class="ios-toggle-track">
-            <span class="ios-toggle-thumb" />
-          </span>
-          <span class="ios-toggle-label">
-            Inclure les concepts <span class="muted">({conceptCount()})</span>
-          </span>
-        </label>
-      </section>
-
       <section style={{ 'margin-bottom': '2.5rem' }}>
         <div class="filter-header">
           <h2 class="section-title" style={{ margin: 0 }}>
             Filtrer par topic
           </h2>
-          <Show when={active().size > 0}>
-            <button class="filter-reset" type="button" onClick={reset}>
-              Tout désélectionner ({active().size})
-            </button>
-          </Show>
+          <div class="filter-header-actions">
+            <label class="ios-toggle">
+              <input
+                type="checkbox"
+                checked={showConcepts()}
+                onChange={(e) => setShowConcepts(e.currentTarget.checked)}
+              />
+              <span class="ios-toggle-track">
+                <span class="ios-toggle-thumb" />
+              </span>
+              <span class="ios-toggle-label">
+                Inclure les concepts <span class="muted">({conceptCount()})</span>
+              </span>
+            </label>
+            <Show when={active().size > 0}>
+              <button class="filter-reset" type="button" onClick={reset}>
+                Tout désélectionner ({active().size})
+              </button>
+            </Show>
+          </div>
         </div>
         <div class="filter-bar">
           <For each={allTopics()}>

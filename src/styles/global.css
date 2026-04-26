@@ -790,6 +790,14 @@ h4:hover .heading-anchor {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .filter-reset {
@@ -927,7 +935,7 @@ h4:hover .heading-anchor {
 }
 
 .ios-toggle input:checked + .ios-toggle-track {
-  background: #34c759;
+  background: var(--accent);
 }
 
 .ios-toggle input:checked + .ios-toggle-track .ios-toggle-thumb {
