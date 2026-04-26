@@ -79,7 +79,7 @@ export default function SourceList(props: Props) {
       return next
     })
   }
-  const reset = () => setActive(new Set())
+  const reset = () => setActive(new Set<string>())
 
   return (
     <>
