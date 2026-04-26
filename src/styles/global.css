@@ -382,15 +382,14 @@ code {
   color: var(--accent-strong);
 }
 
-/* Code blocks — toujours sombres, identité distincte du contenu */
+/* Code blocks — laisse Shiki appliquer son thème (github-dark : #0d1117) */
 pre {
-  background: #121212 !important;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #30363d;
   padding: 1.1rem 1.3rem;
   border-radius: 10px;
   overflow-x: auto;
-  font-size: 0.86rem;
-  line-height: 1.65;
+  font-size: 0.92rem;
+  line-height: 1.7;
   margin: 1.75rem 0;
   box-shadow: var(--shadow-md);
   position: relative;
@@ -401,13 +400,6 @@ pre code {
   border: none;
   padding: 0;
   font-size: inherit;
-  color: inherit;
-}
-
-/* Shiki injecte ses couleurs inline ; on s'assure que le code reste lisible */
-pre.astro-code,
-pre.shiki {
-  background: #121212 !important;
 }
 
 /* Scrollbar custom pour les code blocks */
@@ -418,11 +410,11 @@ pre::-webkit-scrollbar-track {
   background: transparent;
 }
 pre::-webkit-scrollbar-thumb {
-  background: #3a3a3a;
+  background: #484f58;
   border-radius: 4px;
 }
 pre::-webkit-scrollbar-thumb:hover {
-  background: #4a4a4a;
+  background: #6e7681;
 }
 
 /* Blockquote — édito quote */

@@ -28,7 +28,8 @@ export default defineConfig({
     ],
     shikiConfig: {
       // Toujours du sombre, même en light mode — code blocks ont leur identité.
-      themes: { light: 'vitesse-dark', dark: 'vitesse-dark' },
+      // github-dark : haut contraste, lisible, palette éprouvée par GitHub.
+      themes: { light: 'github-dark', dark: 'github-dark' },
       wrap: false,
     },
   },
