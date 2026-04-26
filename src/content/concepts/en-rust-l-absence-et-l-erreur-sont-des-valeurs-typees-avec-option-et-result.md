@@ -24,7 +24,11 @@ backlinks:
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
   - rust
 topics:
+  - javascript
+  - performance
   - rust
+  - systems
+  - typescript
 ---
 
 # Concept - En Rust l'absence et l'erreur sont des valeurs typées avec Option et Result

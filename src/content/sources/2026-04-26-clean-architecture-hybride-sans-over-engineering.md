@@ -29,6 +29,14 @@ backlinks:
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
 topics:
   - architecture
+  - backend
+  - database
+  - devops
+  - effect-ts
+  - fp
+  - infra
+  - systems
+  - typescript
 ---
 
 # Clean Architecture hybride — sans over-engineering

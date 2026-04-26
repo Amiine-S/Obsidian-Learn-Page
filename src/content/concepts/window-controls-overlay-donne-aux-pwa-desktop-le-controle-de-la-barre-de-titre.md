@@ -31,7 +31,14 @@ backlinks:
   - les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives
   - frontend
 topics:
+  - fp
   - frontend
+  - javascript
+  - performance
+  - pwa
+  - react
+  - typescript
+  - web
 ---
 
 # Concept - Window Controls Overlay donne aux PWA desktop le contrôle de la barre de titre

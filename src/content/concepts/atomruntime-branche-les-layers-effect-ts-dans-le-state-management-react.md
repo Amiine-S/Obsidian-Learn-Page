@@ -33,7 +33,14 @@ backlinks:
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - frontend
 topics:
+  - architecture
+  - backend
+  - effect-ts
+  - fp
   - frontend
+  - react
+  - systems
+  - typescript
 ---
 
 # Concept - Atom.runtime branche les Layers Effect-TS dans le state management React

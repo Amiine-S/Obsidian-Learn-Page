@@ -30,7 +30,11 @@ backlinks:
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
 topics:
+  - javascript
+  - performance
   - rust
+  - systems
+  - typescript
 ---
 
 # Concept - Rust vise sécurité mémoire performance et concurrence simultanément

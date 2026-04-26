@@ -29,7 +29,12 @@ backlinks:
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - frontend
 topics:
+  - fp
   - frontend
+  - javascript
+  - rust
+  - systems
+  - typescript
 ---
 
 # Concept - La chaîne de prototypes structure l'héritage en JavaScript

@@ -28,7 +28,11 @@ backlinks:
   - 2026-04-26-rust-borrowing-references-et-lifetimes-en-pratique
   - rust
 topics:
+  - fp
+  - javascript
   - rust
+  - systems
+  - typescript
 ---
 
 # Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading

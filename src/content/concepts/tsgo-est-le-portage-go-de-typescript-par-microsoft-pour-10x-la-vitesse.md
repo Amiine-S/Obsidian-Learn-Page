@@ -31,6 +31,13 @@ backlinks:
   - frontend
 topics:
   - frontend
+  - infra
+  - javascript
+  - performance
+  - rust
+  - systems
+  - tooling
+  - typescript
 ---
 
 # Concept - tsgo est le portage Go de TypeScript par Microsoft pour 10x la vitesse

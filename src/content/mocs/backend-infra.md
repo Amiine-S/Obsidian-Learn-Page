@@ -23,7 +23,11 @@ backlinks:
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
 topics:
   - backend
+  - devops
+  - effect-ts
+  - fp
   - infra
+  - typescript
 ---
 
 # MOC - Backend & Infra

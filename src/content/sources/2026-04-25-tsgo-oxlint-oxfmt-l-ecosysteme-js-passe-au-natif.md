@@ -27,7 +27,17 @@ backlinks:
   - oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse
   - tsgo-est-le-portage-go-de-typescript-par-microsoft-pour-10x-la-vitesse
 topics:
+  - ai
+  - devops
   - frontend
+  - infra
+  - javascript
+  - performance
+  - react
+  - rust
+  - systems
+  - tooling
+  - typescript
 ---
 
 # tsgo, oxlint, oxfmt — l'écosystème JS passe au natif

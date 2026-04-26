@@ -33,6 +33,13 @@ backlinks:
   - backend-infra
 topics:
   - backend
+  - devops
+  - effect-ts
+  - fp
+  - frontend
+  - infra
+  - react
+  - typescript
 ---
 
 # Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end

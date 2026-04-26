@@ -29,7 +29,16 @@ backlinks:
   - tsgo-est-le-portage-go-de-typescript-par-microsoft-pour-10x-la-vitesse
   - frontend
 topics:
+  - devops
   - frontend
+  - javascript
+  - performance
+  - react
+  - rust
+  - svelte
+  - systems
+  - tooling
+  - typescript
 ---
 
 # Concept - L'écosystème JS migre vers des outils en Rust et Go pour la perf

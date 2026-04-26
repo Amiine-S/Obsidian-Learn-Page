@@ -34,7 +34,12 @@ backlinks:
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses
   - frontend
 topics:
+  - fp
   - frontend
+  - javascript
+  - react
+  - typescript
+  - web
 ---
 
 # Concept - this en JavaScript dépend du site d'appel pas de la définition

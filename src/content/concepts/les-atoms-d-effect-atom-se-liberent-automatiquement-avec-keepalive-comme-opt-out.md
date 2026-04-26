@@ -34,7 +34,14 @@ backlinks:
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
   - frontend
 topics:
+  - effect-ts
+  - fp
   - frontend
+  - javascript
+  - react
+  - rust
+  - systems
+  - typescript
 ---
 
 # Concept - Les atoms d'Effect Atom se libèrent automatiquement avec keepAlive comme opt-out

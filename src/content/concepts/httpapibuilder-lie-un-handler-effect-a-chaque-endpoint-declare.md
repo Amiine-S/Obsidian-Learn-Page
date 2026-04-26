@@ -32,6 +32,12 @@ backlinks:
   - backend-infra
 topics:
   - backend
+  - devops
+  - effect-ts
+  - fp
+  - infra
+  - systems
+  - typescript
 ---
 
 # Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré

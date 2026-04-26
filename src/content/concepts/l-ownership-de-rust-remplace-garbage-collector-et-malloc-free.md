@@ -32,7 +32,12 @@ backlinks:
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
 topics:
+  - fp
+  - javascript
+  - performance
   - rust
+  - systems
+  - typescript
 ---
 
 # Concept - L'ownership de Rust remplace garbage collector et malloc-free

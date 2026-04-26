@@ -29,6 +29,13 @@ backlinks:
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
 topics:
   - backend
+  - database
+  - devops
+  - effect-ts
+  - fp
+  - frontend
+  - infra
+  - typescript
 ---
 
 # Effect-TS — premier serveur HTTP avec @effect/platform

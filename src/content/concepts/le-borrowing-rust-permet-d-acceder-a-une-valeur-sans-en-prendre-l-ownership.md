@@ -34,7 +34,10 @@ backlinks:
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
 topics:
+  - javascript
   - rust
+  - systems
+  - typescript
 ---
 
 # Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership

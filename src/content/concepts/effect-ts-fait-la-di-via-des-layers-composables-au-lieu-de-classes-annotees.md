@@ -39,7 +39,12 @@ backlinks:
   - backend-infra
   - frontend
 topics:
+  - backend
+  - effect-ts
+  - fp
   - frontend
+  - systems
+  - typescript
 ---
 
 # Concept - Effect-TS fait la DI via des Layers composables au lieu de classes annotées

@@ -26,6 +26,16 @@ backlinks:
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
 topics:
   - architecture
+  - devops
+  - effect-ts
+  - fp
+  - frontend
+  - infra
+  - performance
+  - react
+  - rust
+  - systems
+  - typescript
 ---
 
 # Programmation impérative vs déclarative

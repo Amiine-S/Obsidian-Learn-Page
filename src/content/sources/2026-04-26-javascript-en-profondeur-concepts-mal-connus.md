@@ -34,7 +34,17 @@ backlinks:
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
 topics:
+  - devops
+  - effect-ts
+  - fp
   - frontend
+  - javascript
+  - react
+  - rust
+  - systems
+  - typescript
+  - vue
+  - web
 ---
 
 # JavaScript en profondeur — concepts mal connus

@@ -32,7 +32,15 @@ backlinks:
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
   - frontend
 topics:
+  - ai
+  - fp
   - frontend
+  - performance
+  - pwa
+  - react
+  - security
+  - systems
+  - web
 ---
 
 # Concept - Les PWA 2026 ferment l'écart fonctionnel avec les apps natives

@@ -35,7 +35,16 @@ backlinks:
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - backend-infra
 topics:
+  - architecture
   - backend
+  - devops
+  - effect-ts
+  - fp
+  - frontend
+  - infra
+  - react
+  - systems
+  - typescript
 ---
 
 # Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP

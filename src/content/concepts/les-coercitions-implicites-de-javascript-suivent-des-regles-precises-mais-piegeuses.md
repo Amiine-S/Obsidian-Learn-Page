@@ -31,7 +31,14 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - frontend
 topics:
+  - devops
   - frontend
+  - javascript
+  - react
+  - rust
+  - systems
+  - tooling
+  - typescript
 ---
 
 # Concept - Les coercitions implicites de JavaScript suivent des règles précises mais piégeuses

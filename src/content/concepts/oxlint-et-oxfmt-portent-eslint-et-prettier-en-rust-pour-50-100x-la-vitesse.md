@@ -31,6 +31,13 @@ backlinks:
   - frontend
 topics:
   - frontend
+  - javascript
+  - performance
+  - react
+  - rust
+  - systems
+  - tooling
+  - typescript
 ---
 
 # Concept - oxlint et oxfmt portent ESLint et Prettier en Rust pour 50-100x la vitesse

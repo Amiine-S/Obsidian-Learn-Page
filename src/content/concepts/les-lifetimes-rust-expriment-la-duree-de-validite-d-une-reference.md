@@ -30,6 +30,7 @@ backlinks:
   - rust
 topics:
   - rust
+  - systems
 ---
 
 # Concept - Les lifetimes Rust expriment la durée de validité d'une référence

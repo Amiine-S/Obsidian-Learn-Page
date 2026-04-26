@@ -34,7 +34,13 @@ backlinks:
   - >-
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
 topics:
+  - backend
+  - effect-ts
+  - fp
   - frontend
+  - react
+  - systems
+  - typescript
 ---
 
 # Effect Atom — state management React sur Effect-TS

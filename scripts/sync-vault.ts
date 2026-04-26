@@ -151,22 +151,140 @@ function detectCollection(absPath: string): Collection {
 }
 
 /**
- * Calcule les `topics` (multi-tag) d'une entrée :
- * 1. Si frontmatter `topics` est explicitement fourni, on le respecte (lowercase, dédupliqué).
- * 2. Sinon : union de
- *    - le `domain` legacy (single)
- *    - les tags `domain/X` du frontmatter
- *    - les tags `topic/X` du frontmatter (réservé pour multi-tagging futur)
+ * Dictionnaire keyword → topics. Chaque entrée :
+ *   topic: { patterns: regex[], implies?: string[] }
+ *
+ * Si une regex matche dans le titre OU le body, le topic est ajouté.
+ * `implies` propage automatiquement (ex: pwa → web + frontend).
+ *
+ * Les regex sont insensibles à la casse et utilisent des word boundaries
+ * personnalisées pour éviter de fausser sur des mots anglais courts ("AI", "FP").
  */
-function deriveTopics(fm: Record<string, unknown>): string[] {
-  const set = new Set<string>()
+const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = {
+  rust: {
+    patterns: [/\brust\b/i, /\bborrow(ing)?\b/i, /\bownership\b/i, /\blifetime/i, /\bcargo\b/i, /\btraits?\b/i, /\bRc\b/, /\bArc\b/, /\bBox<T>/, /\bunsafe\b/i],
+    implies: ['systems'],
+  },
+  systems: {
+    patterns: [/\bsyst[èe]me/i, /\bm[ée]moire\b/i, /\bgarbage collector\b/i, /\bmalloc\b/i, /\bpointer\b/i, /\bpointeur\b/i, /\bdata race\b/i],
+  },
+  typescript: {
+    patterns: [/\btypescript\b/i, /\bTS\b/, /\.tsx?\b/, /\btsc\b/i, /\btsgo\b/i, /\boxlint\b/i, /\boxfmt\b/i, /strictNullChecks/, /\bzod\b/i, /\b@effect\//i],
+  },
+  javascript: {
+    patterns: [/\bjavascript\b/i, /\bJS\b/, /\bclosure\b/i, /\bthunk\b/i, /\bevent loop\b/i, /\bprototype/i, /\bhoisting\b/i, /\bcoercition/i, /\bES(\d|6|2015|2020)\b/i, /\bV8\b/],
+  },
+  react: {
+    patterns: [/\breact\b/i, /\bJSX\b/, /\buseState\b/, /\buseEffect\b/, /\buseMemo\b/, /\bvirtual dom\b/i, /\bnext\.?js\b/i],
+    implies: ['frontend'],
+  },
+  solidjs: {
+    patterns: [/\bsolid\.?js\b/i, /\bsolidjs\b/i, /\bcreateSignal\b/, /\bcreateMemo\b/, /\bcreateEffect\b/, /\bSolidStart\b/i],
+    implies: ['frontend'],
+  },
+  vue: {
+    patterns: [/\bvue\.?js\b/i, /\bvue 3\b/i, /\bvue 4\b/i, /\bcomposition api\b/i, /\b<script setup>/],
+    implies: ['frontend'],
+  },
+  svelte: {
+    patterns: [/\bsvelte\b/i, /\bsveltekit\b/i],
+    implies: ['frontend'],
+  },
+  'effect-ts': {
+    patterns: [/\beffect[- ]?ts\b/i, /\beffect\.gen\b/, /\bEffect Atom\b/i, /\bHttpApi\b/, /\b@effect\//i, /\bEffect-TS\b/, /\bLayer(s)?\.[a-z]+\b/, /\bEffect\.(succeed|fail|gen|run)/],
+    implies: ['typescript', 'fp'],
+  },
+  fp: {
+    patterns: [/\bfonctionnel/i, /\bfunctional/i, /\bd[ée]claratif/i, /\bd[ée]clarative/i, /\bpure function/i, /\bmonad\b/i, /\bimmutable\b/i, /\bclosure\b/i, /\bthunk\b/i, /\bcurry/i],
+  },
+  architecture: {
+    patterns: [/\bclean arch/i, /\bhexagonal\b/i, /\bDDD\b/, /\binversion de d[ée]pendance/i, /\bport(s)? & adapter/i, /\bvertical slice\b/i, /\bover[- ]engineer/i],
+  },
+  pwa: {
+    patterns: [/\bPWA\b/, /\bprogressive web/i, /\bservice worker/i, /\bweb manifest/i, /\bWindow Controls Overlay\b/i, /\bFile System Access\b/i],
+    implies: ['web', 'frontend'],
+  },
+  web: {
+    patterns: [/\bweb api\b/i, /\bbrowser\b/i, /\bnavigateur\b/i, /\bDOM\b/, /\bWebGPU\b/i, /\bWebUSB\b/i, /\bWebAssembly\b/i, /\bWASM\b/i],
+  },
+  frontend: {
+    patterns: [/\bfrontend\b/i, /\bfront[- ]end\b/i, /\bUI\b/, /\bcomposant\b/i, /\bcomponent\b/i, /\binterface utilisateur\b/i, /\bdesign system\b/i, /\bCSS\b/, /\bSSR\b/, /\bSPA\b/],
+  },
+  backend: {
+    patterns: [/\bbackend\b/i, /\bback[- ]end\b/i, /\bHTTP server\b/i, /\bExpress\b/, /\bNestJS\b/i, /\bFastify\b/i, /\bAdonis(JS)?\b/i, /\bREST\b/, /\bGraphQL\b/i, /\bgRPC\b/i, /\bAPI design\b/i],
+  },
+  performance: {
+    patterns: [/\bperformances?\b/i, /\boptimisation/i, /\boptimization/i, /\bbenchmark/i, /\bperf[- ]sensitive/i, /\bzero[- ]cost/i, /\bvitesse\b/i, /\bnative\b/i, /\bSIMD\b/, /\b\d+x\s+(plus rapide|faster|la vitesse)/i],
+  },
+  devops: {
+    patterns: [/\bCI\/CD\b/, /\bDocker\b/i, /\bKubernetes\b/i, /\bk8s\b/i, /\bdeploy(ment)?\b/i, /\bGithub Actions\b/i, /\bpipeline\b/i, /\bvite\b/i, /\bturbopack\b/i],
+  },
+  ai: {
+    patterns: [/\bLLM\b/, /\bIA\b/, /\bAI\b/, /\bOpenAI\b/i, /\bGPT[- ]\d/i, /\bClaude\b/i, /\bgenerative\b/i, /\bmachine learning\b/i, /\bembedding\b/i, /\bRAG\b/i, /\btransformer\b/i],
+  },
+  infra: {
+    patterns: [/\binfra(structure)?\b/i, /\bcloud\b/i, /\bAWS\b/, /\bGCP\b/, /\bAzure\b/i, /\bcloudflare\b/i, /\bobservability\b/i, /\bkubernetes\b/i, /\bterraform\b/i, /\bvercel\b/i, /\bnetlify\b/i],
+  },
+  database: {
+    patterns: [/\bdatabase\b/i, /\bbase de donn[ée]es\b/i, /\bpostgres(ql)?\b/i, /\bSQLite\b/i, /\bMySQL\b/i, /\bMongoDB\b/i, /\bDynamoDB\b/i, /\bORM\b/, /\bdrizzle\b/i, /\bprisma\b/i, /\bsqlx\b/i],
+  },
+  security: {
+    patterns: [/\bs[ée]curit[ée]\b/i, /\bsecurity\b/i, /\bauthentication\b/i, /\bauthorization\b/i, /\bWebAuthn\b/i, /\bpasskey\b/i, /\bOAuth\b/i, /\bJWT\b/i, /\bCORS\b/i, /\bXSS\b/i, /\bCSRF\b/i],
+  },
+  tooling: {
+    patterns: [/\bbuild tool\b/i, /\bbundler\b/i, /\boutillage\b/i, /\bvite\b/i, /\besbuild\b/i, /\brollup\b/i, /\bturbopack\b/i, /\boxc\b/i, /\bbiome\b/i, /\bswc\b/i, /\beslint\b/i, /\bprettier\b/i],
+  },
+}
 
-  if (Array.isArray(fm.topics)) {
-    for (const t of fm.topics) {
-      if (typeof t === 'string' && t.trim()) set.add(t.toLowerCase().trim())
+function inferTopicsFromContent(title: string, body: string): Set<string> {
+  const haystack = `${title}\n${body}`
+  const found = new Set<string>()
+  for (const [topic, rule] of Object.entries(TOPIC_RULES)) {
+    if (rule.patterns.some((p) => p.test(haystack))) {
+      found.add(topic)
     }
-    if (set.size > 0) return [...set]
   }
+  // Propagation des `implies` (peut ajouter des topics qui n'ont pas de match direct)
+  let changed = true
+  while (changed) {
+    changed = false
+    for (const t of [...found]) {
+      const rule = TOPIC_RULES[t]
+      if (!rule?.implies) continue
+      for (const imp of rule.implies) {
+        if (!found.has(imp)) {
+          found.add(imp)
+          changed = true
+        }
+      }
+    }
+  }
+  return found
+}
+
+/**
+ * Calcule les `topics` (multi-tag) d'une entrée :
+ * 1. Si frontmatter `topics` est explicitement fourni, on le respecte tel quel (override).
+ * 2. Sinon : union de
+ *    - inférence par keywords sur title + body (TOPIC_RULES)
+ *    - le `domain` legacy
+ *    - les tags `domain/X` ou `topic/X` du frontmatter
+ */
+function deriveTopics(
+  fm: Record<string, unknown>,
+  title: string,
+  body: string
+): string[] {
+  // override explicite
+  if (Array.isArray(fm.topics)) {
+    const explicit = new Set<string>()
+    for (const t of fm.topics) {
+      if (typeof t === 'string' && t.trim()) explicit.add(t.toLowerCase().trim())
+    }
+    if (explicit.size > 0) return [...explicit]
+  }
+
+  const set = inferTopicsFromContent(title, body)
 
   if (typeof fm.domain === 'string' && fm.domain.trim()) {
     set.add(fm.domain.toLowerCase().trim())
@@ -180,7 +298,7 @@ function deriveTopics(fm: Record<string, unknown>): string[] {
     }
   }
 
-  return [...set]
+  return [...set].sort()
 }
 
 function stripAccents(s: string): string {
@@ -287,7 +405,7 @@ async function loadEntry(absPath: string): Promise<VaultEntry | null> {
   const title = extractTitle(filename, fm.title, parsed.content)
   const oneLiner = extractOneLiner(parsed.content)
   const excerpt = extractExcerpt(parsed.content)
-  const topics = deriveTopics(fm)
+  const topics = deriveTopics(fm, title, parsed.content)
 
   const outDir =
     collection === 'sources' ? OUT_SOURCES : collection === 'concepts' ? OUT_CONCEPTS : OUT_MOCS
