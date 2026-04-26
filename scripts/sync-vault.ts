@@ -161,78 +161,90 @@ function detectCollection(absPath: string): Collection {
  * personnalisées pour éviter de fausser sur des mots anglais courts ("AI", "FP").
  */
 const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = {
-  rust: {
-    patterns: [/\brust\b/i, /\bborrow(ing)?\b/i, /\bownership\b/i, /\blifetime/i, /\bcargo\b/i, /\btraits?\b/i, /\bRc\b/, /\bArc\b/, /\bBox<T>/, /\bunsafe\b/i],
-    implies: ['systems'],
-  },
-  systems: {
-    patterns: [/\bsyst[èe]me/i, /\bm[ée]moire\b/i, /\bgarbage collector\b/i, /\bmalloc\b/i, /\bpointer\b/i, /\bpointeur\b/i, /\bdata race\b/i],
-  },
-  typescript: {
-    patterns: [/\btypescript\b/i, /\bTS\b/, /\.tsx?\b/, /\btsc\b/i, /\btsgo\b/i, /\boxlint\b/i, /\boxfmt\b/i, /strictNullChecks/, /\bzod\b/i, /\b@effect\//i],
-  },
-  javascript: {
-    patterns: [/\bjavascript\b/i, /\bJS\b/, /\bclosure\b/i, /\bthunk\b/i, /\bevent loop\b/i, /\bprototype/i, /\bhoisting\b/i, /\bcoercition/i, /\bES(\d|6|2015|2020)\b/i, /\bV8\b/],
-  },
-  react: {
-    patterns: [/\breact\b/i, /\bJSX\b/, /\buseState\b/, /\buseEffect\b/, /\buseMemo\b/, /\bvirtual dom\b/i, /\bnext\.?js\b/i],
-    implies: ['frontend'],
-  },
-  solidjs: {
-    patterns: [/\bsolid\.?js\b/i, /\bsolidjs\b/i, /\bcreateSignal\b/, /\bcreateMemo\b/, /\bcreateEffect\b/, /\bSolidStart\b/i],
-    implies: ['frontend'],
-  },
-  vue: {
-    patterns: [/\bvue\.?js\b/i, /\bvue 3\b/i, /\bvue 4\b/i, /\bcomposition api\b/i, /\b<script setup>/],
-    implies: ['frontend'],
-  },
-  svelte: {
-    patterns: [/\bsvelte\b/i, /\bsveltekit\b/i],
-    implies: ['frontend'],
-  },
-  'effect-ts': {
-    patterns: [/\beffect[- ]?ts\b/i, /\beffect\.gen\b/, /\bEffect Atom\b/i, /\bHttpApi\b/, /\b@effect\//i, /\bEffect-TS\b/, /\bLayer(s)?\.[a-z]+\b/, /\bEffect\.(succeed|fail|gen|run)/],
-    implies: ['typescript', 'fp'],
-  },
-  fp: {
-    patterns: [/\bfonctionnel/i, /\bfunctional/i, /\bd[ée]claratif/i, /\bd[ée]clarative/i, /\bpure function/i, /\bmonad\b/i, /\bimmutable\b/i, /\bclosure\b/i, /\bthunk\b/i, /\bcurry/i],
-  },
-  architecture: {
-    patterns: [/\bclean arch/i, /\bhexagonal\b/i, /\bDDD\b/, /\binversion de d[ée]pendance/i, /\bport(s)? & adapter/i, /\bvertical slice\b/i, /\bover[- ]engineer/i],
-  },
-  pwa: {
-    patterns: [/\bPWA\b/, /\bprogressive web/i, /\bservice worker/i, /\bweb manifest/i, /\bWindow Controls Overlay\b/i, /\bFile System Access\b/i],
-    implies: ['web', 'frontend'],
-  },
-  web: {
-    patterns: [/\bweb api\b/i, /\bbrowser\b/i, /\bnavigateur\b/i, /\bDOM\b/, /\bWebGPU\b/i, /\bWebUSB\b/i, /\bWebAssembly\b/i, /\bWASM\b/i],
-  },
   frontend: {
-    patterns: [/\bfrontend\b/i, /\bfront[- ]end\b/i, /\bUI\b/, /\bcomposant\b/i, /\bcomponent\b/i, /\binterface utilisateur\b/i, /\bdesign system\b/i, /\bCSS\b/, /\bSSR\b/, /\bSPA\b/],
+    patterns: [
+      // génériques
+      /\bfrontend\b/i, /\bfront[- ]end\b/i, /\bUI\b/, /\bcomposant\b/i, /\bcomponent\b/i,
+      /\binterface utilisateur\b/i, /\bdesign system\b/i, /\bCSS\b/, /\bSPA\b/, /\bSSR\b/,
+      // frameworks JS UI (folded)
+      /\breact\b/i, /\bJSX\b/, /\buseState\b/, /\buseEffect\b/, /\buseMemo\b/, /\bvirtual dom\b/i, /\bnext\.?js\b/i,
+      /\bsolid\.?js\b/i, /\bsolidjs\b/i, /\bcreateSignal\b/, /\bcreateMemo\b/, /\bcreateEffect\b/, /\bSolidStart\b/i,
+      /\bvue\.?js\b/i, /\bvue 3\b/i, /\bvue 4\b/i, /\bcomposition api\b/i,
+      /\bsvelte\b/i, /\bsveltekit\b/i,
+      // PWA / web platform (folded)
+      /\bPWA\b/, /\bprogressive web/i, /\bservice worker/i, /\bweb manifest/i,
+      /\bWindow Controls Overlay\b/i, /\bFile System Access\b/i,
+      /\bweb api\b/i, /\bDOM\b/, /\bWebGPU\b/i, /\bWebUSB\b/i, /\bWebAssembly\b/i, /\bWASM\b/i,
+      /\bbrowser\b/i, /\bnavigateur\b/i,
+      // JS de base (folded)
+      /\bjavascript\b/i, /\bclosure\b/i, /\bthunk\b/i, /\bevent loop\b/i, /\bprototype/i, /\bhoisting\b/i, /\bcoercition/i, /\bV8\b/,
+    ],
   },
   backend: {
-    patterns: [/\bbackend\b/i, /\bback[- ]end\b/i, /\bHTTP server\b/i, /\bExpress\b/, /\bNestJS\b/i, /\bFastify\b/i, /\bAdonis(JS)?\b/i, /\bREST\b/, /\bGraphQL\b/i, /\bgRPC\b/i, /\bAPI design\b/i],
+    patterns: [
+      /\bbackend\b/i, /\bback[- ]end\b/i, /\bHTTP server\b/i, /\bExpress\b/, /\bNestJS\b/i,
+      /\bFastify\b/i, /\bAdonis(JS)?\b/i, /\bREST\b/, /\bGraphQL\b/i, /\bgRPC\b/i, /\bAPI design\b/i,
+      /\bnode\.?js\b/i, /\bbun\b/i, /\bdeno\b/i,
+    ],
   },
-  performance: {
-    patterns: [/\bperformances?\b/i, /\boptimisation/i, /\boptimization/i, /\bbenchmark/i, /\bperf[- ]sensitive/i, /\bzero[- ]cost/i, /\bvitesse\b/i, /\bnative\b/i, /\bSIMD\b/, /\b\d+x\s+(plus rapide|faster|la vitesse)/i],
+  typescript: {
+    patterns: [
+      /\btypescript\b/i, /\bTS\b/, /\.tsx?\b/, /\btsc\b/i, /\btsgo\b/i,
+      /strictNullChecks/i, /\bzod\b/i, /\boxlint\b/i, /\boxfmt\b/i,
+    ],
+  },
+  rust: {
+    patterns: [
+      /\brust\b/i, /\bborrow(ing)?\b/i, /\bownership\b/i, /\blifetime/i, /\bcargo\b/i,
+      /\btraits?\b/i, /\bRc<T>/, /\bArc<T>/, /\bBox<T>/, /\bunsafe\b/i,
+      /\bgarbage collector\b/i, /\bdata race\b/i, /\bmalloc\b/i,
+    ],
+  },
+  mobile: {
+    // /\bmobile\b/ retiré : trop large (matche "mobile 4G", etc.).
+    // On match uniquement les signaux clairs de dev mobile.
+    patterns: [
+      /\breact native\b/i, /\bexpo\b/i, /\bcapacitor\b/i, /\bionic\b/i, /\bflutter\b/i,
+      /\bswiftui\b/i, /\bswift\b/, /\bkotlin\b/i, /\bjetpack compose\b/i,
+      /\bmaui\b/i, /\bxamarin\b/i, /\bandroid studio\b/i, /\bxcode\b/i,
+      /\biOS\b/, /\bandroid\b/i,
+    ],
+  },
+  'effect-ts': {
+    patterns: [
+      /\beffect[- ]?ts\b/i, /\beffect\.gen\b/, /\bEffect Atom\b/i, /\bHttpApi\b/,
+      /\b@effect\//i, /\bEffect-TS\b/, /\bLayer(s)?\.[a-z]+\b/, /\bEffect\.(succeed|fail|gen|run)/,
+    ],
+    implies: ['typescript'],
   },
   devops: {
-    patterns: [/\bCI\/CD\b/, /\bDocker\b/i, /\bKubernetes\b/i, /\bk8s\b/i, /\bdeploy(ment)?\b/i, /\bGithub Actions\b/i, /\bpipeline\b/i, /\bvite\b/i, /\bturbopack\b/i],
+    patterns: [
+      // CI/CD & build
+      /\bCI\/CD\b/, /\bDocker\b/i, /\bKubernetes\b/i, /\bk8s\b/i, /\bdeploy(ment)?\b/i,
+      /\bGithub Actions\b/i, /\bpipeline\b/i,
+      // Bundlers / tooling JS (folded)
+      /\bvite\b/i, /\bturbopack\b/i, /\bbundler\b/i, /\bbuild tool\b/i, /\besbuild\b/i, /\brollup\b/i,
+      /\boxc\b/i, /\bbiome\b/i, /\bswc\b/i, /\beslint\b/i, /\bprettier\b/i,
+      // Cloud & infra (folded)
+      /\binfra(structure)?\b/i, /\bcloud\b/i, /\bAWS\b/, /\bGCP\b/, /\bAzure\b/i,
+      /\bcloudflare\b/i, /\bvercel\b/i, /\bnetlify\b/i, /\bterraform\b/i, /\bobservability\b/i,
+    ],
   },
-  ai: {
-    patterns: [/\bLLM\b/, /\bIA\b/, /\bAI\b/, /\bOpenAI\b/i, /\bGPT[- ]\d/i, /\bClaude\b/i, /\bgenerative\b/i, /\bmachine learning\b/i, /\bembedding\b/i, /\bRAG\b/i, /\btransformer\b/i],
-  },
-  infra: {
-    patterns: [/\binfra(structure)?\b/i, /\bcloud\b/i, /\bAWS\b/, /\bGCP\b/, /\bAzure\b/i, /\bcloudflare\b/i, /\bobservability\b/i, /\bkubernetes\b/i, /\bterraform\b/i, /\bvercel\b/i, /\bnetlify\b/i],
+  architecture: {
+    patterns: [
+      /\bclean arch/i, /\bhexagonal\b/i, /\bDDD\b/, /\binversion de d[ée]pendance/i,
+      /\bport(s)? & adapter/i, /\bvertical slice\b/i, /\bover[- ]engineer/i,
+      // FP / paradigmes (folded)
+      /\bfonctionnel/i, /\bfunctional programming/i, /\bd[ée]claratif/i, /\bd[ée]clarative/i,
+      /\bimp[ée]rati[fv]/i, /\bpure function/i, /\bmonad\b/i, /\bimmutable\b/i, /\bcurry/i,
+    ],
   },
   database: {
-    patterns: [/\bdatabase\b/i, /\bbase de donn[ée]es\b/i, /\bpostgres(ql)?\b/i, /\bSQLite\b/i, /\bMySQL\b/i, /\bMongoDB\b/i, /\bDynamoDB\b/i, /\bORM\b/, /\bdrizzle\b/i, /\bprisma\b/i, /\bsqlx\b/i],
-  },
-  security: {
-    patterns: [/\bs[ée]curit[ée]\b/i, /\bsecurity\b/i, /\bauthentication\b/i, /\bauthorization\b/i, /\bWebAuthn\b/i, /\bpasskey\b/i, /\bOAuth\b/i, /\bJWT\b/i, /\bCORS\b/i, /\bXSS\b/i, /\bCSRF\b/i],
-  },
-  tooling: {
-    patterns: [/\bbuild tool\b/i, /\bbundler\b/i, /\boutillage\b/i, /\bvite\b/i, /\besbuild\b/i, /\brollup\b/i, /\bturbopack\b/i, /\boxc\b/i, /\bbiome\b/i, /\bswc\b/i, /\beslint\b/i, /\bprettier\b/i],
+    patterns: [
+      /\bdatabase\b/i, /\bbase de donn[ée]es\b/i, /\bpostgres(ql)?\b/i, /\bSQLite\b/i,
+      /\bMySQL\b/i, /\bMongoDB\b/i, /\bDynamoDB\b/i, /\bORM\b/, /\bdrizzle\b/i,
+      /\bprisma\b/i, /\bsqlx\b/i, /\bSQL\b/,
+    ],
   },
 }
 
@@ -262,13 +274,42 @@ function inferTopicsFromContent(title: string, body: string): Set<string> {
   return found
 }
 
+// Liste blanche : seuls ces topics sont autorisés. Tout le reste est filtré.
+const ALLOWED_TOPICS = new Set(Object.keys(TOPIC_RULES))
+
+// Aliasing pour normaliser les vieux `domain` ou tags vers la nouvelle liste.
+const TOPIC_ALIASES: Record<string, string> = {
+  fp: 'architecture',
+  systems: 'rust',
+  performance: 'devops',
+  tooling: 'devops',
+  infra: 'devops',
+  security: 'backend',
+  web: 'frontend',
+  pwa: 'frontend',
+  react: 'frontend',
+  solidjs: 'frontend',
+  vue: 'frontend',
+  svelte: 'frontend',
+  javascript: 'frontend',
+  ai: 'backend',
+  ia: 'backend',
+}
+
+function normalizeTopic(t: string): string | null {
+  const lower = t.toLowerCase().trim()
+  const aliased = TOPIC_ALIASES[lower] ?? lower
+  return ALLOWED_TOPICS.has(aliased) ? aliased : null
+}
+
 /**
  * Calcule les `topics` (multi-tag) d'une entrée :
- * 1. Si frontmatter `topics` est explicitement fourni, on le respecte tel quel (override).
+ * 1. Si frontmatter `topics` est explicitement fourni, on le respecte (filtré sur la liste blanche).
  * 2. Sinon : union de
  *    - inférence par keywords sur title + body (TOPIC_RULES)
- *    - le `domain` legacy
- *    - les tags `domain/X` ou `topic/X` du frontmatter
+ *    - le `domain` legacy (mappé via aliases)
+ *    - les tags `domain/X` ou `topic/X` du frontmatter (mappés via aliases)
+ *    Tout filtré pour ne garder que les topics de la liste blanche.
  */
 function deriveTopics(
   fm: Record<string, unknown>,
@@ -279,22 +320,33 @@ function deriveTopics(
   if (Array.isArray(fm.topics)) {
     const explicit = new Set<string>()
     for (const t of fm.topics) {
-      if (typeof t === 'string' && t.trim()) explicit.add(t.toLowerCase().trim())
+      if (typeof t !== 'string') continue
+      const norm = normalizeTopic(t)
+      if (norm) explicit.add(norm)
     }
-    if (explicit.size > 0) return [...explicit]
+    if (explicit.size > 0) return [...explicit].sort()
   }
 
-  const set = inferTopicsFromContent(title, body)
+  const inferred = inferTopicsFromContent(title, body)
+  const set = new Set<string>()
+  for (const t of inferred) {
+    const norm = normalizeTopic(t)
+    if (norm) set.add(norm)
+  }
 
   if (typeof fm.domain === 'string' && fm.domain.trim()) {
-    set.add(fm.domain.toLowerCase().trim())
+    const norm = normalizeTopic(fm.domain)
+    if (norm) set.add(norm)
   }
 
   if (Array.isArray(fm.tags)) {
     for (const tag of fm.tags) {
       if (typeof tag !== 'string') continue
       const m = tag.match(/^(?:domain|topic)\/(.+)$/i)
-      if (m) set.add(m[1].toLowerCase().trim())
+      if (m) {
+        const norm = normalizeTopic(m[1])
+        if (norm) set.add(norm)
+      }
     }
   }
 

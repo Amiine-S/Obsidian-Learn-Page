@@ -33,14 +33,11 @@ backlinks:
   - architecture-fondamentaux
 topics:
   - architecture
+  - database
+  - devops
   - effect-ts
-  - fp
   - frontend
-  - infra
-  - react
-  - solidjs
   - typescript
-  - web
 ---
 
 # Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi

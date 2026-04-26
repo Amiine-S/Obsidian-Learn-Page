@@ -28,13 +28,12 @@ backlinks:
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
 topics:
+  - architecture
   - backend
   - database
   - devops
   - effect-ts
-  - fp
   - frontend
-  - infra
   - typescript
 ---
 

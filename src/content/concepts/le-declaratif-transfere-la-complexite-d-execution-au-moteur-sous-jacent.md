@@ -32,14 +32,9 @@ backlinks:
 topics:
   - architecture
   - database
-  - fp
+  - devops
   - frontend
-  - infra
-  - performance
-  - react
   - rust
-  - systems
-  - web
 ---
 
 # Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent

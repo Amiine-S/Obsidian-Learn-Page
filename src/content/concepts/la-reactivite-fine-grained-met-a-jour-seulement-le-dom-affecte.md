@@ -31,11 +31,7 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - react
-  - solidjs
   - typescript
-  - vue
-  - web
 ---
 
 # Concept - La réactivité fine-grained met à jour seulement le DOM affecté

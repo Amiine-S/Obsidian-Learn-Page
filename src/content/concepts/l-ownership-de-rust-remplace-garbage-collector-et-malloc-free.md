@@ -32,11 +32,8 @@ backlinks:
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
 topics:
-  - fp
-  - javascript
-  - performance
+  - architecture
   - rust
-  - systems
   - typescript
 ---
 

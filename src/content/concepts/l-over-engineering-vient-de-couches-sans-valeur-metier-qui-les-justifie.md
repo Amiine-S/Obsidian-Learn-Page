@@ -34,7 +34,7 @@ topics:
   - architecture
   - backend
   - database
-  - infra
+  - devops
   - typescript
 ---
 

@@ -25,12 +25,10 @@ backlinks:
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - une-closure-capture-son-environnement-lexical-a-la-creation
 topics:
+  - architecture
   - backend
   - effect-ts
-  - fp
   - frontend
-  - javascript
-  - react
   - typescript
 ---
 

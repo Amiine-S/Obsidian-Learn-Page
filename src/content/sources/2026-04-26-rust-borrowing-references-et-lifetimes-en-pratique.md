@@ -30,10 +30,8 @@ backlinks:
   - les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
 topics:
-  - fp
-  - performance
+  - architecture
   - rust
-  - systems
   - typescript
 ---
 

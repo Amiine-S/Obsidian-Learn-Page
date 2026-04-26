@@ -30,9 +30,7 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - frontend
 topics:
-  - fp
   - frontend
-  - javascript
   - typescript
 ---
 

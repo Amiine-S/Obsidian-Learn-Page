@@ -29,11 +29,8 @@ backlinks:
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - frontend
 topics:
-  - fp
   - frontend
-  - javascript
   - rust
-  - systems
   - typescript
 ---
 

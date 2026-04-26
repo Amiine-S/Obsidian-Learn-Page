@@ -28,10 +28,8 @@ backlinks:
   - 2026-04-26-rust-borrowing-references-et-lifetimes-en-pratique
   - rust
 topics:
-  - fp
-  - javascript
+  - architecture
   - rust
-  - systems
   - typescript
 ---
 

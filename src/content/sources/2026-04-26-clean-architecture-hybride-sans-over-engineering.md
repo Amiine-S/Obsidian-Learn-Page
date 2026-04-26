@@ -33,9 +33,6 @@ topics:
   - database
   - devops
   - effect-ts
-  - fp
-  - infra
-  - systems
   - typescript
 ---
 

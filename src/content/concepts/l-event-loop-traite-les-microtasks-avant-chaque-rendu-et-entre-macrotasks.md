@@ -33,13 +33,11 @@ backlinks:
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - frontend
 topics:
+  - backend
   - effect-ts
-  - fp
   - frontend
-  - javascript
-  - react
+  - mobile
   - typescript
-  - web
 ---
 
 # Concept - L'event loop traite les microtasks avant chaque rendu et entre macrotasks

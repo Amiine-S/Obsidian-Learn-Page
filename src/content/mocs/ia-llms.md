@@ -7,7 +7,7 @@ title: MOC - IA & LLMs
 slug: ia-llms
 excerpt: '- *(à peupler)*'
 topics:
-  - ai
+  - backend
 ---
 
 # MOC - IA & LLMs

@@ -32,13 +32,11 @@ backlinks:
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
   - backend-infra
 topics:
+  - architecture
   - backend
   - devops
   - effect-ts
-  - fp
   - frontend
-  - infra
-  - react
   - typescript
 ---
 

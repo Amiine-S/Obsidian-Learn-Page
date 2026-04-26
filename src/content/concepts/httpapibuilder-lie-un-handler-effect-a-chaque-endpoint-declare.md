@@ -34,9 +34,6 @@ topics:
   - backend
   - devops
   - effect-ts
-  - fp
-  - infra
-  - systems
   - typescript
 ---
 

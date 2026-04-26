@@ -39,11 +39,7 @@ topics:
   - backend
   - devops
   - effect-ts
-  - fp
   - frontend
-  - infra
-  - react
-  - systems
   - typescript
 ---
 

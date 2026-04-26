@@ -29,10 +29,9 @@ backlinks:
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
   - rust
 topics:
-  - javascript
-  - performance
+  - frontend
+  - mobile
   - rust
-  - systems
   - typescript
 ---
 

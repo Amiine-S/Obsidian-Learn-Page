@@ -33,12 +33,9 @@ backlinks:
   - architecture-fondamentaux
   - frontend
 topics:
+  - architecture
   - backend
-  - fp
   - frontend
-  - javascript
-  - react
-  - systems
 ---
 
 # Concept - Une closure capture son environnement lexical à la création

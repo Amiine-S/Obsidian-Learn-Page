@@ -33,17 +33,12 @@ backlinks:
     les-traits-rust-offrent-du-polymorphisme-a-cout-zero-grace-au-dispatch-statique
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
 topics:
+  - architecture
   - backend
   - devops
-  - fp
-  - infra
-  - javascript
-  - performance
+  - frontend
   - rust
-  - systems
-  - tooling
   - typescript
-  - web
 ---
 
 # Introduction à Rust pour un dev TypeScript

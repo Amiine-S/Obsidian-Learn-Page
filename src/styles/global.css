@@ -727,81 +727,16 @@ h4:hover .heading-anchor {
   white-space: nowrap;
 }
 
-/* Topics — palette élargie. Les topics inconnus tombent sur le gris par défaut. */
-.badge[data-topic='rust'],
-.badge[data-domain='rust'] {
-  background: #c4661a;
-}
-.badge[data-topic='frontend'],
-.badge[data-domain='frontend'] {
-  background: #a855f7;
-}
-.badge[data-topic='backend'],
-.badge[data-domain='backend'] {
-  background: #2563eb;
-}
-.badge[data-topic='infra'],
-.badge[data-domain='infra'] {
-  background: #0891b2;
-}
-.badge[data-topic='ai'],
-.badge[data-domain='ai'] {
-  background: #059669;
-}
-.badge[data-topic='architecture'],
-.badge[data-domain='architecture'] {
-  background: #b45309;
-}
-.badge[data-topic='typescript'] {
-  background: #3178c6;
-}
-.badge[data-topic='javascript'] {
-  background: #f0a91a;
-  color: #1f1d1a;
-}
-.badge[data-topic='react'] {
-  background: #149eca;
-}
-.badge[data-topic='solid'],
-.badge[data-topic='solidjs'] {
-  background: #2c4f7c;
-}
-.badge[data-topic='vue'] {
-  background: #41b883;
-}
-.badge[data-topic='svelte'] {
-  background: #ff3e00;
-}
-.badge[data-topic='effect'],
-.badge[data-topic='effect-ts'] {
-  background: #6366f1;
-}
-.badge[data-topic='web'],
-.badge[data-topic='pwa'] {
-  background: #2563eb;
-}
-.badge[data-topic='devops'] {
-  background: #84cc16;
-  color: #1f1d1a;
-}
-.badge[data-topic='security'] {
-  background: #dc2626;
-}
-.badge[data-topic='fp'],
-.badge[data-topic='functional-programming'] {
-  background: #8b5cf6;
-}
-.badge[data-topic='performance'] {
-  background: #ea580c;
-}
-.badge[data-topic='systems'],
-.badge[data-topic='systems-programming'] {
-  background: #475569;
-}
-.badge[data-topic='database'],
-.badge[data-topic='db'] {
-  background: #0d9488;
-}
+/* Topics — palette des 9 topics canoniques */
+.badge[data-topic='frontend']    { background: #a855f7; }
+.badge[data-topic='backend']     { background: #2563eb; }
+.badge[data-topic='typescript']  { background: #3178c6; }
+.badge[data-topic='rust']        { background: #c4661a; }
+.badge[data-topic='mobile']      { background: #ec4899; }
+.badge[data-topic='effect-ts']   { background: #6366f1; }
+.badge[data-topic='devops']      { background: #84cc16; color: #1f1d1a; }
+.badge[data-topic='architecture']{ background: #b45309; }
+.badge[data-topic='database']    { background: #0d9488; }
 
 .badge-soft {
   display: inline-flex;
@@ -898,26 +833,15 @@ h4:hover .heading-anchor {
   flex-shrink: 0;
 }
 
-.filter-pill[data-topic='rust'] .filter-pill-dot { background: #c4661a; }
-.filter-pill[data-topic='frontend'] .filter-pill-dot { background: #a855f7; }
-.filter-pill[data-topic='backend'] .filter-pill-dot { background: #2563eb; }
-.filter-pill[data-topic='infra'] .filter-pill-dot { background: #0891b2; }
-.filter-pill[data-topic='ai'] .filter-pill-dot { background: #059669; }
+.filter-pill[data-topic='frontend'] .filter-pill-dot     { background: #a855f7; }
+.filter-pill[data-topic='backend'] .filter-pill-dot      { background: #2563eb; }
+.filter-pill[data-topic='typescript'] .filter-pill-dot   { background: #3178c6; }
+.filter-pill[data-topic='rust'] .filter-pill-dot         { background: #c4661a; }
+.filter-pill[data-topic='mobile'] .filter-pill-dot       { background: #ec4899; }
+.filter-pill[data-topic='effect-ts'] .filter-pill-dot    { background: #6366f1; }
+.filter-pill[data-topic='devops'] .filter-pill-dot       { background: #84cc16; }
 .filter-pill[data-topic='architecture'] .filter-pill-dot { background: #b45309; }
-.filter-pill[data-topic='typescript'] .filter-pill-dot { background: #3178c6; }
-.filter-pill[data-topic='javascript'] .filter-pill-dot { background: #f0a91a; }
-.filter-pill[data-topic='react'] .filter-pill-dot { background: #149eca; }
-.filter-pill[data-topic='solidjs'] .filter-pill-dot { background: #2c4f7c; }
-.filter-pill[data-topic='vue'] .filter-pill-dot { background: #41b883; }
-.filter-pill[data-topic='svelte'] .filter-pill-dot { background: #ff3e00; }
-.filter-pill[data-topic='effect'] .filter-pill-dot,
-.filter-pill[data-topic='effect-ts'] .filter-pill-dot { background: #6366f1; }
-.filter-pill[data-topic='pwa'] .filter-pill-dot { background: #2563eb; }
-.filter-pill[data-topic='devops'] .filter-pill-dot { background: #84cc16; }
-.filter-pill[data-topic='security'] .filter-pill-dot { background: #dc2626; }
-.filter-pill[data-topic='fp'] .filter-pill-dot { background: #8b5cf6; }
-.filter-pill[data-topic='performance'] .filter-pill-dot { background: #ea580c; }
-.filter-pill[data-topic='systems'] .filter-pill-dot { background: #475569; }
+.filter-pill[data-topic='database'] .filter-pill-dot     { background: #0d9488; }
 
 .filter-pill.active .filter-pill-dot {
   background: white !important;

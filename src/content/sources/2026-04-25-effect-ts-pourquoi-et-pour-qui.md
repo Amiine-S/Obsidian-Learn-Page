@@ -27,14 +27,11 @@ backlinks:
   - effect-ts-fait-la-di-via-des-layers-composables-au-lieu-de-classes-annotees
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
 topics:
+  - architecture
   - backend
   - devops
   - effect-ts
-  - fp
   - frontend
-  - javascript
-  - performance
-  - systems
   - typescript
 ---
 

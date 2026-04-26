@@ -35,9 +35,8 @@ topics:
   - architecture
   - backend
   - database
+  - devops
   - effect-ts
-  - fp
-  - infra
   - typescript
 ---
 

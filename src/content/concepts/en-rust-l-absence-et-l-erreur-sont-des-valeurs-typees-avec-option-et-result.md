@@ -24,10 +24,7 @@ backlinks:
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
   - rust
 topics:
-  - javascript
-  - performance
   - rust
-  - systems
   - typescript
 ---
 

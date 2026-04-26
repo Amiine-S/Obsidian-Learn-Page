@@ -26,12 +26,9 @@ backlinks:
   - rust
 topics:
   - devops
-  - javascript
+  - frontend
   - rust
-  - systems
-  - tooling
   - typescript
-  - web
 ---
 
 # Concept - Cargo unifie build test doc et lint en un seul outil

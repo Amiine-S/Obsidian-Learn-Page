@@ -36,10 +36,7 @@ topics:
   - architecture
   - backend
   - effect-ts
-  - fp
   - frontend
-  - react
-  - systems
   - typescript
 ---
 

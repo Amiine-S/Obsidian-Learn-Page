@@ -31,11 +31,7 @@ backlinks:
 topics:
   - architecture
   - devops
-  - fp
-  - javascript
-  - performance
-  - systems
-  - tooling
+  - frontend
 ---
 
 # MOC - Architecture & Fondamentaux

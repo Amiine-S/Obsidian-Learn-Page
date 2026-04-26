@@ -34,12 +34,10 @@ backlinks:
   - >-
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
 topics:
+  - architecture
   - backend
   - effect-ts
-  - fp
   - frontend
-  - react
-  - systems
   - typescript
 ---
 

@@ -33,11 +33,7 @@ backlinks:
 topics:
   - devops
   - frontend
-  - javascript
-  - react
   - rust
-  - systems
-  - tooling
   - typescript
 ---
 

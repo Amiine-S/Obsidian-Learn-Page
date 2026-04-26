@@ -36,15 +36,9 @@ backlinks:
 topics:
   - devops
   - effect-ts
-  - fp
   - frontend
-  - javascript
-  - react
   - rust
-  - systems
   - typescript
-  - vue
-  - web
 ---
 
 # JavaScript en profondeur — concepts mal connus

@@ -31,16 +31,10 @@ backlinks:
   - signal-memo-effect-sont-les-trois-primitives-reactives-de-solidjs
   - frontend
 topics:
-  - fp
+  - architecture
+  - devops
   - frontend
-  - javascript
-  - react
-  - solidjs
-  - svelte
-  - tooling
   - typescript
-  - vue
-  - web
 ---
 
 # Concept - Signals contre Virtual DOM deux modèles opposés de mise à jour UI
