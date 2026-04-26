@@ -29,10 +29,7 @@ backlinks:
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
   - rust
 topics:
-  - frontend
-  - mobile
   - rust
-  - typescript
 ---
 
 # Concept - Les traits Rust offrent du polymorphisme à coût zéro grâce au dispatch statique

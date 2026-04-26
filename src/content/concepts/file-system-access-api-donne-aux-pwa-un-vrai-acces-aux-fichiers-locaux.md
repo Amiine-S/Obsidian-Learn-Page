@@ -34,7 +34,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - typescript
 ---
 
 # Concept - File System Access API donne aux PWA un vrai accès aux fichiers locaux

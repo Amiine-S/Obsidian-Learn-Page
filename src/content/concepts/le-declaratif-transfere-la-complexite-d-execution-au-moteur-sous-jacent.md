@@ -31,10 +31,6 @@ backlinks:
   - architecture-fondamentaux
 topics:
   - architecture
-  - database
-  - devops
-  - frontend
-  - rust
 ---
 
 # Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent

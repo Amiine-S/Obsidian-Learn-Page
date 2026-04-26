@@ -30,8 +30,6 @@ backlinks:
   - une-closure-capture-son-environnement-lexical-a-la-creation
 topics:
   - architecture
-  - devops
-  - frontend
 ---
 
 # MOC - Architecture & Fondamentaux

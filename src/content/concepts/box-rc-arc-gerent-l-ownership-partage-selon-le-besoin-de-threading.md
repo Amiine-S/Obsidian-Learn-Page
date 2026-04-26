@@ -29,7 +29,6 @@ backlinks:
   - rust
 topics:
   - rust
-  - typescript
 ---
 
 # Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading

@@ -25,7 +25,6 @@ backlinks:
   - rust
 topics:
   - rust
-  - typescript
 ---
 
 # Concept - En Rust l'absence et l'erreur sont des valeurs typées avec Option et Result

@@ -33,7 +33,6 @@ backlinks:
   - architecture-fondamentaux
   - frontend
 topics:
-  - backend
   - frontend
 ---
 

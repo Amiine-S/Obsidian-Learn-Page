@@ -39,7 +39,6 @@ backlinks:
   - backend-infra
   - frontend
 topics:
-  - backend
   - effect-ts
   - frontend
   - typescript

@@ -24,8 +24,6 @@ backlinks:
 topics:
   - backend
   - devops
-  - effect-ts
-  - typescript
 ---
 
 # MOC - Backend & Infra

@@ -36,8 +36,6 @@ backlinks:
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
   - frontend
 topics:
-  - backend
-  - devops
   - effect-ts
   - frontend
   - typescript

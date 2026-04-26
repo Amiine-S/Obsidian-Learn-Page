@@ -31,7 +31,6 @@ backlinks:
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
 topics:
   - rust
-  - typescript
 ---
 
 # Rust — borrowing, références et lifetimes en pratique

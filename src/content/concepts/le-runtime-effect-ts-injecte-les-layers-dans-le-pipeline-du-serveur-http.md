@@ -35,11 +35,8 @@ backlinks:
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - backend-infra
 topics:
-  - architecture
   - backend
-  - devops
   - effect-ts
-  - frontend
   - typescript
 ---
 

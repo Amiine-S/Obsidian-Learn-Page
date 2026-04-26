@@ -30,12 +30,7 @@ backlinks:
   - >-
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
 topics:
-  - backend
-  - devops
-  - effect-ts
   - frontend
-  - mobile
-  - typescript
 ---
 
 # Nouveautés PWA en 2026

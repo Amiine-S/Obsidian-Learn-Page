@@ -31,7 +31,6 @@ backlinks:
   - solidjs-execute-son-composant-une-seule-fois-et-lie-le-dom-aux-signaux
 topics:
   - frontend
-  - typescript
 ---
 
 # SolidJS — réactivité fine-grained vs React et Vue

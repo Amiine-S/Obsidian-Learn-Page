@@ -31,7 +31,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - typescript
 ---
 
 # Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs

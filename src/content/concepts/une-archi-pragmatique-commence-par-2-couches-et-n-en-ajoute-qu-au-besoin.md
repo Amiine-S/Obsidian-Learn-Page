@@ -33,11 +33,6 @@ backlinks:
   - architecture-fondamentaux
 topics:
   - architecture
-  - backend
-  - database
-  - devops
-  - effect-ts
-  - typescript
 ---
 
 # Concept - Une archi pragmatique commence par 2 couches et n'en ajoute qu'au besoin

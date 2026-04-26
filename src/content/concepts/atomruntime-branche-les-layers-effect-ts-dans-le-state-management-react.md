@@ -33,8 +33,6 @@ backlinks:
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - frontend
 topics:
-  - architecture
-  - backend
   - effect-ts
   - frontend
   - typescript

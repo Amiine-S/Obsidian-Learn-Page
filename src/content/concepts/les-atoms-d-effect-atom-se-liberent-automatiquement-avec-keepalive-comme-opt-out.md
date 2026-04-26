@@ -36,7 +36,6 @@ backlinks:
 topics:
   - effect-ts
   - frontend
-  - rust
   - typescript
 ---
 

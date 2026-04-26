@@ -32,10 +32,6 @@ backlinks:
   - architecture-fondamentaux
 topics:
   - architecture
-  - backend
-  - database
-  - devops
-  - typescript
 ---
 
 # Concept - L'over-engineering vient de couches sans valeur métier qui les justifie

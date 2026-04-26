@@ -35,7 +35,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - typescript
 ---
 
 # Concept - this en JavaScript dépend du site d'appel pas de la définition

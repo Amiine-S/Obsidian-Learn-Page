@@ -32,12 +32,6 @@ backlinks:
   - architecture-fondamentaux
 topics:
   - architecture
-  - backend
-  - database
-  - devops
-  - effect-ts
-  - frontend
-  - typescript
 ---
 
 # Concept - Clean Architecture inverse les dépendances pour isoler le domaine

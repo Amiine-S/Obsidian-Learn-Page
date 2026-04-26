@@ -25,10 +25,7 @@ backlinks:
   - l-ecosysteme-js-migre-vers-des-outils-en-rust-et-go-pour-la-perf
   - rust
 topics:
-  - devops
-  - frontend
   - rust
-  - typescript
 ---
 
 # Concept - Cargo unifie build test doc et lint en un seul outil

@@ -69,12 +69,7 @@ backlinks:
   - >-
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
 topics:
-  - devops
-  - effect-ts
   - frontend
-  - mobile
-  - rust
-  - typescript
 ---
 
 # MOC - Frontend

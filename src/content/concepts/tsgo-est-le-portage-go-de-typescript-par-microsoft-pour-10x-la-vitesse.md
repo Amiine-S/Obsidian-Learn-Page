@@ -30,10 +30,7 @@ backlinks:
   - oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse
   - frontend
 topics:
-  - backend
-  - devops
   - frontend
-  - rust
   - typescript
 ---
 

@@ -26,12 +26,6 @@ backlinks:
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
 topics:
   - architecture
-  - database
-  - devops
-  - effect-ts
-  - frontend
-  - rust
-  - typescript
 ---
 
 # Programmation impérative vs déclarative

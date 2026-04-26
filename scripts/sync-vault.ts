@@ -163,9 +163,9 @@ function detectCollection(absPath: string): Collection {
 const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = {
   frontend: {
     patterns: [
-      // génériques
-      /\bfrontend\b/i, /\bfront[- ]end\b/i, /\bUI\b/, /\bcomposant\b/i, /\bcomponent\b/i,
-      /\binterface utilisateur\b/i, /\bdesign system\b/i, /\bCSS\b/, /\bSPA\b/, /\bSSR\b/,
+      // génériques (resserré : pas \bUI\b seul, pas \bcomposant\b / \bcomponent\b seuls)
+      /\bfrontend\b/i, /\bfront[- ]end\b/i, /\binterface utilisateur\b/i,
+      /\bdesign system\b/i, /\bSPA\b/, /\bSSR\b/, /\bCSS-in-JS\b/i,
       // frameworks JS UI (folded)
       /\breact\b/i, /\bJSX\b/, /\buseState\b/, /\buseEffect\b/, /\buseMemo\b/, /\bvirtual dom\b/i, /\bnext\.?js\b/i,
       /\bsolid\.?js\b/i, /\bsolidjs\b/i, /\bcreateSignal\b/, /\bcreateMemo\b/, /\bcreateEffect\b/, /\bSolidStart\b/i,
@@ -177,20 +177,25 @@ const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = 
       /\bweb api\b/i, /\bDOM\b/, /\bWebGPU\b/i, /\bWebUSB\b/i, /\bWebAssembly\b/i, /\bWASM\b/i,
       /\bbrowser\b/i, /\bnavigateur\b/i,
       // JS de base (folded)
-      /\bjavascript\b/i, /\bclosure\b/i, /\bthunk\b/i, /\bevent loop\b/i, /\bprototype/i, /\bhoisting\b/i, /\bcoercition/i, /\bV8\b/,
+      /\bjavascript\b/i, /\bJS\b/, /\bclosure\b/i, /\bthunk\b/i, /\bevent loop\b/i,
+      /\bprototype/i, /\bhoisting\b/i, /\bcoercition/i, /\bV8\b/,
+      /\bsignals?\b/i, /\br[ée]activit[ée]\b/i, /\bdom\b/i,
     ],
   },
   backend: {
     patterns: [
-      /\bbackend\b/i, /\bback[- ]end\b/i, /\bHTTP server\b/i, /\bExpress\b/, /\bNestJS\b/i,
-      /\bFastify\b/i, /\bAdonis(JS)?\b/i, /\bREST\b/, /\bGraphQL\b/i, /\bgRPC\b/i, /\bAPI design\b/i,
-      /\bnode\.?js\b/i, /\bbun\b/i, /\bdeno\b/i,
+      /\bbackend\b/i, /\bback[- ]end\b/i, /\bHTTP server\b/i, /\bserveur HTTP\b/i,
+      /\bExpress\.js\b/i, /\bExpressJS\b/i, /\bNestJS\b/i,
+      /\bFastify\b/i, /\bAdonisJS\b/i, /\bAdonis\.js\b/i,
+      /\bREST API\b/i, /\bGraphQL\b/i, /\bgRPC\b/i, /\bAPI design\b/i,
+      /\bnode\.js\b/i, /\bbun\.js\b/i, /\b@effect\/platform\b/i,
     ],
   },
   typescript: {
     patterns: [
-      /\btypescript\b/i, /\bTS\b/, /\.tsx?\b/, /\btsc\b/i, /\btsgo\b/i,
-      /strictNullChecks/i, /\bzod\b/i, /\boxlint\b/i, /\boxfmt\b/i,
+      // Resserré : pas de \bTS\b ni \.tsx?\b (trop large dans les body)
+      /\btypescript\b/i, /\btsgo\b/i, /\boxlint\b/i, /\boxfmt\b/i,
+      /strictNullChecks/i, /\bzod\b/i,
     ],
   },
   rust: {
@@ -219,51 +224,64 @@ const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = 
   },
   devops: {
     patterns: [
-      // CI/CD & build
-      /\bCI\/CD\b/, /\bDocker\b/i, /\bKubernetes\b/i, /\bk8s\b/i, /\bdeploy(ment)?\b/i,
-      /\bGithub Actions\b/i, /\bpipeline\b/i,
+      // CI/CD & build (resserré — pas juste \bpipeline\b qui peut être "data pipeline" / "render pipeline")
+      /\bCI\/CD\b/, /\bDocker\b/i, /\bKubernetes\b/i, /\bk8s\b/i,
+      /\bdeployment\b/i, /\bd[ée]ploiement\b/i, /\bGithub Actions\b/i,
+      /\bCI pipeline\b/i, /\bdeployment pipeline\b/i, /\bbuild pipeline\b/i,
       // Bundlers / tooling JS (folded)
-      /\bvite\b/i, /\bturbopack\b/i, /\bbundler\b/i, /\bbuild tool\b/i, /\besbuild\b/i, /\brollup\b/i,
-      /\boxc\b/i, /\bbiome\b/i, /\bswc\b/i, /\beslint\b/i, /\bprettier\b/i,
-      // Cloud & infra (folded)
-      /\binfra(structure)?\b/i, /\bcloud\b/i, /\bAWS\b/, /\bGCP\b/, /\bAzure\b/i,
-      /\bcloudflare\b/i, /\bvercel\b/i, /\bnetlify\b/i, /\bterraform\b/i, /\bobservability\b/i,
+      /\bvite\b/i, /\bturbopack\b/i, /\besbuild\b/i, /\brollup\b/i,
+      /\boxc\b/i, /\bbiome\b/i, /\beslint\b/i, /\bprettier\b/i, /\bswc\b/i,
+      // Cloud & infra — resserré : pas \binfrastructure\b seul (sens "couche infra" en clean arch)
+      /\bcloud (provider|native|computing)\b/i, /\bIaC\b/, /\bcloud infra\b/i,
+      /\bAWS\b/, /\bGCP\b/, /\bAzure\b/i, /\bcloudflare\b/i, /\bvercel\b/i, /\bnetlify\b/i,
+      /\bterraform\b/i, /\bobservability\b/i,
     ],
   },
   architecture: {
-    // Strict : uniquement les vrais signaux d'architecture logicielle et de paradigmes.
-    // Les concepts FP (closure, thunk, monad, immutable…) ne déclenchent PAS architecture
-    // — ils sont des concepts JS, pas des décisions architecturales.
     patterns: [
+      /\barchi\b/i, /\barchitecture\b/i,
       /\bclean arch/i, /\bhexagonal\b/i, /\bDDD\b/,
       /\bdomain[- ]driven design\b/i,
       /\binversion de d[ée]pendance\b/i, /\bdependency inversion\b/i,
       /\bport(s)? & adapter/i, /\bports? and adapters?\b/i,
       /\bvertical slice\b/i, /\bover[- ]engineer/i,
-      /\bcouches? logique\b/i, /\bcouches? m[ée]tier\b/i,
+      /\bcouches?\b/i, // OK en title-only — risque de faux positif quasi-nul
       /\bd[ée]claratif/i, /\bd[ée]clarative/i,
       /\bimp[ée]rati[fv]/i, /\bimperative\b/i,
-      /\bSOLID principles\b/i, /\bsingle responsibility\b/i,
+      /\bSOLID\b/, /\bSRP\b/,
     ],
   },
   database: {
+    // Resserré : ne match que les vrais signaux DB. Une note qui mentionne juste "Postgres"
+    // en passant n'est PAS un sujet DB. Pour être tagué, faut soit "database" / "BDD" / SQL
+    // dans le titre, soit plusieurs DBs nommées dans l'intro.
     patterns: [
-      /\bdatabase\b/i, /\bbase de donn[ée]es\b/i, /\bpostgres(ql)?\b/i, /\bSQLite\b/i,
-      /\bMySQL\b/i, /\bMongoDB\b/i, /\bDynamoDB\b/i, /\bORM\b/, /\bdrizzle\b/i,
-      /\bprisma\b/i, /\bsqlx\b/i, /\bSQL\b/,
+      /\bdatabase\b/i, /\bbase de donn[ée]es\b/i, /\bschema design\b/i, /\bORM\b/,
+      /\bquery optimization\b/i, /\bquery planner\b/i, /\bSQL design\b/i, /\bdb migration\b/i,
+      /\bACID\b/, /\bMVCC\b/i, /\bCRUD\b/i,
     ],
   },
 }
 
-function inferTopicsFromContent(title: string, body: string): Set<string> {
-  const haystack = `${title}\n${body}`
+/**
+ * Inférence TITLE-ONLY : un topic est assigné si et seulement si le titre matche un pattern.
+ *
+ * Pourquoi : les body contiennent des mentions de techs en comparaisons / exemples qui
+ * polluent la classification (ex: une note sur Closure mentionne NestJS en passant →
+ * faux positif backend). Le titre est la seule signature fiable du sujet de la note.
+ *
+ * Pour les notes ambiguës ou avec un titre court, l'utilisateur peut toujours override
+ * via `topics: [...]` dans le frontmatter du vault.
+ *
+ * Le `implies` propage ensuite (effect-ts → typescript).
+ */
+function inferTopicsFromContent(title: string, _body: string): Set<string> {
   const found = new Set<string>()
   for (const [topic, rule] of Object.entries(TOPIC_RULES)) {
-    if (rule.patterns.some((p) => p.test(haystack))) {
+    if (rule.patterns.some((p) => p.test(title))) {
       found.add(topic)
     }
   }
-  // Propagation des `implies` (peut ajouter des topics qui n'ont pas de match direct)
   let changed = true
   while (changed) {
     changed = false

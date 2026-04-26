@@ -33,11 +33,6 @@ backlinks:
   - architecture-fondamentaux
 topics:
   - architecture
-  - database
-  - devops
-  - effect-ts
-  - frontend
-  - typescript
 ---
 
 # Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi

@@ -25,10 +25,7 @@ backlinks:
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - une-closure-capture-son-environnement-lexical-a-la-creation
 topics:
-  - backend
-  - effect-ts
   - frontend
-  - typescript
 ---
 
 # Closure et Thunk en JavaScript

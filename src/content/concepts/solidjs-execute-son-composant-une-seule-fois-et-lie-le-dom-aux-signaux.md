@@ -34,7 +34,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - typescript
 ---
 
 # Concept - SolidJS exécute son composant une seule fois et lie le DOM aux signaux

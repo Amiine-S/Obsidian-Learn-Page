@@ -33,7 +33,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - typescript
 ---
 
 # Concept - Signal Memo Effect sont les trois primitives réactives de SolidJS

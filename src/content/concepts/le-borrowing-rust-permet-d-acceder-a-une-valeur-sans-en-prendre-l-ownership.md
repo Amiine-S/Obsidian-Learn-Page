@@ -35,7 +35,6 @@ backlinks:
   - rust
 topics:
   - rust
-  - typescript
 ---
 
 # Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership

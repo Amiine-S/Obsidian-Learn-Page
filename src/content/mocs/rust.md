@@ -33,8 +33,6 @@ backlinks:
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
 topics:
-  - architecture
-  - database
   - rust
 ---
 

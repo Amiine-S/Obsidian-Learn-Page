@@ -35,11 +35,7 @@ backlinks:
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - frontend
 topics:
-  - backend
-  - effect-ts
   - frontend
-  - rust
-  - typescript
 ---
 
 # Concept - Le type Effect rend les dépendances et erreurs explicites dans la signature

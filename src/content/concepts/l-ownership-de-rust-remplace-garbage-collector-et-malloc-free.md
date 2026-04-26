@@ -33,7 +33,6 @@ backlinks:
   - rust
 topics:
   - rust
-  - typescript
 ---
 
 # Concept - L'ownership de Rust remplace garbage collector et malloc-free

@@ -33,7 +33,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - mobile
 ---
 
 # Concept - Les PWA 2026 ferment l'écart fonctionnel avec les apps natives

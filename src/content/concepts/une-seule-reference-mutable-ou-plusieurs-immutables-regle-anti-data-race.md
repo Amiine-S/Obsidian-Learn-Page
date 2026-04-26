@@ -34,7 +34,6 @@ backlinks:
   - rust
 topics:
   - rust
-  - typescript
 ---
 
 # Concept - Une seule référence mutable ou plusieurs immutables règle anti-data-race

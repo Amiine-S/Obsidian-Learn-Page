@@ -30,8 +30,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - rust
-  - typescript
 ---
 
 # Concept - La chaîne de prototypes structure l'héritage en JavaScript

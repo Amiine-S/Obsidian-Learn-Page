@@ -32,7 +32,6 @@ backlinks:
   - frontend
 topics:
   - frontend
-  - typescript
 ---
 
 # Concept - Window Controls Overlay donne aux PWA desktop le contrôle de la barre de titre

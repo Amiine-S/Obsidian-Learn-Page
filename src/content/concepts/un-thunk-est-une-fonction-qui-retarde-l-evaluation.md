@@ -34,9 +34,7 @@ backlinks:
   - architecture-fondamentaux
   - frontend
 topics:
-  - effect-ts
   - frontend
-  - typescript
 ---
 
 # Concept - Un thunk est une fonction qui retarde l'évaluation
