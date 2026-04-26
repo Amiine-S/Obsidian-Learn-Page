@@ -27,9 +27,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Cargo unifie build test doc et lint en un seul outil
-
 ## Idée en une phrase
 
 > Là où l'écosystème JS empile `npm` + `tsc` + `vite` + `vitest` + `eslint` + `prettier` + `typedoc`, Rust met **tout** dans `cargo` — un seul outil officiel, intégré, cohérent.

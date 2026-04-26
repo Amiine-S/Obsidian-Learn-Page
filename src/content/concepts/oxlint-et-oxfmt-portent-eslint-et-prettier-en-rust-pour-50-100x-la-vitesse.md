@@ -35,9 +35,6 @@ topics:
   - rust
   - typescript
 ---
-
-# Concept - oxlint et oxfmt portent ESLint et Prettier en Rust pour 50-100x la vitesse
-
 ## Idée en une phrase
 
 > **oxlint** (linter) et **oxfmt** (formatter) sont les briques Rust de l'écosystème **oxc**, qui réécrit toute la chaîne de tooling JS en Rust. Gain typique : 50-100× plus rapide qu'ESLint/Prettier sur les mêmes opérations.

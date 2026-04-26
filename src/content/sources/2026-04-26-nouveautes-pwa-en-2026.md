@@ -32,9 +32,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Nouveautés PWA en 2026
-
 ## Pourquoi cette source
 
 > Faire le point sur **où en sont les PWA en 2026**. Beaucoup ont été déçus par les PWA en 2018-2020 (limitations iOS, install awkward, capacités limitées). En 2026, **le tableau a beaucoup changé** : File System Access API stable, Window Controls Overlay, Web Push sur iOS, biometric auth, et un usage en hausse côté entreprise et terrain.

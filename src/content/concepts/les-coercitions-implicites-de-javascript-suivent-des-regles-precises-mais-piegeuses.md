@@ -33,9 +33,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Les coercitions implicites de JavaScript suivent des règles précises mais piégeuses
-
 ## Idée en une phrase
 
 > JS effectue des **conversions de type implicites** dans plein d'opérations (`==`, `+`, `-`, `<`, `if (x)`, `!x`) — ces règles sont **déterministes et documentées**, mais leur côté contre-intuitif (`[] == ![]`, `"0" == false`) est la raison pour laquelle on utilise **toujours `===`** et qu'on évite les ambigüités de type sur `+`.

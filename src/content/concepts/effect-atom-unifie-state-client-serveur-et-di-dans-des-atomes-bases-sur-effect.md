@@ -40,9 +40,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Concept - Effect Atom unifie state client serveur et DI dans des atomes basés sur Effect
-
 ## Idée en une phrase
 
 > Effect Atom propose **une seule primitive** — l'`Atom` — pour modéliser à la fois le state local, le state serveur, la DI et les effets asynchrones, le tout en s'appuyant sur le runtime Effect-TS. Une lib remplace **Jotai + TanStack Query + Zustand + Context** dans un projet qui a déjà adopté Effect.

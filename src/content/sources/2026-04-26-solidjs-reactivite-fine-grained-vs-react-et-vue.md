@@ -32,9 +32,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# SolidJS — réactivité fine-grained vs React et Vue
-
 ## Pourquoi cette source
 
 > Comprendre **ce qui distingue vraiment SolidJS** de React et Vue : pas seulement la syntaxe ou la perf brute, mais le **modèle d'exécution** sous-jacent (signals fine-grained vs Virtual DOM vs proxies réactifs). C'est le framework qui a popularisé les signals — modèle adopté ensuite par Angular 20, Vue 4, Preact, et qui influence le React Compiler.

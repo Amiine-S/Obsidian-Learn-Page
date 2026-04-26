@@ -33,9 +33,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Concept - tsgo est le portage Go de TypeScript par Microsoft pour 10x la vitesse
-
 ## Idée en une phrase
 
 > Annoncé en mars 2025 par Anders Hejlsberg, **tsgo** est la réimplémentation officielle de `tsc` en **Go**, visant un type-checking ~10× plus rapide. Sera la base de **TypeScript 7**.

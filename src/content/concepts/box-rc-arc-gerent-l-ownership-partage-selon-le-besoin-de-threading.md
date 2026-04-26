@@ -30,9 +30,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading
-
 ## Idée en une phrase
 
 > `Box<T>`, `Rc<T>` et `Arc<T>` sont les **trois smart pointers** principaux de Rust pour allouer sur le tas et/ou partager l'ownership : `Box` = un seul propriétaire, `Rc` = N propriétaires mono-thread, `Arc` = N propriétaires multi-thread — chacun avec un coût et une zone d'usage précis.

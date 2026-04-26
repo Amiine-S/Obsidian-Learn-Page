@@ -9,9 +9,6 @@ excerpt: '- *(à peupler)*'
 topics:
   - backend
 ---
-
-# MOC - IA & LLMs
-
 ## Vue d'ensemble
 
 > Modèles de langage, agents, RAG, prompt engineering, MCP. Côté praticien (utiliser/intégrer) plus que côté chercheur.

@@ -36,9 +36,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# JavaScript en profondeur — concepts mal connus
-
 ## Pourquoi cette source
 
 > Reprendre **JavaScript de zéro**, mais en visant les **concepts que la majorité des devs JS ne maîtrisent pas vraiment** — ceux qui produisent des bugs étranges, des questions piégeuses en entretien, ou des mésententes architecturales. C'est le socle qu'on ne vous enseigne pas dans les bootcamps mais qui distingue un dev qui "code en JS" d'un dev qui "comprend JS".

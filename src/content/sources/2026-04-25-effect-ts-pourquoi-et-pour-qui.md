@@ -31,9 +31,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Effect-TS — pourquoi et pour qui
-
 ## Pourquoi cette source
 
 > **Effect-TS** est probablement la plus grosse rupture conceptuelle dans l'écosystème TS depuis Promises. Elle prétend remplacer **try/catch + Promise + DI framework + RxJS + Zod + retry/timeout libs** par UNE seule abstraction. Vaut le coup d'au moins comprendre le pitch, surtout quand on vient de NestJS.

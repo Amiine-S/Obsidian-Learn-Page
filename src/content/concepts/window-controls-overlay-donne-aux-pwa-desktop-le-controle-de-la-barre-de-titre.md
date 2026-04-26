@@ -33,9 +33,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Window Controls Overlay donne aux PWA desktop le contrôle de la barre de titre
-
 ## Idée en une phrase
 
 > **Window Controls Overlay (WCO)** est une feature PWA qui permet à l'app installée en desktop de **dessiner ses propres éléments dans la zone de la barre de titre** — l'OS conserve uniquement les contrôles de fenêtre (min/max/close), tout le reste devient ton header personnalisé.

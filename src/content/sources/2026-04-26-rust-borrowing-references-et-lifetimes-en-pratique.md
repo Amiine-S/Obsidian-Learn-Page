@@ -32,9 +32,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Rust — borrowing, références et lifetimes en pratique
-
 ## Pourquoi cette source
 
 > Suite logique de la note d'intro Rust. L'ownership a été présenté ; maintenant on rentre dans **les règles précises de borrowing**, **les lifetimes**, et **`Box` / `Rc` / `Arc`** — la zone qui fait dire "le borrow checker me déteste" pendant 2 semaines, puis "ah, je comprends pourquoi c'est comme ça."

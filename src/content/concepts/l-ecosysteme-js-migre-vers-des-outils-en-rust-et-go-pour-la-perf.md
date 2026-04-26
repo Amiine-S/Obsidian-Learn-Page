@@ -32,9 +32,6 @@ topics:
   - frontend
   - rust
 ---
-
-# Concept - L'écosystème JS migre vers des outils en Rust et Go pour la perf
-
 ## Idée en une phrase
 
 > Tout l'outillage JS — bundlers, linters, formatters, type-checkers, runtimes — est en cours de **réécriture en Rust ou Go** pour gagner 5× à 100× sur les workloads CPU-bound (parsing, AST, traversal).

@@ -36,9 +36,6 @@ topics:
   - rust
   - typescript
 ---
-
-# Introduction à Rust pour un dev TypeScript
-
 ## Pourquoi cette source
 
 > Première prise de contact avec Rust. Objectif : comprendre **pourquoi Rust existe**, **ce qu'il vise**, et **ce qui le rend différent de TypeScript** — avant d'écrire la moindre ligne.

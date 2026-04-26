@@ -71,9 +71,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# MOC - Frontend
-
 ## Vue d'ensemble
 
 > Frameworks JS/TS modernes, rendering, perfs, design systems, UX.

@@ -36,9 +36,6 @@ topics:
   - effect-ts
   - typescript
 ---
-
-# Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end
-
 ## Idée en une phrase
 
 > `HttpApi` est une **description déclarative** de la surface d'une API : pour chaque endpoint, tu déclares la méthode, le path, les schémas (path, query, body, response, erreurs) — cette spec devient une **source unique de vérité** dont sont dérivés le serveur, le client typé, l'OpenAPI, et la validation.

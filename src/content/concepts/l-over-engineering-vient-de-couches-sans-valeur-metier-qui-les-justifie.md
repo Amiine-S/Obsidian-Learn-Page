@@ -33,9 +33,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Concept - L'over-engineering vient de couches sans valeur métier qui les justifie
-
 ## Idée en une phrase
 
 > L'**over-engineering architectural** se reconnaît à un signe : une couche, une interface, un DTO, un mapper qui **n'isole rien de réel** parce qu'il n'y a qu'une seule implémentation, jamais de variation, et que personne ne traverse cette frontière — c'est un coût permanent de maintenance pour un bénéfice imaginaire.

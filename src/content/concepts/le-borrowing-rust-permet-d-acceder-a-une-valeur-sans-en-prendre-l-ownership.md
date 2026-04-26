@@ -36,9 +36,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership
-
 ## Idée en une phrase
 
 > Le **borrowing** consiste à passer une **référence** (`&T` ou `&mut T`) à une fonction au lieu de transférer l'ownership : la fonction peut **lire** (et éventuellement modifier) la valeur, mais **la valeur reste possédée par l'appelant** — c'est le mécanisme principal pour partager des données sans les déplacer.

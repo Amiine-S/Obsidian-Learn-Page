@@ -27,9 +27,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Programmation impérative vs déclarative
-
 ## Pourquoi cette source
 
 > Comprendre la distinction **impératif vs déclaratif** : ce que ça veut vraiment dire, où se cachent les frontières, et pourquoi c'est devenu **le critère de choix** pour beaucoup d'outils modernes (React, SQL, Rx, Effect-TS, Terraform). La distinction n'est pas binaire — c'est **un curseur** que tu déplaces selon le coût/bénéfice.

@@ -37,9 +37,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Concept - Atom.runtime branche les Layers Effect-TS dans le state management React
-
 ## Idée en une phrase
 
 > `Atom.runtime(layer)` est le pont qui prend un **`Layer<…>` Effect-TS** et le transforme en **runtime accessible depuis React** — chaque atom créé via ce runtime obtient automatiquement les services du Layer en injection.

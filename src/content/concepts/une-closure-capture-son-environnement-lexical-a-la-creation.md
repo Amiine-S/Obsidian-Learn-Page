@@ -35,9 +35,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Une closure capture son environnement lexical à la création
-
 ## Idée en une phrase
 
 > Une closure est une fonction qui **se souvient** des variables de son scope englobant **au moment où elle a été définie** — et continue d'y accéder même quand le scope parent a fini son exécution.

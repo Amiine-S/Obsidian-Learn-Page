@@ -43,9 +43,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Concept - Effect-TS fait la DI via des Layers composables au lieu de classes annotées
-
 ## Idée en une phrase
 
 > Là où NestJS résout les dépendances **au runtime** via des décorateurs (`@Injectable`) et un container, Effect-TS les résout **au compile-time** via des `Layer<RIn, E, ROut>` qui décrivent comment construire un service à partir d'autres services.

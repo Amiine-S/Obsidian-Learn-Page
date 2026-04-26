@@ -35,9 +35,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# MOC - Rust
-
 ## Vue d'ensemble
 
 > Domaine prioritaire de la veille. Rust est un langage système avec ownership, types stricts, et un écosystème async maturé. Objectif : maîtriser ownership, async/Tokio, traits avancés, puis l'écosystème (Axum, Serde, etc.).

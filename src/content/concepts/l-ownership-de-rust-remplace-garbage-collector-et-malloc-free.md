@@ -34,9 +34,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - L'ownership de Rust remplace garbage collector et malloc-free
-
 ## Idée en une phrase
 
 > Chaque valeur a un seul propriétaire, libérée automatiquement à la fin de son scope — la mémoire est gérée **à la compilation**, sans garbage collector et sans `free()` manuel.

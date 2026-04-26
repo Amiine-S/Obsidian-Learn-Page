@@ -34,9 +34,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Les PWA 2026 ferment l'écart fonctionnel avec les apps natives
-
 ## Idée en une phrase
 
 > En 2026, l'**écart de capacités** entre PWA et apps natives s'est massivement réduit grâce aux APIs nouvelles ou stabilisées (File System Access, Window Controls Overlay, Web Push iOS, WebAuthn, USB/Bluetooth/Serial, Web Payment) — au point où une **PWA bien faite est fonctionnellement comparable** à une app native pour la plupart des cas B2B et workforce.

@@ -25,9 +25,6 @@ topics:
   - backend
   - devops
 ---
-
-# MOC - Backend & Infra
-
 ## Vue d'ensemble
 
 > APIs, bases de données, observabilité, conteneurs, cloud. Le "comment ça tient en prod".

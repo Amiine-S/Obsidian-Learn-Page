@@ -26,9 +26,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - En Rust l'absence et l'erreur sont des valeurs typées avec Option et Result
-
 ## Idée en une phrase
 
 > Rust n'a **ni `null` ni exceptions** : l'absence d'une valeur s'exprime via `Option<T>`, l'erreur via `Result<T, E>`, et le compilateur **t'oblige** à gérer les deux cas.

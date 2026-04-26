@@ -38,9 +38,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Concept - Les atoms d'Effect Atom se libèrent automatiquement avec keepAlive comme opt-out
-
 ## Idée en une phrase
 
 > Quand plus aucun composant ne consomme un atom, **Effect Atom le libère automatiquement** : ses ressources Effect sont fermées, ses finalizers exécutés. Pour persister un atom au-delà des démontages, on opt-out explicitement avec `Atom.keepAlive`.

@@ -31,9 +31,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - La chaîne de prototypes structure l'héritage en JavaScript
-
 ## Idée en une phrase
 
 > En JS, **chaque objet pointe vers un autre objet** via `__proto__` (son prototype) — quand on accède à une propriété qui n'existe pas, le moteur **remonte la chaîne** jusqu'à la trouver ou jusqu'à `null` — c'est ce mécanisme de "**prototype chain**" qui implémente tout l'héritage, y compris derrière les `class` ES6.

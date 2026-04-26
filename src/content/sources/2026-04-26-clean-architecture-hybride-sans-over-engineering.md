@@ -30,9 +30,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Clean Architecture hybride — sans over-engineering
-
 ## Pourquoi cette source
 
 > La Clean Architecture (Uncle Bob) est régulièrement critiquée comme étant **over-engineered** sur des projets normaux : 4 couches, des interfaces partout, du mapping entre DTOs, ... pour un CRUD à 3 utilisateurs. La question : **comment garder l'esprit (testabilité, isolation du domaine, découplage de la techno) sans payer le prix de l'orthodoxie** ?

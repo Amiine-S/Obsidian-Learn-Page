@@ -31,9 +31,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# MOC - Architecture & Fondamentaux
-
 ## Vue d'ensemble
 
 > Concepts cross-langages : design patterns, architecture logicielle, perf, systèmes, théorie. Ce qui ne périme pas vite.

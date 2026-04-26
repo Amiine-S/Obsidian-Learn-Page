@@ -33,9 +33,6 @@ backlinks:
 topics:
   - backend
 ---
-
-# Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré
-
 ## Idée en une phrase
 
 > `HttpApiBuilder` est le pont entre la **spec** (`HttpApi`) et l'**implémentation** : pour chaque endpoint déclaré dans le schéma, tu fournis un **handler Effect typé** dont le compilateur vérifie que l'input et l'output matchent la spec — impossible d'oublier un endpoint, impossible de retourner le mauvais type.

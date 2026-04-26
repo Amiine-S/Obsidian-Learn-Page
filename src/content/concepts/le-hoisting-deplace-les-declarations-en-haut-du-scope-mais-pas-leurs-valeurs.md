@@ -32,9 +32,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs
-
 ## Idée en une phrase
 
 > Le **hoisting** est le mécanisme par lequel JS "remonte" les **déclarations** de variables et fonctions en haut de leur scope, mais pas leurs **valeurs** — d'où le piège classique : `var` est `undefined` avant son `=`, alors que `let`/`const` lèvent une erreur `ReferenceError` (Temporal Dead Zone) jusqu'à leur déclaration.

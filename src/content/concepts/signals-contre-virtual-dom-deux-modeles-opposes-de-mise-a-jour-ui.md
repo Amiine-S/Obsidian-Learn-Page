@@ -33,9 +33,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Signals contre Virtual DOM deux modèles opposés de mise à jour UI
-
 ## Idée en une phrase
 
 > **Virtual DOM** (React) et **signals** (Solid, Vue, Angular) sont deux stratégies opposées pour répondre à "comment mettre à jour le DOM quand l'état change" : le VDOM ré-exécute et diffe, les signals trackent et patchent directement — chaque modèle a sa contrepartie en DX, perf, et complexité.

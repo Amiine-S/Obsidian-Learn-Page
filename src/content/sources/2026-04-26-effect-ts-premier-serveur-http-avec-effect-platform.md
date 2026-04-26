@@ -32,9 +32,6 @@ topics:
   - effect-ts
   - typescript
 ---
-
-# Effect-TS — premier serveur HTTP avec @effect/platform
-
 ## Pourquoi cette source
 
 > Tu veux **commencer un backend en Effect-TS** : comprendre comment passer d'un script Effect à un **serveur HTTP qui tourne**, avec routing typé, validation d'inputs, gestion d'erreurs, DI via Layers, et déploiement Node. Cette note pose **les premiers pas concrets** — du `pnpm install` au premier endpoint qui répond `200 OK`.

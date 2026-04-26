@@ -31,9 +31,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Les traits Rust offrent du polymorphisme à coût zéro grâce au dispatch statique
-
 ## Idée en une phrase
 
 > Un `trait` Rust ressemble à une `interface` TS, mais l'appel d'une méthode sur un générique compile en **code spécialisé** (monomorphisation) — donc aussi rapide qu'un appel direct, sans vtable.

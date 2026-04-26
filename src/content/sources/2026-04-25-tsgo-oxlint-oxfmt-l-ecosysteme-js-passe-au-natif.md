@@ -30,9 +30,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# tsgo, oxlint, oxfmt — l'écosystème JS passe au natif
-
 ## Pourquoi cette source
 
 > 2024-2026 = la grande **réécriture de l'outillage JS en langages bas-niveau** (Rust, Go). `tsc`, `eslint`, `prettier`, `webpack`, `babel` : tous remplacés ou en cours. C'est une **rupture de génération** dans le tooling — comprendre les acteurs et le pourquoi devient essentiel pour ne pas rester sur du legacy.

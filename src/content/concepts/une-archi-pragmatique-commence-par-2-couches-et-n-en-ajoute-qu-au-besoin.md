@@ -34,9 +34,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Concept - Une archi pragmatique commence par 2 couches et n'en ajoute qu'au besoin
-
 ## Idée en une phrase
 
 > Une approche pragmatique de la Clean Architecture commence par **2 couches** (`domain` / `infrastructure`) et n'introduit une 3e ou 4e couche **que face à un signe concret de douleur** — et non par anticipation — ce qui maximise la valeur tout en minimisant le coût de maintenance.

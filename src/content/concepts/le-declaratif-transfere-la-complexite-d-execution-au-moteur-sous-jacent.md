@@ -32,9 +32,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent
-
 ## Idée en une phrase
 
 > Programmer en déclaratif ne fait pas disparaître la complexité de l'exécution — ça **la déplace** vers le moteur (compilateur, runtime, query planner) — donc plus le moteur est puissant, plus le déclaratif est utilisable, et plus son **abstraction peut fuir** quand le moteur prend de mauvaises décisions.

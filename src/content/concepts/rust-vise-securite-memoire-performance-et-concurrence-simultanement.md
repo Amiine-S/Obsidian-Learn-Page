@@ -32,9 +32,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Rust vise sécurité mémoire performance et concurrence simultanément
-
 ## Idée en une phrase
 
 > Rust est conçu pour offrir **les trois en même temps** — sécurité mémoire, performance native, concurrence sans data races — là où les langages précédents en abandonnaient toujours au moins un.

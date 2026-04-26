@@ -35,9 +35,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Une seule référence mutable ou plusieurs immutables règle anti-data-race
-
 ## Idée en une phrase
 
 > À tout instant, sur une même valeur, le borrow checker n'autorise **qu'une seule référence mutable** (`&mut T`) **OU** **plusieurs références immutables** (`&T`) — jamais les deux à la fois — règle qui élimine les data races par construction, à la compilation.

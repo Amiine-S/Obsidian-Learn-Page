@@ -36,9 +36,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Un thunk est une fonction qui retarde l'évaluation
-
 ## Idée en une phrase
 
 > Un thunk est **une fonction sans argument** dont le seul rôle est d'**emballer un calcul ou un effet pour qu'il soit exécuté plus tard** — pas maintenant, à la demande de l'appelant.

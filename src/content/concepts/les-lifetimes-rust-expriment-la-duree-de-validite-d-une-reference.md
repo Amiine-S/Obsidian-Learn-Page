@@ -31,9 +31,6 @@ backlinks:
 topics:
   - rust
 ---
-
-# Concept - Les lifetimes Rust expriment la durée de validité d'une référence
-
 ## Idée en une phrase
 
 > Un **lifetime** est une **annotation de durée de validité** attachée à une référence — `&'a T` signifie "une référence valide pendant le lifetime nommé `'a`" — et le compilateur s'en sert pour garantir qu'**aucune référence ne survit à la valeur qu'elle pointe** (pas de dangling reference).

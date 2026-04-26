@@ -33,9 +33,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Concept - Clean Architecture inverse les dépendances pour isoler le domaine
-
 ## Idée en une phrase
 
 > La Clean Architecture (Uncle Bob) repose sur **une seule règle structurante** — la **règle de dépendance** : les couches externes (frameworks, DB, UI) **dépendent** des couches internes (logique métier, entités), **jamais l'inverse** — ce qui rend le domaine indépendant de la technologie.

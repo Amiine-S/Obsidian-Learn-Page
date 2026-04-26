@@ -35,9 +35,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - L'event loop traite les microtasks avant chaque rendu et entre macrotasks
-
 ## Idée en une phrase
 
 > L'**event loop JS** alterne : exécuter le code synchrone jusqu'à pile vide, **vider toute la microtask queue** (Promises, `queueMicrotask`), prendre **une seule** macrotask (`setTimeout`, événements DOM, I/O), puis recommencer — c'est cette priorité microtask > macrotask qui explique l'ordre d'exécution étrange des Promises et timeouts.

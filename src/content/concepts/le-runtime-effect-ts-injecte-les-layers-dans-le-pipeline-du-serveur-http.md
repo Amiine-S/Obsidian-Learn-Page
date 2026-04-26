@@ -39,9 +39,6 @@ topics:
   - effect-ts
   - typescript
 ---
-
-# Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP
-
 ## Idée en une phrase
 
 > Quand un serveur Effect-TS démarre via `NodeHttpServer.layer` + `NodeRuntime.runMain`, le runtime construit **un graphe de Layers** (DB, logger, services, HttpServer) puis **rend chaque service disponible aux handlers** : tu n'écris jamais `new ServiceX(...)`, tu déclares `yield* ServiceX` dans ton Effect, et le runtime injecte la bonne instance.

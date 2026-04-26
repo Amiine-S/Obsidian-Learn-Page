@@ -38,9 +38,6 @@ topics:
   - frontend
   - typescript
 ---
-
-# Effect Atom — state management React sur Effect-TS
-
 ## Pourquoi cette source
 
 > Cours pratique de **Hemanta Sundaray** sur effective.software, qui propose un guide hands-on (~25 chapitres) pour utiliser **Effect Atom** comme système de state management React, en particulier pour le server state. La page d'intro elle-même est légère — j'ai complété avec la doc officielle et le repo GitHub de la lib.

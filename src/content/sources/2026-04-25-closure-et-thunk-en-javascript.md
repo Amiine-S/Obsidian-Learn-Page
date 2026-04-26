@@ -27,9 +27,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Closure et Thunk en JavaScript
-
 ## Pourquoi cette source
 
 > Deux concepts que tout dev JS/TS utilise tous les jours **sans forcément connaître les noms**. Tu écris des closures dans chaque hook React, et des thunks dès que tu utilises `useState(() => …)` ou Redux Thunk. Mettre les bons mots permet de mieux comprendre ce qui se passe.

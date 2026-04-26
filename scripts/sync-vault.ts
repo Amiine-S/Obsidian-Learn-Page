@@ -537,8 +537,11 @@ function buildOutMarkdown(entry: VaultEntry, indexByKey: Map<string, IndexEntry>
     if (v === undefined || v === null || v === '') delete fm[k]
   }
 
+  // Strip le H1 du body s'il duplique le title (toutes nos notes commencent par `# Title`)
+  const stripped = entry.body.replace(/^\s*#\s+[^\n]+\n+/, '')
+
   // Transformation des wikilinks → ancres HTML inline
-  const body = transformWikilinks(entry.body, indexByKey)
+  const body = transformWikilinks(stripped, indexByKey)
   return matter.stringify(body, fm)
 }
 

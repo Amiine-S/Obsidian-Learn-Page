@@ -32,9 +32,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - La réactivité fine-grained met à jour seulement le DOM affecté
-
 ## Idée en une phrase
 
 > La **réactivité fine-grained** consiste à attacher chaque morceau du DOM à ses dépendances réactives précises, de sorte qu'un changement d'état ne déclenche que la mise à jour des nœuds DOM qui dépendent réellement de cette donnée — pas du composant entier, pas d'un sous-arbre, **juste le nœud**.

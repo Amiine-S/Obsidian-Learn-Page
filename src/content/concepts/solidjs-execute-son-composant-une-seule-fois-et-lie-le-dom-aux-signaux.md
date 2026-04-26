@@ -35,9 +35,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - SolidJS exécute son composant une seule fois et lie le DOM aux signaux
-
 ## Idée en une phrase
 
 > En SolidJS, **le corps du composant est exécuté une seule fois** au montage : son rôle est de **construire le DOM** et d'**y attacher des bindings réactifs aux signals** — les mises à jour ultérieures contournent complètement le composant.

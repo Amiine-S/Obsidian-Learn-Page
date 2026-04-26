@@ -35,9 +35,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - File System Access API donne aux PWA un vrai accès aux fichiers locaux
-
 ## Idée en une phrase
 
 > La **File System Access API** permet à une page web (et donc à une PWA) d'**ouvrir, lire, modifier et sauvegarder** des fichiers sur le système de fichiers réel de l'utilisateur — et non plus seulement de blobs sandboxés — moyennant **une permission explicite par session**.

@@ -34,9 +34,6 @@ backlinks:
 topics:
   - architecture
 ---
-
-# Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi
-
 ## Idée en une phrase
 
 > La distinction **impératif vs déclaratif** est une question de **niveau d'abstraction** : un programme impératif décrit **les étapes** à exécuter (mutations, séquence, contrôle de flux), un programme déclaratif décrit **le résultat voulu** et délègue les étapes à un moteur — c'est un curseur, pas une dichotomie.

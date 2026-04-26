@@ -36,9 +36,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - this en JavaScript dépend du site d'appel pas de la définition
-
 ## Idée en une phrase
 
 > Contrairement à la plupart des langages OO, **`this` en JavaScript n'est pas lié à la définition d'une fonction** — il est lié au **site d'appel** (où et comment la fonction est invoquée), ce qui produit des comportements surprenants quand on passe une méthode comme callback ou qu'on déstructure une fonction d'un objet.

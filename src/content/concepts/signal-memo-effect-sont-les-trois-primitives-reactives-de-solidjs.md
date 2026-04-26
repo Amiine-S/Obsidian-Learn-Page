@@ -34,9 +34,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Signal Memo Effect sont les trois primitives réactives de SolidJS
-
 ## Idée en une phrase
 
 > SolidJS expose **trois primitives réactives** qui suffisent à tout exprimer : `createSignal` (état modifiable), `createMemo` (valeur dérivée mémoïsée), `createEffect` (effet de bord auto-tracké) — les autres APIs (`createResource`, `createStore`, `<For>`) ne sont que des compositions de ces trois-là.

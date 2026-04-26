@@ -37,9 +37,6 @@ backlinks:
 topics:
   - frontend
 ---
-
-# Concept - Le type Effect rend les dépendances et erreurs explicites dans la signature
-
 ## Idée en une phrase
 
 > `Effect<A, E, R>` — "calcule un `A`, peut échouer avec `E`, requiert un `R` dans son contexte" — rend **visibles dans la signature de retour** trois choses que TypeScript laisse normalement invisibles : ce que la fonction renvoie, ce qu'elle peut casser, et ce dont elle a besoin.
