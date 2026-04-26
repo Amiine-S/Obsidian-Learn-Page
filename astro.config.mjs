@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import pagefind from 'astro-pagefind'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeStarryNight from './src/lib/rehype-starry-night.ts'
 
 export default defineConfig({
   site: 'https://amiine-s.github.io',
@@ -11,10 +12,10 @@ export default defineConfig({
   trailingSlash: 'ignore',
   integrations: [solid(), sitemap(), pagefind()],
   markdown: {
-    // Les wikilinks [[...]] sont transformés en ancres HTML inline directement par
-    // scripts/sync-vault.ts avec data-wiki-title / data-wiki-preview.
-    // Pas besoin de remark-wiki-link.
+    // Wikilinks transformés en ancres HTML par scripts/sync-vault.ts (pas de remark plugin)
     remarkPlugins: [],
+    // syntax highlighting via starry-night (cf rehype-starry-night.ts) au lieu de Shiki
+    syntaxHighlight: false,
     rehypePlugins: [
       rehypeSlug,
       [
@@ -25,12 +26,7 @@ export default defineConfig({
           content: { type: 'text', value: ' #' },
         },
       ],
+      rehypeStarryNight,
     ],
-    shikiConfig: {
-      // Toujours du sombre, même en light mode — code blocks ont leur identité.
-      // github-dark : haut contraste, lisible, palette éprouvée par GitHub.
-      themes: { light: 'github-dark', dark: 'github-dark' },
-      wrap: false,
-    },
   },
 })

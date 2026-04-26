@@ -382,8 +382,10 @@ code {
   color: var(--accent-strong);
 }
 
-/* Code blocks — laisse Shiki appliquer son thème (github-dark : #0d1117) */
+/* Code blocks — fond GitHub-dark, starry-night injecte les couleurs via classes .pl-* */
 pre {
+  background: #0d1117;
+  color: #e6edf3;
   border: 1px solid #30363d;
   padding: 1.1rem 1.3rem;
   border-radius: 10px;
