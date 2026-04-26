@@ -32,6 +32,8 @@ backlinks:
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - L'event loop traite les microtasks avant chaque rendu et entre macrotasks

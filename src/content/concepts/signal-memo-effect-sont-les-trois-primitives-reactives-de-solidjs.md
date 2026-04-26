@@ -31,6 +31,8 @@ backlinks:
   - signals-contre-virtual-dom-deux-modeles-opposes-de-mise-a-jour-ui
   - solidjs-execute-son-composant-une-seule-fois-et-lie-le-dom-aux-signaux
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Signal Memo Effect sont les trois primitives réactives de SolidJS

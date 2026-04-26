@@ -29,6 +29,8 @@ backlinks:
   - l-ecosysteme-js-migre-vers-des-outils-en-rust-et-go-pour-la-perf
   - oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - tsgo est le portage Go de TypeScript par Microsoft pour 10x la vitesse

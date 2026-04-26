@@ -68,6 +68,8 @@ backlinks:
   - une-closure-capture-son-environnement-lexical-a-la-creation
   - >-
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
+topics:
+  - frontend
 ---
 
 # MOC - Frontend

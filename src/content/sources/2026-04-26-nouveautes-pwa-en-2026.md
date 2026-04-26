@@ -29,6 +29,8 @@ backlinks:
   - les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives
   - >-
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
+topics:
+  - frontend
 ---
 
 # Nouveautés PWA en 2026

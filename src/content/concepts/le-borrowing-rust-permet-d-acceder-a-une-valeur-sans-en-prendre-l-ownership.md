@@ -33,6 +33,8 @@ backlinks:
   - les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
+topics:
+  - rust
 ---
 
 # Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership

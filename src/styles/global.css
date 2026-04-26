@@ -710,7 +710,7 @@ h4:hover .heading-anchor {
 }
 
 /* ============================================================================
-   Badges (domain / format / level)
+   Badges & Topics — couleurs par topic, fallback neutre
    ============================================================================ */
 .badge {
   display: inline-flex;
@@ -718,32 +718,89 @@ h4:hover .heading-anchor {
   font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.2em 0.55em;
-  border-radius: 4px;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  padding: 0.22em 0.6em;
+  border-radius: 999px;
   color: white;
   background: var(--fg-muted);
   white-space: nowrap;
 }
 
+/* Topics — palette élargie. Les topics inconnus tombent sur le gris par défaut. */
+.badge[data-topic='rust'],
 .badge[data-domain='rust'] {
-  background: var(--domain-rust);
+  background: #c4661a;
 }
+.badge[data-topic='frontend'],
 .badge[data-domain='frontend'] {
-  background: var(--domain-frontend);
+  background: #a855f7;
 }
+.badge[data-topic='backend'],
 .badge[data-domain='backend'] {
-  background: var(--domain-backend);
+  background: #2563eb;
 }
+.badge[data-topic='infra'],
 .badge[data-domain='infra'] {
-  background: var(--domain-infra);
+  background: #0891b2;
 }
+.badge[data-topic='ai'],
 .badge[data-domain='ai'] {
-  background: var(--domain-ai);
+  background: #059669;
 }
+.badge[data-topic='architecture'],
 .badge[data-domain='architecture'] {
-  background: var(--domain-architecture);
+  background: #b45309;
+}
+.badge[data-topic='typescript'] {
+  background: #3178c6;
+}
+.badge[data-topic='javascript'] {
+  background: #f0a91a;
+  color: #1f1d1a;
+}
+.badge[data-topic='react'] {
+  background: #149eca;
+}
+.badge[data-topic='solid'],
+.badge[data-topic='solidjs'] {
+  background: #2c4f7c;
+}
+.badge[data-topic='vue'] {
+  background: #41b883;
+}
+.badge[data-topic='svelte'] {
+  background: #ff3e00;
+}
+.badge[data-topic='effect'],
+.badge[data-topic='effect-ts'] {
+  background: #6366f1;
+}
+.badge[data-topic='web'],
+.badge[data-topic='pwa'] {
+  background: #2563eb;
+}
+.badge[data-topic='devops'] {
+  background: #84cc16;
+  color: #1f1d1a;
+}
+.badge[data-topic='security'] {
+  background: #dc2626;
+}
+.badge[data-topic='fp'],
+.badge[data-topic='functional-programming'] {
+  background: #8b5cf6;
+}
+.badge[data-topic='performance'] {
+  background: #ea580c;
+}
+.badge[data-topic='systems'],
+.badge[data-topic='systems-programming'] {
+  background: #475569;
+}
+.badge[data-topic='database'],
+.badge[data-topic='db'] {
+  background: #0d9488;
 }
 
 .badge-soft {
@@ -757,6 +814,122 @@ h4:hover .heading-anchor {
   background: var(--bg-soft);
   color: var(--fg-muted);
   border: 1px solid var(--border-soft);
+}
+
+/* Topics row sur les cards */
+.card-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+
+/* ============================================================================
+   Filter bar (home)
+   ============================================================================ */
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--fg-muted);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.3rem 0.5rem;
+}
+.filter-reset:hover {
+  color: var(--accent);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.filter-pill {
+  appearance: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--fg);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.filter-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-pill.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.filter-pill.active .filter-pill-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.filter-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fg-muted);
+  flex-shrink: 0;
+}
+
+.filter-pill[data-topic='rust'] .filter-pill-dot { background: #c4661a; }
+.filter-pill[data-topic='frontend'] .filter-pill-dot { background: #a855f7; }
+.filter-pill[data-topic='backend'] .filter-pill-dot { background: #2563eb; }
+.filter-pill[data-topic='infra'] .filter-pill-dot { background: #0891b2; }
+.filter-pill[data-topic='ai'] .filter-pill-dot { background: #059669; }
+.filter-pill[data-topic='architecture'] .filter-pill-dot { background: #b45309; }
+.filter-pill[data-topic='typescript'] .filter-pill-dot { background: #3178c6; }
+.filter-pill[data-topic='javascript'] .filter-pill-dot { background: #f0a91a; }
+.filter-pill[data-topic='react'] .filter-pill-dot { background: #149eca; }
+.filter-pill[data-topic='solidjs'] .filter-pill-dot { background: #2c4f7c; }
+.filter-pill[data-topic='vue'] .filter-pill-dot { background: #41b883; }
+.filter-pill[data-topic='svelte'] .filter-pill-dot { background: #ff3e00; }
+.filter-pill[data-topic='effect'] .filter-pill-dot,
+.filter-pill[data-topic='effect-ts'] .filter-pill-dot { background: #6366f1; }
+.filter-pill[data-topic='pwa'] .filter-pill-dot { background: #2563eb; }
+.filter-pill[data-topic='devops'] .filter-pill-dot { background: #84cc16; }
+.filter-pill[data-topic='security'] .filter-pill-dot { background: #dc2626; }
+.filter-pill[data-topic='fp'] .filter-pill-dot { background: #8b5cf6; }
+.filter-pill[data-topic='performance'] .filter-pill-dot { background: #ea580c; }
+.filter-pill[data-topic='systems'] .filter-pill-dot { background: #475569; }
+
+.filter-pill.active .filter-pill-dot {
+  background: white !important;
+}
+
+.filter-pill-count {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+  background: var(--bg-soft);
+  padding: 0.05em 0.45em;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ============================================================================

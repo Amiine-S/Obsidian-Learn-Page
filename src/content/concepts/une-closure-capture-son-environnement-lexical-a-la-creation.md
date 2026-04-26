@@ -32,6 +32,8 @@ backlinks:
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - architecture-fondamentaux
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Une closure capture son environnement lexical à la création

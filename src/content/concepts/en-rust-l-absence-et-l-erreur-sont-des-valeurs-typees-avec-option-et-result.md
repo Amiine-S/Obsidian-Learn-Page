@@ -23,6 +23,8 @@ backlinks:
   - 2026-04-25-introduction-a-rust-pour-un-dev-typescript
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
   - rust
+topics:
+  - rust
 ---
 
 # Concept - En Rust l'absence et l'erreur sont des valeurs typées avec Option et Result

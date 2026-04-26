@@ -37,11 +37,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '')
     <article class="article">
       <header class="article-header">
         <div class="article-eyebrow">
-          <span class="badge" data-domain={entry.data.domain}>{entry.data.domain}</span>
-          <span>·</span>
           <span>Concept atomique</span>
         </div>
         <h1>{cleanTitle}</h1>
+        {entry.data.topics.length > 0 && (
+          <div class="card-topics" style="margin-top: 1rem;">
+            {entry.data.topics.map((t) => (
+              <span class="badge" data-topic={t}>{t}</span>
+            ))}
+          </div>
+        )}
       </header>
 
       {entry.data.oneLiner && <div class="oneliner">{entry.data.oneLiner}</div>}
@@ -60,27 +65,37 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '')
             .map((c) => (
               <article class="entry-card">
                 <div class="meta">
-                  <span class="badge" data-domain={c.data.domain}>{c.data.domain}</span>
-                  <span>·</span>
                   <span>concept</span>
                 </div>
                 <h3>
                   <a href={`${base}/concepts/${c.id}`}>{c.data.title.replace(/^Concept - /, '')}</a>
                 </h3>
                 {c.data.oneLiner && <p class="excerpt">{c.data.oneLiner}</p>}
+                {c.data.topics.length > 0 && (
+                  <div class="card-topics">
+                    {c.data.topics.map((t) => (
+                      <span class="badge" data-topic={t}>{t}</span>
+                    ))}
+                  </div>
+                )}
               </article>
             ))}
           {backlinkSources.map((s) => (
             <article class="entry-card">
               <div class="meta">
-                <span class="badge" data-domain={s.data.domain}>{s.data.domain}</span>
-                <span>·</span>
                 <span>source</span>
               </div>
               <h3>
                 <a href={`${base}/sources/${s.id}`}>{s.data.title}</a>
               </h3>
               <p class="excerpt">{s.data.excerpt}</p>
+              {s.data.topics.length > 0 && (
+                <div class="card-topics">
+                  {s.data.topics.map((t) => (
+                    <span class="badge" data-topic={t}>{t}</span>
+                  ))}
+                </div>
+              )}
             </article>
           ))}
         </div>

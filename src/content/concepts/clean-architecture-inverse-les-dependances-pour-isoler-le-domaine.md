@@ -30,6 +30,8 @@ backlinks:
   - l-over-engineering-vient-de-couches-sans-valeur-metier-qui-les-justifie
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
   - architecture-fondamentaux
+topics:
+  - architecture
 ---
 
 # Concept - Clean Architecture inverse les dépendances pour isoler le domaine

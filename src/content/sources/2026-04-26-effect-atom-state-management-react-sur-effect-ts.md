@@ -33,6 +33,8 @@ backlinks:
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
   - >-
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
+topics:
+  - frontend
 ---
 
 # Effect Atom — state management React sur Effect-TS

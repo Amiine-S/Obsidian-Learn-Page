@@ -27,6 +27,8 @@ related:
 backlinks:
   - 2026-04-26-rust-borrowing-references-et-lifetimes-en-pratique
   - rust
+topics:
+  - rust
 ---
 
 # Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading

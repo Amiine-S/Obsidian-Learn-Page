@@ -24,6 +24,8 @@ related:
 backlinks:
   - le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
+topics:
+  - architecture
 ---
 
 # Programmation impérative vs déclarative

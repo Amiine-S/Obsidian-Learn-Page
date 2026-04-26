@@ -34,6 +34,8 @@ backlinks:
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Le type Effect rend les dépendances et erreurs explicites dans la signature

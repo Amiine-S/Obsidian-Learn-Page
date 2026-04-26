@@ -28,6 +28,8 @@ backlinks:
   - 2026-04-26-rust-borrowing-references-et-lifetimes-en-pratique
   - le-borrowing-rust-permet-d-acceder-a-une-valeur-sans-en-prendre-l-ownership
   - rust
+topics:
+  - rust
 ---
 
 # Concept - Les lifetimes Rust expriment la durée de validité d'une référence

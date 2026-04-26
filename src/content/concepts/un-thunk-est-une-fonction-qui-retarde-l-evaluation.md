@@ -33,6 +33,8 @@ backlinks:
   - une-closure-capture-son-environnement-lexical-a-la-creation
   - architecture-fondamentaux
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Un thunk est une fonction qui retarde l'évaluation

@@ -6,6 +6,8 @@ tags:
 title: MOC - IA & LLMs
 slug: ia-llms
 excerpt: '- *(à peupler)*'
+topics:
+  - ai
 ---
 
 # MOC - IA & LLMs

@@ -1,9 +1,12 @@
 import { defineCollection, z } from 'astro:content'
 import { glob } from 'astro/loaders'
 
-const domain = z.enum(['rust', 'frontend', 'backend', 'infra', 'ai', 'architecture'])
 const level = z.enum(['beginner', 'intermediate', 'advanced'])
 const format = z.enum(['article', 'video', 'podcast', 'book', 'talk', 'doc', 'course'])
+
+// `topics` est un tableau libre de slugs : rust, typescript, react, frontend, infra…
+// Une source ou un concept peut en avoir plusieurs (multi-tag).
+const topics = z.array(z.string()).default([])
 
 const sources = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/sources' }),
@@ -15,13 +18,14 @@ const sources = defineCollection({
     published: z.coerce.date().optional(),
     digested: z.coerce.date(),
     format,
-    domain,
+    topics,
+    // domain conservé pour la rétro-compat avec les MOCs et la couleur "primary"
+    domain: z.string().optional(),
     level,
     tags: z.array(z.string()).default([]),
     excerpt: z.string().optional(),
     related: z.array(z.string()).default([]),
     backlinks: z.array(z.string()).default([]),
-    // v2 — audio podcast
     audioUrl: z.string().optional(),
     audioDurationSec: z.number().optional(),
   }),
@@ -33,7 +37,8 @@ const concepts = defineCollection({
     title: z.string(),
     slug: z.string(),
     created: z.coerce.date().optional(),
-    domain,
+    topics,
+    domain: z.string().optional(),
     level: level.optional(),
     tags: z.array(z.string()).default([]),
     oneLiner: z.string().optional(),
@@ -48,7 +53,7 @@ const mocs = defineCollection({
   schema: z.object({
     title: z.string(),
     slug: z.string(),
-    domain,
+    domain: z.string(),
     tags: z.array(z.string()).default([]),
     excerpt: z.string().optional(),
     related: z.array(z.string()).default([]),

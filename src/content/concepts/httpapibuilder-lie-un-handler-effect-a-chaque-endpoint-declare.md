@@ -30,6 +30,8 @@ backlinks:
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - backend-infra
+topics:
+  - backend
 ---
 
 # Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré

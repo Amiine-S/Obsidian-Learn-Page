@@ -28,6 +28,8 @@ backlinks:
   - 2026-04-25-introduction-a-rust-pour-un-dev-typescript
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
   - rust
+topics:
+  - rust
 ---
 
 # Concept - Les traits Rust offrent du polymorphisme à coût zéro grâce au dispatch statique

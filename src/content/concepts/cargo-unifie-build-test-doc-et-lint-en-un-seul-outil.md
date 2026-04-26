@@ -24,6 +24,8 @@ backlinks:
   - 2026-04-25-introduction-a-rust-pour-un-dev-typescript
   - l-ecosysteme-js-migre-vers-des-outils-en-rust-et-go-pour-la-perf
   - rust
+topics:
+  - rust
 ---
 
 # Concept - Cargo unifie build test doc et lint en un seul outil

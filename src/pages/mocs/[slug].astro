@@ -36,7 +36,7 @@ const fmtDate = (d: Date) =>
     <article class="article">
       <header class="article-header">
         <div class="article-eyebrow">
-          <span class="badge" data-domain={entry.data.domain}>{entry.data.domain}</span>
+          <span class="badge" data-topic={entry.data.domain}>{entry.data.domain}</span>
           <span>·</span>
           <span>Map of Content</span>
         </div>
@@ -80,13 +80,17 @@ const fmtDate = (d: Date) =>
         <div class="entry-grid">
           {domainConcepts.map((c) => (
             <article class="entry-card">
-              <div class="meta">
-                <span class="badge" data-domain={c.data.domain}>{c.data.domain}</span>
-              </div>
               <h3>
                 <a href={`${base}/concepts/${c.id}`}>{c.data.title.replace(/^Concept - /, '')}</a>
               </h3>
               {c.data.oneLiner && <p class="excerpt">{c.data.oneLiner}</p>}
+              {c.data.topics.length > 0 && (
+                <div class="card-topics">
+                  {c.data.topics.map((t) => (
+                    <span class="badge" data-topic={t}>{t}</span>
+                  ))}
+                </div>
+              )}
             </article>
           ))}
         </div>

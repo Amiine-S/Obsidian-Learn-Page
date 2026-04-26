@@ -29,6 +29,8 @@ related:
 backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs

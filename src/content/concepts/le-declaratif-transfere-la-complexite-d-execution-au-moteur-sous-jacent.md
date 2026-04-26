@@ -29,6 +29,8 @@ backlinks:
   - 2026-04-26-programmation-imperative-vs-declarative
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
   - architecture-fondamentaux
+topics:
+  - architecture
 ---
 
 # Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent

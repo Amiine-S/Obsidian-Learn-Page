@@ -28,6 +28,8 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - La chaîne de prototypes structure l'héritage en JavaScript

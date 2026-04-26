@@ -32,6 +32,8 @@ backlinks:
   - >-
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - File System Access API donne aux PWA un vrai accès aux fichiers locaux

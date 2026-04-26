@@ -34,6 +34,8 @@ backlinks:
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - backend-infra
+topics:
+  - backend
 ---
 
 # Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP

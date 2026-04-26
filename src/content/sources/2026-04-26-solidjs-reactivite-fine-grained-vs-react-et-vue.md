@@ -29,6 +29,8 @@ backlinks:
   - signal-memo-effect-sont-les-trois-primitives-reactives-de-solidjs
   - signals-contre-virtual-dom-deux-modeles-opposes-de-mise-a-jour-ui
   - solidjs-execute-son-composant-une-seule-fois-et-lie-le-dom-aux-signaux
+topics:
+  - frontend
 ---
 
 # SolidJS — réactivité fine-grained vs React et Vue

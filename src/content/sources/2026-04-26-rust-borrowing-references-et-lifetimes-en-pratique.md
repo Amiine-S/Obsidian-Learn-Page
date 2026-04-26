@@ -29,6 +29,8 @@ backlinks:
   - le-borrowing-rust-permet-d-acceder-a-une-valeur-sans-en-prendre-l-ownership
   - les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
+topics:
+  - rust
 ---
 
 # Rust — borrowing, références et lifetimes en pratique

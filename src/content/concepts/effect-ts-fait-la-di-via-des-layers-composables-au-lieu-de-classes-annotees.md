@@ -38,6 +38,8 @@ backlinks:
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
   - backend-infra
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Effect-TS fait la DI via des Layers composables au lieu de classes annotées

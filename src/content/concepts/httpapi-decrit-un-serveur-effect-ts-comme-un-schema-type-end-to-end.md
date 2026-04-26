@@ -31,6 +31,8 @@ backlinks:
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
   - backend-infra
+topics:
+  - backend
 ---
 
 # Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end

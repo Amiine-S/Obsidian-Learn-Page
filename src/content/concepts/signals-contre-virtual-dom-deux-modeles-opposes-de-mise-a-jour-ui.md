@@ -30,6 +30,8 @@ backlinks:
   - le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent
   - signal-memo-effect-sont-les-trois-primitives-reactives-de-solidjs
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Signals contre Virtual DOM deux modèles opposés de mise à jour UI

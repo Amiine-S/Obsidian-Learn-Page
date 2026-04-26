@@ -27,6 +27,8 @@ backlinks:
   - clean-architecture-inverse-les-dependances-pour-isoler-le-domaine
   - l-over-engineering-vient-de-couches-sans-valeur-metier-qui-les-justifie
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
+topics:
+  - architecture
 ---
 
 # Clean Architecture hybride — sans over-engineering

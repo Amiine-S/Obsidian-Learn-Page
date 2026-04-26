@@ -31,6 +31,8 @@ backlinks:
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
+topics:
+  - rust
 ---
 
 # Concept - L'ownership de Rust remplace garbage collector et malloc-free

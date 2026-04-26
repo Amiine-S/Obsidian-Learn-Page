@@ -32,6 +32,8 @@ backlinks:
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Atom.runtime branche les Layers Effect-TS dans le state management React

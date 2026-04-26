@@ -35,6 +35,8 @@ backlinks:
   - >-
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Effect Atom unifie state client serveur et DI dans des atomes basés sur Effect

@@ -56,6 +56,7 @@ interface VaultEntry {
   outPath: string
   related: string[]            // slugs (forward)
   backlinks: string[]          // slugs (reverse)
+  topics: string[]             // tags multi (multi-domaine, multi-tag)
 }
 
 interface IndexEntry {
@@ -147,6 +148,39 @@ function detectCollection(absPath: string): Collection {
   if (rel === '03 Concepts') return 'concepts'
   if (rel === '04 MOCs') return 'mocs'
   throw new Error(`Unexpected path outside known dirs: ${absPath}`)
+}
+
+/**
+ * Calcule les `topics` (multi-tag) d'une entrée :
+ * 1. Si frontmatter `topics` est explicitement fourni, on le respecte (lowercase, dédupliqué).
+ * 2. Sinon : union de
+ *    - le `domain` legacy (single)
+ *    - les tags `domain/X` du frontmatter
+ *    - les tags `topic/X` du frontmatter (réservé pour multi-tagging futur)
+ */
+function deriveTopics(fm: Record<string, unknown>): string[] {
+  const set = new Set<string>()
+
+  if (Array.isArray(fm.topics)) {
+    for (const t of fm.topics) {
+      if (typeof t === 'string' && t.trim()) set.add(t.toLowerCase().trim())
+    }
+    if (set.size > 0) return [...set]
+  }
+
+  if (typeof fm.domain === 'string' && fm.domain.trim()) {
+    set.add(fm.domain.toLowerCase().trim())
+  }
+
+  if (Array.isArray(fm.tags)) {
+    for (const tag of fm.tags) {
+      if (typeof tag !== 'string') continue
+      const m = tag.match(/^(?:domain|topic)\/(.+)$/i)
+      if (m) set.add(m[1].toLowerCase().trim())
+    }
+  }
+
+  return [...set]
 }
 
 function stripAccents(s: string): string {
@@ -253,6 +287,7 @@ async function loadEntry(absPath: string): Promise<VaultEntry | null> {
   const title = extractTitle(filename, fm.title, parsed.content)
   const oneLiner = extractOneLiner(parsed.content)
   const excerpt = extractExcerpt(parsed.content)
+  const topics = deriveTopics(fm)
 
   const outDir =
     collection === 'sources' ? OUT_SOURCES : collection === 'concepts' ? OUT_CONCEPTS : OUT_MOCS
@@ -270,6 +305,7 @@ async function loadEntry(absPath: string): Promise<VaultEntry | null> {
     outPath: join(outDir, `${slug}.md`),
     related: [],
     backlinks: [],
+    topics,
   }
 }
 
@@ -292,6 +328,7 @@ function buildOutMarkdown(entry: VaultEntry, indexByKey: Map<string, IndexEntry>
   if (entry.oneLiner) fm.oneLiner = entry.oneLiner
   if (entry.related.length > 0) fm.related = entry.related
   if (entry.backlinks.length > 0) fm.backlinks = entry.backlinks
+  if (entry.topics.length > 0) fm.topics = entry.topics
 
   // Normalisation domain/format/level vers minuscules pour matcher le schema Zod
   if (typeof fm.domain === 'string') fm.domain = fm.domain.toLowerCase()

@@ -32,6 +32,8 @@ backlinks:
     les-traits-rust-offrent-du-polymorphisme-a-cout-zero-grace-au-dispatch-statique
   - rust-vise-securite-memoire-performance-et-concurrence-simultanement
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
+topics:
+  - rust
 ---
 
 # MOC - Rust

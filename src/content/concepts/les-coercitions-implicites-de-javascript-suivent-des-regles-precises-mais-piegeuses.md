@@ -30,6 +30,8 @@ related:
 backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Les coercitions implicites de JavaScript suivent des règles précises mais piégeuses

@@ -29,6 +29,8 @@ backlinks:
     les-traits-rust-offrent-du-polymorphisme-a-cout-zero-grace-au-dispatch-statique
   - une-seule-reference-mutable-ou-plusieurs-immutables-regle-anti-data-race
   - rust
+topics:
+  - rust
 ---
 
 # Concept - Rust vise sécurité mémoire performance et concurrence simultanément

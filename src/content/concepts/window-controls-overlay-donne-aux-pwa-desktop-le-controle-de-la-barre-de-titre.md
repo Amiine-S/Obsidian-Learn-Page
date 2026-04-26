@@ -30,6 +30,8 @@ backlinks:
   - file-system-access-api-donne-aux-pwa-un-vrai-acces-aux-fichiers-locaux
   - les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives
   - frontend
+topics:
+  - frontend
 ---
 
 # Concept - Window Controls Overlay donne aux PWA desktop le contrôle de la barre de titre

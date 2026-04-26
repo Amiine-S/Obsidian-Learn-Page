@@ -28,6 +28,8 @@ backlinks:
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
   - une-closure-capture-son-environnement-lexical-a-la-creation
+topics:
+  - architecture
 ---
 
 # MOC - Architecture & Fondamentaux
