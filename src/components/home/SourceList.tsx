@@ -1,41 +1,66 @@
-import { createMemo, createSignal, For, Show } from 'solid-js'
+import { createEffect, createMemo, createSignal, For, onCleanup, onMount, Show } from 'solid-js'
 
-export interface SourceCardData {
+export interface FeedItem {
+  kind: 'source' | 'concept'
   id: string
   title: string
   excerpt: string
-  digested: string // ISO
-  format: string
-  level: string
+  date: string // ISO
+  format?: string // sources only
   topics: string[]
   url: string
 }
 
 interface Props {
-  sources: SourceCardData[]
+  items: FeedItem[]
   baseUrl: string
 }
+
+const PAGE_SIZE = 12
 
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
 
 export default function SourceList(props: Props) {
   const [active, setActive] = createSignal<Set<string>>(new Set())
+  const [shown, setShown] = createSignal(PAGE_SIZE)
+  let sentinel: HTMLDivElement | undefined
 
   const allTopics = createMemo(() => {
     const counts = new Map<string, number>()
-    for (const s of props.sources) {
-      for (const t of s.topics) {
-        counts.set(t, (counts.get(t) ?? 0) + 1)
-      }
+    for (const s of props.items) {
+      for (const t of s.topics) counts.set(t, (counts.get(t) ?? 0) + 1)
     }
     return [...counts.entries()].sort((a, b) => b[1] - a[1])
   })
 
   const filtered = createMemo(() => {
     const sel = active()
-    if (sel.size === 0) return props.sources
-    return props.sources.filter((s) => s.topics.some((t) => sel.has(t)))
+    if (sel.size === 0) return props.items
+    return props.items.filter((s) => s.topics.some((t) => sel.has(t)))
+  })
+
+  const visible = createMemo(() => filtered().slice(0, shown()))
+  const hasMore = createMemo(() => shown() < filtered().length)
+
+  // Reset pagination quand le filtre change
+  createEffect(() => {
+    active() // track
+    setShown(PAGE_SIZE)
+  })
+
+  onMount(() => {
+    if (!sentinel) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting && hasMore()) {
+          setShown((s) => s + PAGE_SIZE)
+        }
+      },
+      { rootMargin: '300px' }
+    )
+    observer.observe(sentinel)
+    onCleanup(() => observer.disconnect())
   })
 
   const toggle = (topic: string) => {
@@ -46,7 +71,6 @@ export default function SourceList(props: Props) {
       return next
     })
   }
-
   const reset = () => setActive(new Set())
 
   return (
@@ -84,30 +108,30 @@ export default function SourceList(props: Props) {
 
       <section>
         <h2 class="section-title">
-          {active().size > 0 ? `${filtered().length} sources` : 'Sources'}
+          {active().size > 0
+            ? `${filtered().length} résultat${filtered().length > 1 ? 's' : ''}`
+            : 'Tout le contenu'}
         </h2>
         <Show
-          when={filtered().length > 0}
-          fallback={
-            <p class="muted">Aucune source ne matche les topics sélectionnés.</p>
-          }
+          when={visible().length > 0}
+          fallback={<p class="muted">Aucun résultat ne matche les topics sélectionnés.</p>}
         >
           <div class="entry-grid">
-            <For each={filtered()}>
-              {(s) => (
-                <article class="entry-card">
+            <For each={visible()}>
+              {(item) => (
+                <article class="entry-card" classList={{ 'card-concept': item.kind === 'concept' }}>
                   <div class="meta">
-                    <time datetime={s.digested}>{fmtDate(s.digested)}</time>
+                    <time datetime={item.date}>{fmtDate(item.date)}</time>
                     <span>·</span>
-                    <span>{s.format}</span>
+                    <span>{item.kind === 'source' ? item.format : 'concept'}</span>
                   </div>
                   <h3>
-                    <a href={s.url}>{s.title}</a>
+                    <a href={item.url}>{item.title}</a>
                   </h3>
-                  <p class="excerpt">{s.excerpt}</p>
-                  <Show when={s.topics.length > 0}>
+                  <p class="excerpt">{item.excerpt}</p>
+                  <Show when={item.topics.length > 0}>
                     <div class="card-topics">
-                      <For each={s.topics}>
+                      <For each={item.topics}>
                         {(topic) => (
                           <span class="badge" data-topic={topic}>
                             {topic}
@@ -119,6 +143,14 @@ export default function SourceList(props: Props) {
                 </article>
               )}
             </For>
+          </div>
+          <div ref={sentinel} class="infinite-sentinel" aria-hidden="true">
+            <Show when={hasMore()}>
+              <span class="muted">Chargement…</span>
+            </Show>
+            <Show when={!hasMore() && filtered().length > PAGE_SIZE}>
+              <span class="muted">— fin —</span>
+            </Show>
           </div>
         </Show>
       </section>

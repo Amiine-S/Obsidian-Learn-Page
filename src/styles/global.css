@@ -878,6 +878,22 @@ h4:hover .heading-anchor {
   font-variant-numeric: tabular-nums;
 }
 
+/* Cards "concept" — petite distinction visuelle vs sources */
+.entry-card.card-concept {
+  background: var(--bg-soft);
+}
+.entry-card.card-concept h3 {
+  font-size: 1.05rem;
+}
+
+/* Infinite scroll sentinel */
+.infinite-sentinel {
+  text-align: center;
+  padding: 2rem 0 4rem;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+}
+
 /* ============================================================================
    Article (Source / Concept / MOC) — long-form
    ============================================================================ */
