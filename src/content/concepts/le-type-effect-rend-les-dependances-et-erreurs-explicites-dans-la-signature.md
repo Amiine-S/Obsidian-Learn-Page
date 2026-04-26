@@ -32,6 +32,9 @@ backlinks:
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
   - effect-ts-fait-la-di-via-des-layers-composables-au-lieu-de-classes-annotees
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
+  - >-
+    le-pattern-result-encode-l-erreur-dans-le-type-de-retour-pour-forcer-la-gestion
+  - try-catch-impose-un-narrow-manuel-et-ne-documente-rien-dans-la-signature
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - frontend
 topics:

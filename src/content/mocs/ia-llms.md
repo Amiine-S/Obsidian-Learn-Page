@@ -6,6 +6,18 @@ tags:
 title: MOC - IA & LLMs
 slug: ia-llms
 excerpt: '- *(à peupler)*'
+backlinks:
+  - 2026-04-27-comment-l-ia-pense-une-histoire-en-analogies-simples
+  - >-
+    apprendre-c-est-ajuster-des-milliards-de-poids-pour-mieux-predire-le-mot-suivant
+  - >-
+    l-attention-permet-au-modele-de-regarder-certains-mots-plus-que-d-autres-pour-predire-le-suivant
+  - >-
+    les-embeddings-projettent-les-mots-dans-un-espace-geometrique-ou-la-proximite-a-du-sens-semantique
+  - >-
+    les-llm-generent-token-par-token-chacun-conditionne-sur-le-contexte-precedent
+  - >-
+    un-llm-est-entraine-a-predire-le-prochain-mot-et-c-est-de-cette-tache-que-nait-tout-le-reste
 topics:
   - backend
 ---

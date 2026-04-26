@@ -21,6 +21,8 @@ related:
   - rust
 backlinks:
   - 2026-04-25-introduction-a-rust-pour-un-dev-typescript
+  - >-
+    le-pattern-result-encode-l-erreur-dans-le-type-de-retour-pour-forcer-la-gestion
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
   - rust
 topics:

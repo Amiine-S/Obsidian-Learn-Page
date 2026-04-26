@@ -30,6 +30,7 @@ backlinks:
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
+  - zod-unifie-validation-runtime-et-types-compile-time-depuis-un-seul-schema
   - backend-infra
 topics:
   - backend

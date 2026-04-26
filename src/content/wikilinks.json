@@ -23,6 +23,12 @@
     "title": "tsgo, oxlint, oxfmt — l'écosystème JS passe au natif",
     "excerpt": "1. **tsgo** : portage de TypeScript en **Go** par Microsoft (annoncé en mars 2025 par Anders Hejlsberg). Vise ~10× la vitesse de type-checking. Sera la base de **TypeScript 7**. 2. **oxlint** : linter Rust de l'écosystème **oxc** (par Boshen). 50-100× plus rapide qu'ESLint. Stabl"
   },
+  "2026-04-26 - 5 packages node à inclure dans tout projet 2026": {
+    "slug": "2026-04-26-5-packages-node-a-inclure-dans-tout-projet-2026",
+    "collection": "sources",
+    "title": "5 packages Node à inclure dans tout projet 2026",
+    "excerpt": "1. **`consola`** — un logger 100× plus agréable que `console.log`. Niveaux, couleurs, formats, intégré aux process Node. 2. **`zod`** (ou `@effect/schema`) — validation runtime + typage compile-time depuis un seul schéma. La fin des `if (!input.email)` à la main. 3. **`tsx`** — e"
+  },
   "2026-04-26 - clean architecture hybride sans over-engineering": {
     "slug": "2026-04-26-clean-architecture-hybride-sans-over-engineering",
     "collection": "sources",
@@ -40,6 +46,12 @@
     "collection": "sources",
     "title": "Effect-TS — premier serveur HTTP avec @effect/platform",
     "excerpt": "1. **`@effect/platform`** est l'interface abstraite (HTTP, FS, runtime). **`@effect/platform-node`** (ou `-bun`, `-deno`) est l'implémentation concrète. Tu écris contre `platform`, tu lances avec `platform-node`. 2. Deux APIs cohabitent : **`HttpRouter`** (impérative, ressemble à"
+  },
+  "2026-04-26 - exception handling patterns en typescript": {
+    "slug": "2026-04-26-exception-handling-patterns-en-typescript",
+    "collection": "sources",
+    "title": "Exception Handling Patterns en TypeScript",
+    "excerpt": "1. **try/catch** — la base. Bien, mais coûte cher en lisibilité quand on l'imbrique, et n'apporte rien dans le typage. 2. **Validate first** (early return / guard clauses) — vérifier les invariants au début de la fonction et retourner tôt. Évite la moitié des try/catch. 3. **Cust"
   },
   "2026-04-26 - javascript en profondeur - concepts mal connus": {
     "slug": "2026-04-26-javascript-en-profondeur-concepts-mal-connus",
@@ -71,12 +83,64 @@
     "title": "SolidJS — réactivité fine-grained vs React et Vue",
     "excerpt": "1. **SolidJS** est un framework UI créé par **Ryan Carniato**. Syntaxe JSX quasi-identique à React, mais **moteur d'exécution radicalement différent** : pas de Virtual DOM, pas de re-render de composant, mise à jour fine-grained du DOM réel. 2. Le **composant ne s'exécute qu'une"
   },
+  "2026-04-27 - algos & data structures essentiels en typescript": {
+    "slug": "2026-04-27-algos-data-structures-essentiels-en-typescript",
+    "collection": "sources",
+    "title": "Algos & data structures essentiels en TypeScript (cours Frontend Masters)",
+    "excerpt": "1. **Big O** : la métrique qui compte. Identifier les boucles imbriquées, le stockage proportionnel à l'input, le coût caché des opérations courantes (concat de strings, push d'array). 2. **Recursion** : la base pour les arbres, les graphes, le divide-and-conquer. Comprendre la s"
+  },
+  "2026-04-27 - comment l'ia pense — une histoire en analogies simples": {
+    "slug": "2026-04-27-comment-l-ia-pense-une-histoire-en-analogies-simples",
+    "collection": "sources",
+    "title": "Comment l'IA pense — une histoire en analogies simples",
+    "excerpt": "1. Imagine une **immense bibliothèque mentale** où chaque mot, chaque idée, chaque tournure de phrase est rangée à un emplacement précis dans un espace à des milliers de dimensions. Plus deux idées sont proches, plus elles sont voisines de rayonnage. 2. Quand tu écris une questio"
+  },
+  "2026-04-27 - réduire la mémoire node.js de 40 sans toucher au code": {
+    "slug": "2026-04-27-reduire-la-memoire-nodejs-de-40-sans-toucher-au-code",
+    "collection": "sources",
+    "title": "Réduire la mémoire Node.js de 40% sans toucher au code",
+    "excerpt": "1. **`--max-old-space-size`** : la base. Limiter la heap V8 force le GC à se déclencher plus tôt et évite la dérive en prod. 2. **`--optimize-for-size`** : bascule l'optimiseur V8 du mode \"speed\" au mode \"memory\". Petite perte de perf, gros gain mémoire. 3. **Désactiver les sourc"
+  },
+  "2026-04-27 - typescript 7.0 beta — le compilateur go natif": {
+    "slug": "2026-04-27-typescript-70-beta-le-compilateur-go-natif",
+    "collection": "sources",
+    "title": "TypeScript 7.0 Beta — le compilateur Go natif",
+    "excerpt": "1. **Compilateur réécrit en Go** : la nouvelle implémentation tourne en binaire natif via `tsgo` (à terme renommé `tsc`). Le speedup mesuré est constant : **5× à 15×** selon les workloads, **~10× moyenne**. 2. **Sémantique TypeScript identique** : 7.0 hérite des defaults et depre"
+  },
+  "concept - --max-old-space-size limite la heap v8 et force un comportement oom contrôlé": {
+    "slug": "max-old-space-size-limite-la-heap-v8-et-force-un-comportement-oom-controle",
+    "collection": "concepts",
+    "title": "Concept - --max-old-space-size limite la heap V8 et force un comportement OOM contrôlé",
+    "oneLiner": "Le flag `--max-old-space-size=N` (en MB) impose à V8 un **plafond pour la old generation** de la heap : au-delà, V8 lance des GC agressifs et finit par crasher le process avec une erreur explicite (`JavaScript heap out of memory`) — ce qui est **préférable** à un OOM-kill du noyau qui terminerait le process sans message en container.",
+    "excerpt": "Par défaut, V8 alloue jusqu'à ~1.5 GB sur une machine 64-bit, peu importe la mémoire disponible. **V8 ne lit pas les cgroups** : si tu as un container Kubernetes limit à 512 MB, V8 va quand même essayer d'allouer 1.5 GB, et ce sera le noyau qui tuera le process — sans message JS,"
+  },
+  "concept - --optimize-for-size bascule v8 du jit speed-first au jit memory-first": {
+    "slug": "optimize-for-size-bascule-v8-du-jit-speed-first-au-jit-memory-first",
+    "collection": "concepts",
+    "title": "Concept - --optimize-for-size bascule V8 du JIT speed-first au JIT memory-first",
+    "oneLiner": "`--optimize-for-size` indique à V8 d'**optimiser le code JIT compilé pour la taille mémoire** plutôt que pour la vitesse — moins d'inlining, moins de spécialisations, code natif plus compact, ce qui réduit l'empreinte heap de **10 à 25%** au prix de **5 à 15% de CPU** sur les hot paths.",
+    "excerpt": "V8 compile à la volée le bytecode JS en code natif (Crankshaft, puis TurboFan, puis Maglev/Sparkplug en V8 récent). Par défaut, ce code natif est **gros** : V8 fait de l'inlining agressif, génère du code spécialisé pour chaque type de paramètre, garde des \"deopt\" buffers pour fal"
+  },
+  "concept - apprendre c'est ajuster des milliards de poids pour mieux prédire le mot suivant": {
+    "slug": "apprendre-c-est-ajuster-des-milliards-de-poids-pour-mieux-predire-le-mot-suivant",
+    "collection": "concepts",
+    "title": "Concept - Apprendre c'est ajuster des milliards de poids pour mieux prédire le mot suivant",
+    "oneLiner": "\"Entraîner un LLM\" signifie présenter au modèle des milliards d'exemples (texte) et **ajuster mécaniquement chacun de ses paramètres** (boutons numériques, des centaines de milliards) via la **descente de gradient**, jusqu'à ce que le modèle prédise le bon mot suivant avec la meilleure probabilité possible — la \"connaissance\" est ainsi distillée dans la **disposition** des poids, pas stockée comme une base de données.",
+    "excerpt": "Beaucoup imaginent que les LLM \"ont lu et mémorisé\" Wikipedia et tout l'Internet. C'est imprécis. Ils ont **traversé** ces textes des dizaines de fois pendant l'entraînement, et chaque fois, ils ont **ajusté infinitésimalement leurs poids** pour mieux prédire la suite."
+  },
   "concept - atom.runtime branche les layers effect-ts dans le state management react": {
     "slug": "atomruntime-branche-les-layers-effect-ts-dans-le-state-management-react",
     "collection": "concepts",
     "title": "Concept - Atom.runtime branche les Layers Effect-TS dans le state management React",
     "oneLiner": "`Atom.runtime(layer)` est le pont qui prend un **`Layer<…>` Effect-TS** et le transforme en **runtime accessible depuis React** — chaque atom créé via ce runtime obtient automatiquement les services du Layer en injection.",
     "excerpt": "C'est la mécanique qui fait passer la DI typée d'Effect-TS du backend au frontend. Sans `Atom.runtime`, tu aurais des atoms qui peuvent contenir des Effects, mais pas de moyen propre d'injecter des dépendances. Avec, tu as un **graphe DI compile-time** depuis ton composant React"
+  },
+  "concept - big o analyse le comportement asymptotique d'un algo en temps et espace": {
+    "slug": "big-o-analyse-le-comportement-asymptotique-d-un-algo-en-temps-et-espace",
+    "collection": "concepts",
+    "title": "Concept - Big O analyse le comportement asymptotique d'un algo en temps et espace",
+    "oneLiner": "**Big O** (`O(f(n))`) dénote la **borne supérieure asymptotique** du nombre d'opérations (ou d'octets de mémoire) qu'un algorithme effectue en fonction de la taille `n` de son input — on ignore les constantes et les termes mineurs pour ne garder que le **comportement dominant** quand `n` grandit.",
+    "excerpt": "Big O est l'outil universel pour comparer des algos. Sans Big O, dire \"ce code est lent\" est subjectif. Avec, tu peux affirmer : \"ce code est en O(n²), il sera 10 000× plus lent qu'un O(n) sur 100 entrées vs 10 000 entrées\". Tu négocies sur des chiffres, pas sur des intuitions."
   },
   "concept - box rc arc gèrent l'ownership partagé selon le besoin de threading": {
     "slug": "box-rc-arc-gerent-l-ownership-partage-selon-le-besoin-de-threading",
@@ -98,6 +162,34 @@
     "title": "Concept - Clean Architecture inverse les dépendances pour isoler le domaine",
     "oneLiner": "La Clean Architecture (Uncle Bob) repose sur **une seule règle structurante** — la **règle de dépendance** : les couches externes (frameworks, DB, UI) **dépendent** des couches internes (logique métier, entités), **jamais l'inverse** — ce qui rend le domaine indépendant de la technologie.",
     "excerpt": "C'est l'**idée centrale** à retenir de toute l'architecture Bob, hexagonale, ports & adapters, onion architecture. Toutes ces approches partagent le même cœur : **isoler le métier des choix techniques**, pour que : - Le métier soit testable sans frameworks - Tu puisses changer de"
+  },
+  "concept - clinic.js et 0x diagnostiquent les leaks et les hot paths node sans modifier le code": {
+    "slug": "clinicjs-et-0x-diagnostiquent-les-leaks-et-les-hot-paths-node-sans-modifier-le-code",
+    "collection": "concepts",
+    "title": "Concept - clinic.js et 0x diagnostiquent les leaks et les hot paths Node sans modifier le code",
+    "oneLiner": "**`clinic.js`** (suite avec `doctor`, `flame`, `bubbleprof`, `heapdoctor`) et **`0x`** sont les deux outils canoniques pour **profiler un process Node existant sans modifier son code** — ils observent depuis l'extérieur, capturent CPU / heap / event loop, et produisent des rapports HTML interactifs pour identifier la source de lenteurs ou de leaks.",
+    "excerpt": "Avant d'optimiser, il faut **mesurer**. Beaucoup d'optimisations mémoire ou CPU sont faites \"à l'aveugle\" : - \"On a baissé la heap, ça consomme moins\" → mais peut-être qu'un module charge encore 50MB de JSON inutile - \"On a tweaké le GC\" → mais peut-être que la fuite est dans un"
+  },
+  "concept - consola remplace console-log par un logger dev-friendly avec niveaux et icônes": {
+    "slug": "consola-remplace-console-log-par-un-logger-dev-friendly-avec-niveaux-et-icones",
+    "collection": "concepts",
+    "title": "Concept - consola remplace console.log par un logger dev-friendly avec niveaux et icônes",
+    "oneLiner": "**consola** est un logger Node minimaliste qui remplace `console.log` par une API à niveaux (`info`, `success`, `warn`, `error`, `debug`, `fatal`) avec couleurs, icônes et formats — il rend les logs en dev immédiatement lisibles sans configuration, tout en restant configurable pour la prod.",
+    "excerpt": "`console.log` est le default JS, mais il a trois problèmes en pratique : 1. **Pas de niveau** : tout va sur stdout, impossible de filtrer en prod 2. **Pas de format** : tu lis du texte plat, faut chercher l'erreur dans 50 lignes 3. **Pas d'icônes / couleurs natives** : tu ajoutes"
+  },
+  "concept - custom exception classes nomment les erreurs métier pour discrimination typée": {
+    "slug": "custom-exception-classes-nomment-les-erreurs-metier-pour-discrimination-typee",
+    "collection": "concepts",
+    "title": "Concept - Custom Exception classes nomment les erreurs métier pour discrimination typée",
+    "oneLiner": "Sous-classer `Error` en classes nommées (`UserNotFoundError`, `ForbiddenError`, `RateLimitError`) avec un **tag discriminant** permet de **catcher de façon typée** au point de gestion (via `instanceof` ou switch sur tag) et de mapper proprement chaque erreur vers son comportement (status HTTP, retry, log…).",
+    "excerpt": "C'est le pattern qui transforme un `try { ... } catch (e) { /* mystère */ }` en un dispatch propre. Sans Custom Exception, tu finis avec :"
+  },
+  "concept - dfs explore en profondeur via stack, bfs en largeur via queue": {
+    "slug": "dfs-explore-en-profondeur-via-stack-bfs-en-largeur-via-queue",
+    "collection": "concepts",
+    "title": "Concept - DFS explore en profondeur via stack, BFS en largeur via queue",
+    "oneLiner": "**DFS** (Depth-First Search) plonge le plus loin possible avant de backtracker via une **stack** (souvent récursive), **BFS** (Breadth-First Search) explore tous les voisins niveau par niveau via une **queue** — la **différence de structure de données** est la seule chose qui les sépare, et elle change radicalement les usages : DFS pour la connectivité / cycles / topo sort, BFS pour le **shortest path** non pondéré.",
+    "excerpt": "DFS et BFS sont les deux algos de **traversée de graphe** universels. ~80% des problèmes de graphe en interview ou en prod se réduisent à un DFS ou un BFS bien posé."
   },
   "concept - effect atom unifie state client serveur et di dans des atomes basés sur effect": {
     "slug": "effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect",
@@ -141,6 +233,13 @@
     "oneLiner": "`HttpApiBuilder` est le pont entre la **spec** (`HttpApi`) et l'**implémentation** : pour chaque endpoint déclaré dans le schéma, tu fournis un **handler Effect typé** dont le compilateur vérifie que l'input et l'output matchent la spec — impossible d'oublier un endpoint, impossible de retourner le mauvais type.",
     "excerpt": "C'est ici que le contrat entre \"déclaration\" et \"code qui tourne\" est rendu **vérifiable par le compilateur**. Sans ce pont, la spec serait juste de la documentation que rien ne force à respecter (cf. les annotations Swagger qui mentent à moitié dans la plupart des projets)."
   },
+  "concept - l'attention permet au modèle de regarder certains mots plus que d'autres pour prédire le suivant": {
+    "slug": "l-attention-permet-au-modele-de-regarder-certains-mots-plus-que-d-autres-pour-predire-le-suivant",
+    "collection": "concepts",
+    "title": "Concept - L'attention permet au modèle de regarder certains mots plus que d'autres pour prédire le suivant",
+    "oneLiner": "L'**attention** est le mécanisme qui, à chaque mot prédit, calcule **combien de poids accorder** à chacun des mots du contexte précédent — comme un projecteur qui éclaire les mots pertinents pour la prédiction et atténue les autres — c'est l'innovation centrale des Transformers, l'architecture de tous les LLM modernes.",
+    "excerpt": "Avant l'attention (papier *Attention Is All You Need*, Vaswani et al., 2017), les architectures de NLP (RNN, LSTM) lisaient les phrases **séquentiellement** et avaient un problème de **mémoire courte** : difficile de relier un pronom au début d'une phrase à son antécédent quelque"
+  },
   "concept - l'event loop traite les microtasks avant chaque rendu et entre macrotasks": {
     "slug": "l-event-loop-traite-les-microtasks-avant-chaque-rendu-et-entre-macrotasks",
     "collection": "concepts",
@@ -183,12 +282,26 @@
     "oneLiner": "La **réactivité fine-grained** consiste à attacher chaque morceau du DOM à ses dépendances réactives précises, de sorte qu'un changement d'état ne déclenche que la mise à jour des nœuds DOM qui dépendent réellement de cette donnée — pas du composant entier, pas d'un sous-arbre, **juste le nœud**.",
     "excerpt": "C'est l'idée centrale qui sépare les frameworks dits \"à signals\" (Solid, Angular ≥17, Vue 3+, Preact Signals, Qwik) du modèle Virtual DOM \"coarse-grained\" (React classique)."
   },
+  "concept - le bon choix de structure de données dépend des opérations dominantes": {
+    "slug": "le-bon-choix-de-structure-de-donnees-depend-des-operations-dominantes",
+    "collection": "concepts",
+    "title": "Concept - Le bon choix de structure de données dépend des opérations dominantes",
+    "oneLiner": "Une structure de données n'est ni \"bonne\" ni \"mauvaise\" dans l'absolu : elle a un **profil de complexité par opération** (insert, delete, search, access, iterate), et le bon choix consiste à identifier **quelles opérations dominent ton workload** puis à choisir celle qui les rend rapides — quitte à sacrifier les autres.",
+    "excerpt": "C'est l'un des skills les plus impactants en algo : choisir entre array, linked list, hash map, tree, heap. La majorité des \"ça scale pas\" viennent d'un mauvais choix de structure (recherche linéaire dans un array là où un Set ferait O(1))."
+  },
   "concept - le borrowing rust permet d'accéder à une valeur sans en prendre l'ownership": {
     "slug": "le-borrowing-rust-permet-d-acceder-a-une-valeur-sans-en-prendre-l-ownership",
     "collection": "concepts",
     "title": "Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership",
     "oneLiner": "Le **borrowing** consiste à passer une **référence** (`&T` ou `&mut T`) à une fonction au lieu de transférer l'ownership : la fonction peut **lire** (et éventuellement modifier) la valeur, mais **la valeur reste possédée par l'appelant** — c'est le mécanisme principal pour partager des données sans les déplacer.",
     "excerpt": "Sans borrowing, Rust serait inutilisable : chaque appel de fonction transférerait l'ownership et tu devrais soit cloner partout, soit retourner la valeur à chaque fois (\"fn that takes a String and returns it back\"). Le borrowing résout ce problème **sans introduire de risque mémo"
+  },
+  "concept - le centralized handling concentre la traduction erreur transport en un seul endroit": {
+    "slug": "le-centralized-handling-concentre-la-traduction-erreur-transport-en-un-seul-endroit",
+    "collection": "concepts",
+    "title": "Concept - Le centralized handling concentre la traduction erreur → transport en un seul endroit",
+    "oneLiner": "Plutôt que d'avoir des `try/catch` partout dans les controllers et services, **un seul endroit** (middleware Express, error boundary React, `process.on('uncaughtException')` Node) catch toutes les erreurs et les **traduit** vers le transport (HTTP status, UI fallback, log) — le code métier reste pur, ne sait rien du format de réponse.",
+    "excerpt": "Sans centralized handling, chaque controller doit traduire l'erreur en réponse : ```typescript app.get('/users/:id', async (req, res) => { try { const user = await getUser(req.params.id) res.json(user) } catch (e) { if (e instanceof UserNotFoundError) return res.status(404).json("
   },
   "concept - le déclaratif transfère la complexité d'exécution au moteur sous-jacent": {
     "slug": "le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent",
@@ -204,12 +317,26 @@
     "oneLiner": "Le **hoisting** est le mécanisme par lequel JS \"remonte\" les **déclarations** de variables et fonctions en haut de leur scope, mais pas leurs **valeurs** — d'où le piège classique : `var` est `undefined` avant son `=`, alors que `let`/`const` lèvent une erreur `ReferenceError` (Temporal Dead Zone) jusqu'à leur déclaration.",
     "excerpt": "Le hoisting cause des bugs subtils, surtout dans : - Des modules avec des cycles d'imports - Des classes où on essaie d'utiliser un field avant son init - Des refactors de `var` → `let` (TDZ apparaît) - Des codes legacy qui utilisaient le hoisting comme feature (`function` declar"
   },
+  "concept - le pattern result encode l'erreur dans le type de retour pour forcer la gestion": {
+    "slug": "le-pattern-result-encode-l-erreur-dans-le-type-de-retour-pour-forcer-la-gestion",
+    "collection": "concepts",
+    "title": "Concept - Le pattern Result encode l'erreur dans le type de retour pour forcer la gestion",
+    "oneLiner": "Le pattern **Result** (ou **Either**, ou **Try**) consiste à modéliser une fonction \"qui peut échouer\" non pas via `throw`, mais via un **type de retour union** — `Result<T, E> = { ok: true; value: T } | { ok: false; error: E }` — ce qui force le caller à discriminer le cas d'erreur **à la compilation** au lieu de l'oublier silencieusement.",
+    "excerpt": "C'est l'idée centrale de Rust (`Result<T, E>`), Haskell (`Either`), Effect-TS (`Effect<A, E, R>`), et de bibliothèques TS comme `neverthrow` ou `ts-results`. Elle adresse la faiblesse principale des exceptions JS/TS : **les erreurs ne sont pas dans la signature**."
+  },
   "concept - le runtime effect-ts injecte les layers dans le pipeline du serveur http": {
     "slug": "le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http",
     "collection": "concepts",
     "title": "Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP",
     "oneLiner": "Quand un serveur Effect-TS démarre via `NodeHttpServer.layer` + `NodeRuntime.runMain`, le runtime construit **un graphe de Layers** (DB, logger, services, HttpServer) puis **rend chaque service disponible aux handlers** : tu n'écris jamais `new ServiceX(...)`, tu déclares `yield* ServiceX` dans ton Effect, et le runtime injecte la bonne instance.",
     "excerpt": "C'est le mécanisme qui transpose la **DI Effect-TS** au monde du serveur HTTP. Sans lui, tu aurais soit : - Des singletons globaux (impossibles à tester proprement) - Du React Context-style (fragile) - Une DI à base de classes décorées style NestJS (verbose)"
+  },
+  "concept - le speedup 10x de ts 7.0 vient de go + multi-threading + type-checker réécrit": {
+    "slug": "le-speedup-10x-de-ts-70-vient-de-go-multi-threading-type-checker-reecrit",
+    "collection": "concepts",
+    "title": "Concept - Le speedup 10x de TS 7.0 vient de Go + multi-threading + type-checker réécrit",
+    "oneLiner": "TypeScript 7.0 est ~10× plus rapide que 6.0 grâce à **trois leviers cumulés** : 1) **code natif Go** au lieu de JS interprété par V8, 2) **multi-threading** via goroutines pour paralléliser le check sur tous les cores, 3) **type-checker réécrit from scratch** avec des structures de données plus efficientes que la version JS historique.",
+    "excerpt": "Le narrative populaire dit \"TS est plus rapide parce que Go est rapide\". C'est partiellement vrai, mais réducteur. Sans réécriture du type-checker, le port Go aurait gagné 2-3×, pas 10×. Sans multi-threading, encore moins. Le 10× vient de **trois optimisations cumulatives**, et c"
   },
   "concept - le type effect rend les dépendances et erreurs explicites dans la signature": {
     "slug": "le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature",
@@ -232,12 +359,26 @@
     "oneLiner": "JS effectue des **conversions de type implicites** dans plein d'opérations (`==`, `+`, `-`, `<`, `if (x)`, `!x`) — ces règles sont **déterministes et documentées**, mais leur côté contre-intuitif (`[] == ![]`, `\"0\" == false`) est la raison pour laquelle on utilise **toujours `===`** et qu'on évite les ambigüités de type sur `+`.",
     "excerpt": "Les coercitions sont **partout** en JS, même quand on croit les éviter. Comprendre : - **Quand `==` coerce** (= toujours, sauf entre types identiques) - **Comment `+` se comporte** (string si l'un des opérandes est string, sinon number) - **La distinction truthy/falsy vs `==` vs"
   },
+  "concept - les embeddings projettent les mots dans un espace géométrique où la proximité a du sens sémantique": {
+    "slug": "les-embeddings-projettent-les-mots-dans-un-espace-geometrique-ou-la-proximite-a-du-sens-semantique",
+    "collection": "concepts",
+    "title": "Concept - Les embeddings projettent les mots dans un espace géométrique où la proximité a du sens sémantique",
+    "oneLiner": "Un **embedding** est la représentation d'un mot (ou phrase, image, code…) sous forme de **vecteur de quelques centaines à quelques milliers de nombres** dans un espace géométrique où **la distance entre deux vecteurs reflète la similarité sémantique** — *roi* et *reine* sont voisins, *roi* et *banane* sont éloignés.",
+    "excerpt": "C'est la première transformation qu'opère un LLM sur ton texte. Avant tout calcul d'attention ou de prédiction, chaque token de ta phrase est **projeté** dans cet espace de mille dimensions. Sans embeddings, le modèle ne pourrait pas généraliser : il verrait *roi* et *reine* comm"
+  },
   "concept - les lifetimes rust expriment la durée de validité d'une référence": {
     "slug": "les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference",
     "collection": "concepts",
     "title": "Concept - Les lifetimes Rust expriment la durée de validité d'une référence",
     "oneLiner": "Un **lifetime** est une **annotation de durée de validité** attachée à une référence — `&'a T` signifie \"une référence valide pendant le lifetime nommé `'a`\" — et le compilateur s'en sert pour garantir qu'**aucune référence ne survit à la valeur qu'elle pointe** (pas de dangling reference).",
     "excerpt": "Sans lifetimes, Rust ne pourrait pas vérifier la sûreté du borrowing pour les fonctions et structs **génériques**. C'est l'extension naturelle des règles d'ownership à des cas où le compilateur a besoin d'aide pour comprendre **quelle entrée alimente quelle sortie**."
+  },
+  "concept - les llm génèrent token par token chacun conditionné sur le contexte précédent": {
+    "slug": "les-llm-generent-token-par-token-chacun-conditionne-sur-le-contexte-precedent",
+    "collection": "concepts",
+    "title": "Concept - Les LLM génèrent token par token chacun conditionné sur le contexte précédent",
+    "oneLiner": "Quand un LLM \"écrit\", il **n'a pas planifié sa réponse à l'avance** — il génère **un token à la fois**, chaque token étant la suite la plus probable étant donné **tout ce qui précède** (prompt + tokens déjà générés) — le modèle est rigoureusement **autorégressif**.",
+    "excerpt": "Comprendre la génération token-par-token désamorce plusieurs malentendus : - Pourquoi on parle de **streaming** : les tokens sortent au fur et à mesure, ils peuvent être affichés au fur et à mesure - Pourquoi un LLM peut \"se contredire\" en cours de phrase : il prédit localement,"
   },
   "concept - les pwa 2026 ferment l'écart fonctionnel avec les apps natives": {
     "slug": "les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives",
@@ -260,12 +401,33 @@
     "oneLiner": "**oxlint** (linter) et **oxfmt** (formatter) sont les briques Rust de l'écosystème **oxc**, qui réécrit toute la chaîne de tooling JS en Rust. Gain typique : 50-100× plus rapide qu'ESLint/Prettier sur les mêmes opérations.",
     "excerpt": "ESLint et Prettier sont **les goulots d'étranglement les plus fréquents** d'un projet TS moderne après tsc : - ESLint : full lint d'un repo monolithique = 30s à plusieurs minutes - Prettier : formattage de tous les fichiers = idem - Pre-commit hooks deviennent insupportables sur"
   },
+  "concept - pino est le logger node le plus rapide via json structuré asynchrone": {
+    "slug": "pino-est-le-logger-node-le-plus-rapide-via-json-structure-asynchrone",
+    "collection": "concepts",
+    "title": "Concept - pino est le logger Node le plus rapide via JSON structuré asynchrone",
+    "oneLiner": "**pino** est un logger Node optimisé pour la production : il écrit du **JSON structuré** ligne par ligne sur stdout (plutôt que du texte formaté), de façon **asynchrone** via un worker thread, et atteint un débit ~5× supérieur à `console.log` et ~3× supérieur à `winston` — il est devenu le standard pour les apps backend qui logent à grande échelle.",
+    "excerpt": "En production, tu ne lis plus tes logs au terminal : ils partent dans Datadog, Loki, CloudWatch, Splunk, Elastic… Ces backends ont besoin de **JSON structuré** pour parser, filtrer, agréger. Du texte plat (`[INFO] User abc logged in`) demande des regex fragiles côté ingest."
+  },
   "concept - programmation impérative décrit comment quand le déclaratif décrit quoi": {
     "slug": "programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi",
     "collection": "concepts",
     "title": "Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi",
     "oneLiner": "La distinction **impératif vs déclaratif** est une question de **niveau d'abstraction** : un programme impératif décrit **les étapes** à exécuter (mutations, séquence, contrôle de flux), un programme déclaratif décrit **le résultat voulu** et délègue les étapes à un moteur — c'est un curseur, pas une dichotomie.",
     "excerpt": "C'est le critère structurant qui sépare beaucoup d'outils modernes de leurs ancêtres : - jQuery (impératif) → React (déclaratif) - Bash scripts (impératif) → Terraform (déclaratif) - callbacks (impératif) → Effect / RxJS (déclaratif)"
+  },
+  "concept - quicksort est o(n log n) en moyenne mais mergesort le garantit en pire cas": {
+    "slug": "quicksort-est-on-log-n-en-moyenne-mais-mergesort-le-garantit-en-pire-cas",
+    "collection": "concepts",
+    "title": "Concept - Quicksort est O(n log n) en moyenne mais Mergesort le garantit en pire cas",
+    "oneLiner": "**Quicksort** (partitionne autour d'un pivot, récurse) et **Mergesort** (divise en deux moitiés triées récursivement, merge) ont le même best/average case en `O(n log n)` — la différence clé est que Quicksort dégénère en `O(n²)` sur un mauvais pivot consécutif, alors que Mergesort **garantit O(n log n)** en pire cas, au prix d'un espace `O(n)` (vs `O(log n)` pour Quicksort in-place) et d'une stabilité (Mergesort stable, Quicksort non).",
+    "excerpt": "Ce sont les deux algorithmes de tri O(n log n) classiques, et ils illustrent un **trade-off fondamental** : - **Vitesse + in-place** vs **prévisibilité + stable**"
+  },
+  "concept - recursion = cas de base + appel récursif sur sous-problème plus petit": {
+    "slug": "recursion-cas-de-base-appel-recursif-sur-sous-probleme-plus-petit",
+    "collection": "concepts",
+    "title": "Concept - Recursion = cas de base + appel récursif sur sous-problème plus petit",
+    "oneLiner": "Une fonction récursive a **deux éléments invariants** : un **cas de base** (condition de terminaison qui retourne directement) et un **cas récursif** (appel à elle-même sur un sous-problème **strictement plus petit**) — sans le premier, infinite recursion / stack overflow ; sans le second, pas de récursion.",
+    "excerpt": "La récursion est l'épine dorsale des algos sur arbres, graphes, et divide-and-conquer (mergesort, quicksort). Pour beaucoup de devs JS/TS, c'est un concept rébarbatif au début parce qu'on a moins l'occasion de l'utiliser au quotidien (la plupart du code applicatif est itératif)."
   },
   "concept - rust vise sécurité mémoire performance et concurrence simultanément": {
     "slug": "rust-vise-securite-memoire-performance-et-concurrence-simultanement",
@@ -302,12 +464,33 @@
     "oneLiner": "Contrairement à la plupart des langages OO, **`this` en JavaScript n'est pas lié à la définition d'une fonction** — il est lié au **site d'appel** (où et comment la fonction est invoquée), ce qui produit des comportements surprenants quand on passe une méthode comme callback ou qu'on déstructure une fonction d'un objet.",
     "excerpt": "C'est **la** source de bugs JS classique. Toute personne qui code JS finit par écrire `this is undefined` sans comprendre pourquoi. Comprendre les règles de binding te fait : - Lire correctement n'importe quel code JS classique - Savoir quand `bind`, `call`, `apply` sont nécessai"
   },
+  "concept - try-catch impose un narrow manuel et ne documente rien dans la signature": {
+    "slug": "try-catch-impose-un-narrow-manuel-et-ne-documente-rien-dans-la-signature",
+    "collection": "concepts",
+    "title": "Concept - try/catch impose un narrow manuel et ne documente rien dans la signature",
+    "oneLiner": "En TypeScript, `catch (err)` reçoit l'erreur typée `unknown` (avec `useUnknownInCatchVariables`) — il faut **narrower manuellement** avant de l'utiliser, et la signature de la fonction qui throw **ne mentionne rien** : le caller ne sait pas qu'il doit catch.",
+    "excerpt": "C'est la double faiblesse de `try/catch` en TS, héritée de JavaScript : pas de checked exceptions (comme Java), pas d'erreurs dans la signature (comme Rust ou Effect-TS). Tu peux écrire un code qui compile parfaitement et qui crashera en prod sur un cas d'erreur que rien n'a docu"
+  },
   "concept - tsgo est le portage go de typescript par microsoft pour 10x la vitesse": {
     "slug": "tsgo-est-le-portage-go-de-typescript-par-microsoft-pour-10x-la-vitesse",
     "collection": "concepts",
     "title": "Concept - tsgo est le portage Go de TypeScript par Microsoft pour 10x la vitesse",
     "oneLiner": "Annoncé en mars 2025 par Anders Hejlsberg, **tsgo** est la réimplémentation officielle de `tsc` en **Go**, visant un type-checking ~10× plus rapide. Sera la base de **TypeScript 7**.",
     "excerpt": "`tsc` est devenu le **goulot d'étranglement** de plein de projets : on type-check 30 secondes à plusieurs minutes à chaque commit, à chaque CI. Le LSP (intellisense IDE) rame sur les gros monorepos. Microsoft a évalué les options, et plutôt que d'optimiser à la marge, a fait un *"
+  },
+  "concept - tsx exécute typescript directement via esbuild 10x plus rapide que ts-node": {
+    "slug": "tsx-execute-typescript-directement-via-esbuild-10x-plus-rapide-que-ts-node",
+    "collection": "concepts",
+    "title": "Concept - tsx exécute TypeScript directement via esbuild, 10x plus rapide que ts-node",
+    "oneLiner": "**`tsx`** est un runner Node qui transpile et exécute des fichiers TypeScript directement, sans étape de build préalable — il utilise **esbuild** sous le capot, ce qui le rend ~10× plus rapide que `ts-node` et en fait l'outil de référence pour `dev` scripts, hooks et CLI en TS.",
+    "excerpt": "Quand tu écris du TS en backend / scripts, tu as deux choix historiques : 1. **`tsc` puis `node dist/...`** : build à chaque fois, pénible en dev 2. **`ts-node`** : exécute TS directement, mais lent (parser tsc) et galère ESM"
+  },
+  "concept - un llm est entraîné à prédire le prochain mot et c'est de cette tâche que naît tout le reste": {
+    "slug": "un-llm-est-entraine-a-predire-le-prochain-mot-et-c-est-de-cette-tache-que-nait-tout-le-reste",
+    "collection": "concepts",
+    "title": "Concept - Un LLM est entraîné à prédire le prochain mot et c'est de cette tâche que naît tout le reste",
+    "oneLiner": "L'objectif d'entraînement d'un LLM est trivialement simple : étant donné un texte, prédire le **token suivant**. Tout ce qui ressemble à de la \"compréhension\", de la \"raison\", du \"code\", de la \"traduction\" émerge **comme effet de bord** de cette tâche poursuivie sur des milliards d'exemples.",
+    "excerpt": "Comprendre cette base désamorce 90% des malentendus sur les LLM. La \"magie\" disparaît, mais ce qui reste est plus juste : - **Pourquoi ils peuvent halluciner** : leur métrique d'entraînement est *plausibilité statistique*, pas *vérité* - **Pourquoi ils s'améliorent avec la taille"
   },
   "concept - un thunk est une fonction qui retarde l'évaluation": {
     "slug": "un-thunk-est-une-fonction-qui-retarde-l-evaluation",
@@ -337,12 +520,33 @@
     "oneLiner": "À tout instant, sur une même valeur, le borrow checker n'autorise **qu'une seule référence mutable** (`&mut T`) **OU** **plusieurs références immutables** (`&T`) — jamais les deux à la fois — règle qui élimine les data races par construction, à la compilation.",
     "excerpt": "C'est le théorème central du borrow checker, parfois appelé **\"aliasing XOR mutability\"**. Il sous-tend la promesse principale de Rust : **safe concurrency without garbage collection**. Sans cette règle, tu n'aurais ni \"pas de use-after-free\" (parce qu'un alias survivrait au prop"
   },
+  "concept - validate first place toutes les vérifications en début de fonction pour un code happy-path plat": {
+    "slug": "validate-first-place-toutes-les-verifications-en-debut-de-fonction-pour-un-code-happy-path-plat",
+    "collection": "concepts",
+    "title": "Concept - Validate first place toutes les vérifications en début de fonction pour un code happy-path plat",
+    "oneLiner": "Le pattern **validate first** (ou **early return**, ou **guard clauses**) consiste à grouper toutes les vérifications d'invariants au **début** d'une fonction et à retourner / throw immédiatement en cas d'échec, pour que le reste du corps soit le **happy path** sans `else` imbriqué et sans accumulation conditionnelle.",
+    "excerpt": "C'est l'un des refactors les plus impactants visuellement et pour la lisibilité. Une fonction qui valide first se lit \"haut → bas\" comme une histoire : \"voici les conditions, voici ce qu'on fait quand tout va bien\". Une fonction sans valide first se lit comme un labyrinthe de `if"
+  },
+  "concept - vitest remplace jest avec api compatible et démarrage 10x plus rapide": {
+    "slug": "vitest-remplace-jest-avec-api-compatible-et-demarrage-10x-plus-rapide",
+    "collection": "concepts",
+    "title": "Concept - vitest remplace Jest avec API compatible et démarrage 10x plus rapide",
+    "oneLiner": "**Vitest** est un runner de tests JS/TS bâti sur **Vite** : il offre la **même API que Jest** (drop-in replacement avec `describe` / `it` / `expect`), mais démarre en ~100ms (vs 2-5s pour Jest), supporte ESM nativement, intègre une UI web, le coverage, le watch mode et le browser mode — c'est devenu le runner de tests par défaut sur les projets TS modernes.",
+    "excerpt": "Jest a régné en master pendant 7 ans (2018-2024) mais son architecture (CommonJS + Babel) a accumulé de la dette : ESM galère, démarrage long sur gros projets, transformIgnorePatterns devenu un casse-tête. Vitest est arrivé en 2021 avec un objectif clair : \"Jest mais en mieux\", e"
+  },
   "concept - window controls overlay donne aux pwa desktop le contrôle de la barre de titre": {
     "slug": "window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre",
     "collection": "concepts",
     "title": "Concept - Window Controls Overlay donne aux PWA desktop le contrôle de la barre de titre",
     "oneLiner": "**Window Controls Overlay (WCO)** est une feature PWA qui permet à l'app installée en desktop de **dessiner ses propres éléments dans la zone de la barre de titre** — l'OS conserve uniquement les contrôles de fenêtre (min/max/close), tout le reste devient ton header personnalisé.",
     "excerpt": "Visuellement, c'est ce qui sépare une \"PWA installée\" d'une \"vraie app native\" : la PWA classique a une barre de titre OS générique en haut (qui dit le nom de l'app et c'est tout). Une app native (Slack, Discord, VS Code) utilise toute la fenêtre — la barre de titre intègre le lo"
+  },
+  "concept - zod unifie validation runtime et types compile-time depuis un seul schéma": {
+    "slug": "zod-unifie-validation-runtime-et-types-compile-time-depuis-un-seul-schema",
+    "collection": "concepts",
+    "title": "Concept - zod unifie validation runtime et types compile-time depuis un seul schéma",
+    "oneLiner": "**zod** te permet de définir un schéma **une seule fois** qui sert simultanément de **validateur runtime** (parse, refine, transform) et de **source de type TypeScript** (via `z.infer<...>`) — éliminant la double maintenance des `interface User { ... }` et des fonctions `validateUser(...)` séparées.",
+    "excerpt": "C'est le piège classique de TypeScript : les types existent à la **compile time** uniquement. Au runtime, `req.body` peut contenir absolument n'importe quoi, peu importe que tu aies typé `req.body as User`. Sans validation runtime, les types TS **mentent** dès qu'on touche à du J"
   },
   "moc - architecture & fondamentaux": {
     "slug": "architecture-fondamentaux",

@@ -28,6 +28,7 @@ backlinks:
   - le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs
   - >-
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
+  - recursion-cas-de-base-appel-recursif-sur-sous-probleme-plus-petit
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - architecture-fondamentaux

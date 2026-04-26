@@ -24,6 +24,7 @@ related:
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - backend-infra
 backlinks:
+  - 2026-04-26-5-packages-node-a-inclure-dans-tout-projet-2026
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http

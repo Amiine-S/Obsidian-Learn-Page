@@ -28,6 +28,8 @@ related:
 backlinks:
   - 2026-04-26-effect-ts-premier-serveur-http-avec-effect-platform
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
+  - >-
+    le-centralized-handling-concentre-la-traduction-erreur-transport-en-un-seul-endroit
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - backend-infra
 topics:

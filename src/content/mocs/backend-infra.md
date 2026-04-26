@@ -17,10 +17,34 @@ related:
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
   - effect-ts-fait-la-di-via-des-layers-composables-au-lieu-de-classes-annotees
 backlinks:
+  - 2026-04-26-5-packages-node-a-inclure-dans-tout-projet-2026
   - 2026-04-26-effect-ts-premier-serveur-http-avec-effect-platform
+  - 2026-04-26-exception-handling-patterns-en-typescript
+  - 2026-04-27-reduire-la-memoire-nodejs-de-40-sans-toucher-au-code
+  - 2026-04-27-typescript-70-beta-le-compilateur-go-natif
+  - max-old-space-size-limite-la-heap-v8-et-force-un-comportement-oom-controle
+  - optimize-for-size-bascule-v8-du-jit-speed-first-au-jit-memory-first
+  - >-
+    clinicjs-et-0x-diagnostiquent-les-leaks-et-les-hot-paths-node-sans-modifier-le-code
+  - >-
+    consola-remplace-console-log-par-un-logger-dev-friendly-avec-niveaux-et-icones
+  - >-
+    custom-exception-classes-nomment-les-erreurs-metier-pour-discrimination-typee
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
   - httpapibuilder-lie-un-handler-effect-a-chaque-endpoint-declare
+  - >-
+    le-centralized-handling-concentre-la-traduction-erreur-transport-en-un-seul-endroit
+  - >-
+    le-pattern-result-encode-l-erreur-dans-le-type-de-retour-pour-forcer-la-gestion
   - le-runtime-effect-ts-injecte-les-layers-dans-le-pipeline-du-serveur-http
+  - le-speedup-10x-de-ts-70-vient-de-go-multi-threading-type-checker-reecrit
+  - pino-est-le-logger-node-le-plus-rapide-via-json-structure-asynchrone
+  - try-catch-impose-un-narrow-manuel-et-ne-documente-rien-dans-la-signature
+  - tsx-execute-typescript-directement-via-esbuild-10x-plus-rapide-que-ts-node
+  - >-
+    validate-first-place-toutes-les-verifications-en-debut-de-fonction-pour-un-code-happy-path-plat
+  - vitest-remplace-jest-avec-api-compatible-et-demarrage-10x-plus-rapide
+  - zod-unifie-validation-runtime-et-types-compile-time-depuis-un-seul-schema
 topics:
   - backend
   - devops

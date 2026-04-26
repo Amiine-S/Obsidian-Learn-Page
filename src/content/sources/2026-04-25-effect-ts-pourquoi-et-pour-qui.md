@@ -24,6 +24,7 @@ related:
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - frontend
 backlinks:
+  - 2026-04-26-exception-handling-patterns-en-typescript
   - effect-ts-fait-la-di-via-des-layers-composables-au-lieu-de-classes-annotees
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
 topics:

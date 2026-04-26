@@ -21,10 +21,16 @@ backlinks:
   - 2026-04-26-clean-architecture-hybride-sans-over-engineering
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - 2026-04-26-programmation-imperative-vs-declarative
+  - 2026-04-27-algos-data-structures-essentiels-en-typescript
+  - big-o-analyse-le-comportement-asymptotique-d-un-algo-en-temps-et-espace
   - clean-architecture-inverse-les-dependances-pour-isoler-le-domaine
+  - dfs-explore-en-profondeur-via-stack-bfs-en-largeur-via-queue
   - l-over-engineering-vient-de-couches-sans-valeur-metier-qui-les-justifie
+  - le-bon-choix-de-structure-de-donnees-depend-des-operations-dominantes
   - le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
+  - quicksort-est-on-log-n-en-moyenne-mais-mergesort-le-garantit-en-pire-cas
+  - recursion-cas-de-base-appel-recursif-sur-sous-probleme-plus-petit
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
   - une-closure-capture-son-environnement-lexical-a-la-creation
