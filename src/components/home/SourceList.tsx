@@ -21,19 +21,15 @@ const PAGE_SIZE = 12
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })
 
-type KindFilter = 'all' | 'source' | 'concept'
-
 export default function SourceList(props: Props) {
   const [active, setActive] = createSignal<Set<string>>(new Set())
-  const [kindFilter, setKindFilter] = createSignal<KindFilter>('all')
+  const [showConcepts, setShowConcepts] = createSignal(true)
   const [shown, setShown] = createSignal(PAGE_SIZE)
   let sentinel: HTMLDivElement | undefined
 
-  const byKind = createMemo(() => {
-    const k = kindFilter()
-    if (k === 'all') return props.items
-    return props.items.filter((i) => i.kind === k)
-  })
+  const byKind = createMemo(() =>
+    showConcepts() ? props.items : props.items.filter((i) => i.kind === 'source')
+  )
 
   const allTopics = createMemo(() => {
     const counts = new Map<string, number>()
@@ -49,7 +45,6 @@ export default function SourceList(props: Props) {
     return byKind().filter((s) => s.topics.some((t) => sel.has(t)))
   })
 
-  const sourceCount = createMemo(() => props.items.filter((i) => i.kind === 'source').length)
   const conceptCount = createMemo(() => props.items.filter((i) => i.kind === 'concept').length)
 
   const visible = createMemo(() => filtered().slice(0, shown()))
@@ -58,7 +53,7 @@ export default function SourceList(props: Props) {
   // Reset pagination quand un filtre change
   createEffect(() => {
     active()
-    kindFilter()
+    showConcepts()
     setShown(PAGE_SIZE)
   })
 
@@ -89,35 +84,19 @@ export default function SourceList(props: Props) {
   return (
     <>
       <section style={{ 'margin-bottom': '2rem' }}>
-        <div class="kind-filter" role="tablist">
-          <button
-            role="tab"
-            type="button"
-            classList={{ active: kindFilter() === 'all' }}
-            aria-selected={kindFilter() === 'all'}
-            onClick={() => setKindFilter('all')}
-          >
-            Tout <span class="kind-filter-count">{props.items.length}</span>
-          </button>
-          <button
-            role="tab"
-            type="button"
-            classList={{ active: kindFilter() === 'source' }}
-            aria-selected={kindFilter() === 'source'}
-            onClick={() => setKindFilter('source')}
-          >
-            Sources <span class="kind-filter-count">{sourceCount()}</span>
-          </button>
-          <button
-            role="tab"
-            type="button"
-            classList={{ active: kindFilter() === 'concept' }}
-            aria-selected={kindFilter() === 'concept'}
-            onClick={() => setKindFilter('concept')}
-          >
-            Concepts <span class="kind-filter-count">{conceptCount()}</span>
-          </button>
-        </div>
+        <label class="ios-toggle">
+          <input
+            type="checkbox"
+            checked={showConcepts()}
+            onChange={(e) => setShowConcepts(e.currentTarget.checked)}
+          />
+          <span class="ios-toggle-track">
+            <span class="ios-toggle-thumb" />
+          </span>
+          <span class="ios-toggle-label">
+            Inclure les concepts <span class="muted">({conceptCount()})</span>
+          </span>
+        </label>
       </section>
 
       <section style={{ 'margin-bottom': '2.5rem' }}>
