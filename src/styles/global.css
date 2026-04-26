@@ -37,7 +37,7 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Layout */
-  --max-w-prose: 68ch;
+  --max-w-prose: 82ch;
   --max-w-wide: 1200px;
   --header-h: 64px;
 }
