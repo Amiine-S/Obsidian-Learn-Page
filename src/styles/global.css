@@ -402,6 +402,7 @@ pre code {
   border: none;
   padding: 0;
   font-size: inherit;
+  color: inherit;
 }
 
 /* Scrollbar custom pour les code blocks */
