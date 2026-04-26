@@ -17,13 +17,24 @@ tags:
 - [[Concept - Une closure capture son environnement lexical à la création]]
 - [[Concept - Un thunk est une fonction qui retarde l'évaluation]]
 
+### Paradigmes — impératif vs déclaratif
+- [[Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi]]
+- [[Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent]]
+
+### Architecture logicielle
+- [[Concept - Clean Architecture inverse les dépendances pour isoler le domaine]]
+- [[Concept - L'over-engineering vient de couches sans valeur métier qui les justifie]]
+- [[Concept - Une archi pragmatique commence par 2 couches et n'en ajoute qu'au besoin]]
+
 ## Sous-domaines
 
 ### Design patterns & idioms
 - 
 
 ### Architecture logicielle (clean, hexagonal, DDD)
-- 
+- [[Concept - Clean Architecture inverse les dépendances pour isoler le domaine]]
+- [[Concept - L'over-engineering vient de couches sans valeur métier qui les justifie]]
+- [[Concept - Une archi pragmatique commence par 2 couches et n'en ajoute qu'au besoin]]
 
 ### Systèmes (mémoire, OS, réseau)
 - 
@@ -32,7 +43,8 @@ tags:
 - 
 
 ### Théorie (types, concurrence, distribué)
-- 
+- [[Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi]]
+- [[Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent]]
 
 ### Performance (profiling, optimisation)
 - 

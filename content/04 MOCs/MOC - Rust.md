@@ -28,10 +28,19 @@ tags:
 ### Outillage
 - [[Concept - Cargo unifie build test doc et lint en un seul outil]]
 
+### Borrowing, références, lifetimes
+- [[Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership]]
+- [[Concept - Une seule référence mutable ou plusieurs immutables règle anti-data-race]]
+- [[Concept - Les lifetimes Rust expriment la durée de validité d'une référence]]
+- [[Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading]]
+
 ## Sous-domaines à explorer
 
 ### Ownership & borrow checker
-- *(à venir : règles de borrowing en détail, lifetimes explicites, `Box`/`Rc`/`Arc`)*
+- [[Concept - Le borrowing Rust permet d'accéder à une valeur sans en prendre l'ownership]]
+- [[Concept - Une seule référence mutable ou plusieurs immutables règle anti-data-race]]
+- [[Concept - Les lifetimes Rust expriment la durée de validité d'une référence]]
+- [[Concept - Box Rc Arc gèrent l'ownership partagé selon le besoin de threading]]
 
 ### Types & traits
 - *(à venir : génériques, `dyn Trait`, derive macros, blanket impls)*

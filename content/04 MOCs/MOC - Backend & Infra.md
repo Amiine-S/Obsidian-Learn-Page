@@ -14,12 +14,16 @@ tags:
 
 ## Concepts clés
 
-- *(à peupler)*
+### Effect-TS HTTP server
+- [[Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end]]
+- [[Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré]]
+- [[Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP]]
 
 ## Sous-domaines
 
 ### API design (REST, GraphQL, gRPC)
-- 
+- [[Concept - HttpApi décrit un serveur Effect-TS comme un schéma typé end-to-end]]
+- [[Concept - HttpApiBuilder lie un handler Effect à chaque endpoint déclaré]]
 
 ### Bases de données (relationnel, NoSQL, vector)
 - 
@@ -38,6 +42,10 @@ tags:
 
 ### Patterns distribués (queues, event-driven, CQRS)
 - 
+
+### Frameworks & DI
+- [[Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP]]
+- [[Concept - Effect-TS fait la DI via des Layers composables au lieu de classes annotées]]
 
 ## Sources de référence
 
