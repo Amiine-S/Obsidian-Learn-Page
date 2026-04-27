@@ -27,6 +27,7 @@ related:
   - frontend
   - architecture-fondamentaux
 backlinks:
+  - 2026-04-27-javascript-paradigmes-fonctionnels-et-mecanismes-runtime
   - l-event-loop-traite-les-microtasks-avant-chaque-rendu-et-entre-macrotasks
   - la-chaine-de-prototypes-structure-l-heritage-en-javascript
   - le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs
@@ -403,5 +404,5 @@ Le reste (Symbols, Generators, Proxies, WeakRef) — utile à connaître, mais u
 
 <a class="wikilink" href="/Obsidian-Learn-Page/mocs/frontend" data-wiki-title="MOC - Frontend" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation">MOC - Frontend</a>
 
-<a class="wikilink" href="/Obsidian-Learn-Page/mocs/architecture-fondamentaux" data-wiki-title="MOC - Architecture &amp; Fondamentaux" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation">MOC - Architecture &amp; Fondamentaux</a>
+<a class="wikilink" href="/Obsidian-Learn-Page/mocs/architecture-fondamentaux" data-wiki-title="MOC - Architecture &amp; Fondamentaux" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation - Concept - Le currying transforme une fonction n-aire en chaîne unaire - Concept - La composition de fon…">MOC - Architecture &amp; Fondamentaux</a>
 

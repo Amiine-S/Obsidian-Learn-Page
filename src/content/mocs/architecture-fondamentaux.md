@@ -7,10 +7,18 @@ title: MOC - Architecture & Fondamentaux
 slug: architecture-fondamentaux
 excerpt: >-
   - Concept - Une closure capture son environnement lexical à la création -
-  Concept - Un thunk est une fonction qui retarde l'évaluation
+  Concept - Un thunk est une fonction qui retarde l'évaluation - Concept - Le
+  currying transforme une fonction n-aire en chaîne unaire - Concept - La
+  composition de fonctions chaîne des transformations en pip
 related:
   - une-closure-capture-son-environnement-lexical-a-la-creation
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
+  - le-currying-transforme-une-fonction-n-aire-en-chaine-unaire
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
+  - les-generators-produisent-des-valeurs-a-la-demande-avec-yield
+  - la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques
+  - typescript-sacrifie-le-soundness-pour-la-praticite
+  - les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
   - le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent
   - clean-architecture-inverse-les-dependances-pour-isoler-le-domaine
@@ -22,15 +30,22 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - 2026-04-26-programmation-imperative-vs-declarative
   - 2026-04-27-algos-data-structures-essentiels-en-typescript
+  - 2026-04-27-javascript-paradigmes-fonctionnels-et-mecanismes-runtime
+  - 2026-04-27-typescript-types-avances-de-la-variance-aux-hkt
   - big-o-analyse-le-comportement-asymptotique-d-un-algo-en-temps-et-espace
   - clean-architecture-inverse-les-dependances-pour-isoler-le-domaine
   - dfs-explore-en-profondeur-via-stack-bfs-en-largeur-via-queue
   - l-over-engineering-vient-de-couches-sans-valeur-metier-qui-les-justifie
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
+  - la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques
   - le-bon-choix-de-structure-de-donnees-depend-des-operations-dominantes
+  - le-currying-transforme-une-fonction-n-aire-en-chaine-unaire
   - le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent
+  - les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
   - quicksort-est-on-log-n-en-moyenne-mais-mergesort-le-garantit-en-pire-cas
   - recursion-cas-de-base-appel-recursif-sur-sous-probleme-plus-petit
+  - typescript-sacrifie-le-soundness-pour-la-praticite
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - une-archi-pragmatique-commence-par-2-couches-et-n-en-ajoute-qu-au-besoin
   - une-closure-capture-son-environnement-lexical-a-la-creation
@@ -46,6 +61,14 @@ topics:
 ### Concepts FP / fonctionnels
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/une-closure-capture-son-environnement-lexical-a-la-creation" data-wiki-title="Concept - Une closure capture son environnement lexical à la création" data-wiki-preview="Une closure est une fonction qui **se souvient** des variables de son scope englobant **au moment où elle a été définie** — et continue d'y accéder même quand le scope parent a fini son exécution.">Concept - Une closure capture son environnement lexical à la création</a>
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/un-thunk-est-une-fonction-qui-retarde-l-evaluation" data-wiki-title="Concept - Un thunk est une fonction qui retarde l'évaluation" data-wiki-preview="Un thunk est **une fonction sans argument** dont le seul rôle est d'**emballer un calcul ou un effet pour qu'il soit exécuté plus tard** — pas maintenant, à la demande de l'appelant.">Concept - Un thunk est une fonction qui retarde l'évaluation</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/le-currying-transforme-une-fonction-n-aire-en-chaine-unaire" data-wiki-title="Concept - Le currying transforme une fonction n-aire en chaîne unaire" data-wiki-preview="Le **currying** transforme `f(a, b, c)` en `f(a)(b)(c)` — une chaîne de fonctions à un seul argument — afin de permettre la **préapplication partielle** des arguments et la **composition** dans des pipelines fonctionnels.">Concept - Le currying transforme une fonction n-aire en chaîne unaire</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/la-composition-de-fonctions-chaine-des-transformations-en-pipeline" data-wiki-title="Concept - La composition de fonctions chaîne des transformations en pipeline" data-wiki-preview="**Composer**, c'est combiner deux ou plusieurs fonctions de sorte que la **sortie de l'une devienne l'entrée de la suivante** — `compose(f, g)(x) = f(g(x))` ou plus lisiblement `pipe(x, g, f)` — afin de modéliser un programme comme un **pip…">Concept - La composition de fonctions chaîne des transformations en pipeline</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-generators-produisent-des-valeurs-a-la-demande-avec-yield" data-wiki-title="Concept - Les generators produisent des valeurs à la demande avec yield" data-wiki-preview="Une fonction **generator** (`function*`) produit une suite de valeurs **paresseusement** : chaque `yield` met l'exécution en pause et la reprend au prochain `next()`, ce qui permet de modéliser des séquences potentiellement **infinies**, de…">Concept - Les generators produisent des valeurs à la demande avec yield</a>
+
+### Théorie des types
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques" data-wiki-title="Concept - La variance décrit comment les sous-types se propagent dans les génériques" data-wiki-preview="La **variance** est la règle qui décide, **quand `Cat &lt;: Animal`, si `F&lt;Cat&gt;` est un sous-type de `F&lt;Animal&gt;`** — selon que `T` est utilisé en **sortie** (covariant), en **entrée** (contravariant) ou aux deux (invariant).">Concept - La variance décrit comment les sous-types se propagent dans les génériques</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/typescript-sacrifie-le-soundness-pour-la-praticite" data-wiki-title="Concept - TypeScript sacrifie le soundness pour la praticité" data-wiki-preview="**Sound** signifie &quot;si le programme type-check, il ne plante pas au runtime sur un type&quot; — TypeScript est **délibérément unsound** : `any`, covariance des arrays, bivariance des méthodes, casts non vérifiés, et plus encore — pour rester **e…">Concept - TypeScript sacrifie le soundness pour la praticité</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme" data-wiki-title="Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même" data-wiki-preview="Un **Higher-Kinded Type (HKT)** est un type qui prend en argument **un autre constructeur de type** plutôt qu'un type concret — `F&lt;_&gt;` au lieu de `T` — ce qui permet de définir des abstractions comme `Functor&lt;F&gt;` ou `Monad&lt;F&gt;` qui marchent…">Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même</a>
 
 ### Paradigmes — impératif vs déclaratif
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi" data-wiki-title="Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi" data-wiki-preview="La distinction **impératif vs déclaratif** est une question de **niveau d'abstraction** : un programme impératif décrit **les étapes** à exécuter (mutations, séquence, contrôle de flux), un programme déclaratif décrit **le résultat voulu**…">Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi</a>
@@ -75,6 +98,9 @@ topics:
 ### Théorie (types, concurrence, distribué)
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi" data-wiki-title="Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi" data-wiki-preview="La distinction **impératif vs déclaratif** est une question de **niveau d'abstraction** : un programme impératif décrit **les étapes** à exécuter (mutations, séquence, contrôle de flux), un programme déclaratif décrit **le résultat voulu**…">Concept - Programmation impérative décrit comment quand le déclaratif décrit quoi</a>
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent" data-wiki-title="Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent" data-wiki-preview="Programmer en déclaratif ne fait pas disparaître la complexité de l'exécution — ça **la déplace** vers le moteur (compilateur, runtime, query planner) — donc plus le moteur est puissant, plus le déclaratif est utilisable, et plus son **abst…">Concept - Le déclaratif transfère la complexité d'exécution au moteur sous-jacent</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques" data-wiki-title="Concept - La variance décrit comment les sous-types se propagent dans les génériques" data-wiki-preview="La **variance** est la règle qui décide, **quand `Cat &lt;: Animal`, si `F&lt;Cat&gt;` est un sous-type de `F&lt;Animal&gt;`** — selon que `T` est utilisé en **sortie** (covariant), en **entrée** (contravariant) ou aux deux (invariant).">Concept - La variance décrit comment les sous-types se propagent dans les génériques</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/typescript-sacrifie-le-soundness-pour-la-praticite" data-wiki-title="Concept - TypeScript sacrifie le soundness pour la praticité" data-wiki-preview="**Sound** signifie &quot;si le programme type-check, il ne plante pas au runtime sur un type&quot; — TypeScript est **délibérément unsound** : `any`, covariance des arrays, bivariance des méthodes, casts non vérifiés, et plus encore — pour rester **e…">Concept - TypeScript sacrifie le soundness pour la praticité</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme" data-wiki-title="Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même" data-wiki-preview="Un **Higher-Kinded Type (HKT)** est un type qui prend en argument **un autre constructeur de type** plutôt qu'un type concret — `F&lt;_&gt;` au lieu de `T` — ce qui permet de définir des abstractions comme `Functor&lt;F&gt;` ou `Monad&lt;F&gt;` qui marchent…">Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même</a>
 
 ### Performance (profiling, optimisation)
 - 

@@ -29,6 +29,7 @@ related:
   - backend-infra
 backlinks:
   - 2026-04-26-5-packages-node-a-inclure-dans-tout-projet-2026
+  - typescript-sacrifie-le-soundness-pour-la-praticite
 topics:
   - backend
   - typescript

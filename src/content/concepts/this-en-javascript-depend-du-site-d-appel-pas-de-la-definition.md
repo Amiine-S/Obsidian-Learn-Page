@@ -29,6 +29,7 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - l-event-loop-traite-les-microtasks-avant-chaque-rendu-et-entre-macrotasks
   - la-chaine-de-prototypes-structure-l-heritage-en-javascript
+  - le-global-execution-context-est-l-environnement-racine-de-tout-module
   - le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs
   - >-
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses

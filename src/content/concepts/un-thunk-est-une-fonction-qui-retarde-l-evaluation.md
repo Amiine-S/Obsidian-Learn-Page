@@ -29,7 +29,9 @@ backlinks:
   - >-
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
   - l-event-loop-traite-les-microtasks-avant-chaque-rendu-et-entre-macrotasks
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
+  - les-generators-produisent-des-valeurs-a-la-demande-avec-yield
   - une-closure-capture-son-environnement-lexical-a-la-creation
   - architecture-fondamentaux
   - frontend
@@ -123,5 +125,5 @@ Effect-TS pousse cette idée au maximum : **TOUT** ton programme devient un thun
 
 ## MOC
 
-<a class="wikilink" href="/Obsidian-Learn-Page/mocs/architecture-fondamentaux" data-wiki-title="MOC - Architecture &amp; Fondamentaux" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation">MOC - Architecture &amp; Fondamentaux</a> · <a class="wikilink" href="/Obsidian-Learn-Page/mocs/frontend" data-wiki-title="MOC - Frontend" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation">MOC - Frontend</a>
+<a class="wikilink" href="/Obsidian-Learn-Page/mocs/architecture-fondamentaux" data-wiki-title="MOC - Architecture &amp; Fondamentaux" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation - Concept - Le currying transforme une fonction n-aire en chaîne unaire - Concept - La composition de fon…">MOC - Architecture &amp; Fondamentaux</a> · <a class="wikilink" href="/Obsidian-Learn-Page/mocs/frontend" data-wiki-title="MOC - Frontend" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation">MOC - Frontend</a>
 

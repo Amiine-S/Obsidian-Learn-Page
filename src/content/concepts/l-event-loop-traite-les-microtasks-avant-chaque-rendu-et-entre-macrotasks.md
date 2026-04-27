@@ -30,6 +30,7 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - >-
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses
+  - les-generators-produisent-des-valeurs-a-la-demande-avec-yield
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - frontend
 topics:
