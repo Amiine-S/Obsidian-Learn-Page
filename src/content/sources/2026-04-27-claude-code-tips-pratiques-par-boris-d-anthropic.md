@@ -1,17 +1,18 @@
 ---
-date: 2026-04-27T00:00:00.000Z
-type: source
-source: Talk Anthropic - Boris (créateur de Claude Code)
+title: 'Claude Code : tips pratiques par Boris (Anthropic)'
+author: Boris (Anthropic) — synthèse Claude
+digested: 2026-04-27T00:00:00.000Z
+format: talk
 domain: ai
+level: intermediate
 topics:
   - ai
 tags:
-  - claude-code
-  - ai-coding
-  - agentic
-  - tooling
-  - anthropic
-title: 'Claude Code : tips pratiques par Boris (Anthropic)'
+  - type/source
+  - status/done
+  - domain/ai
+  - format/talk
+  - level/intermediate
 slug: 2026-04-27-claude-code-tips-pratiques-par-boris-d-anthropic
 excerpt: >-
   Boris, membre du staff technique chez Anthropic et créateur de Claude Code, a
