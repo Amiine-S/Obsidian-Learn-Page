@@ -1,7 +1,7 @@
 ---
 title: 'Rust — borrowing, références et lifetimes en pratique'
 author: Claude (synthèse)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:38:08.983Z'
 format: doc
 domain: rust
 level: beginner

@@ -1,7 +1,7 @@
 ---
 title: JavaScript — paradigmes fonctionnels et mécanismes runtime
 author: Claude (synthèse)
-digested: 2026-04-27T00:00:00.000Z
+digested: '2026-04-27T06:37:17.262Z'
 format: doc
 domain: frontend
 level: intermediate

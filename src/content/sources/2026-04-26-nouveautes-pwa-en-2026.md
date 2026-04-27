@@ -2,7 +2,7 @@
 title: Nouveautés PWA en 2026
 url: 'https://progressier.com/pwa-capabilities'
 author: synthèse Claude (sources web)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:49:52.529Z'
 format: doc
 domain: frontend
 level: intermediate

@@ -480,6 +480,38 @@ function transformWikilinks(body: string, indexByKey: Map<string, IndexEntry>): 
   return body.endsWith('\n') ? transformed : transformed.replace(/\n$/, '')
 }
 
+/**
+ * Si le frontmatter contient une date sans heure (00:00:00 UTC, typique d'un
+ * `digested: 2026-04-27` YAML) ET que cette date correspond au jour du mtime,
+ * on remplace par le mtime exact pour capturer l'heure de digestion réelle.
+ *
+ * Le check sameDay préserve les dates passées : si l'user édite un fichier
+ * digéré il y a une semaine pour un typo, on garde la date originale.
+ */
+function maybeFillTimeFromMtime(
+  fm: Record<string, unknown>,
+  field: string,
+  mtime: Date
+): void {
+  const existing = fm[field]
+  if (!existing) return
+  const d = existing instanceof Date ? existing : new Date(existing as string)
+  if (isNaN(d.getTime())) return
+  const isMidnightUTC =
+    d.getUTCHours() === 0 &&
+    d.getUTCMinutes() === 0 &&
+    d.getUTCSeconds() === 0 &&
+    d.getUTCMilliseconds() === 0
+  if (!isMidnightUTC) return
+  const sameDayAsMtime =
+    d.getUTCFullYear() === mtime.getUTCFullYear() &&
+    d.getUTCMonth() === mtime.getUTCMonth() &&
+    d.getUTCDate() === mtime.getUTCDate()
+  if (sameDayAsMtime) {
+    fm[field] = mtime.toISOString()
+  }
+}
+
 async function loadEntry(absPath: string): Promise<VaultEntry | null> {
   const raw = await readFile(absPath, 'utf-8')
   const parsed = matter(raw)
@@ -488,6 +520,9 @@ async function loadEntry(absPath: string): Promise<VaultEntry | null> {
   if (isDraft(fm)) return null
 
   const collection = detectCollection(absPath)
+  const stats = await stat(absPath)
+  if (collection === 'sources') maybeFillTimeFromMtime(fm, 'digested', stats.mtime)
+  else if (collection === 'concepts') maybeFillTimeFromMtime(fm, 'created', stats.mtime)
   const filenameWithExt = absPath.split(sep).pop()!
   const filename = filenameWithExt.replace(/\.md$/i, '')
   const filenameKey = filename.toLowerCase().trim()

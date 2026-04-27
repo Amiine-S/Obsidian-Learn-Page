@@ -1,7 +1,7 @@
 ---
 title: 'Claude Code : tips pratiques par Boris (Anthropic)'
 author: Boris (Anthropic) — synthèse Claude
-digested: 2026-04-27T00:00:00.000Z
+digested: '2026-04-27T20:14:06.889Z'
 format: talk
 domain: ai
 level: intermediate

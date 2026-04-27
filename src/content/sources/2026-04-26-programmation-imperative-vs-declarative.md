@@ -1,7 +1,7 @@
 ---
 title: Programmation impérative vs déclarative
 author: Claude (synthèse)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:44:31.357Z'
 format: doc
 domain: architecture
 level: beginner

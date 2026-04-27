@@ -1,7 +1,7 @@
 ---
 title: Closure et Thunk en JavaScript
 author: Claude (synthèse)
-digested: 2026-04-25T00:00:00.000Z
+digested: '2026-04-25T21:49:37.199Z'
 format: doc
 domain: frontend
 level: intermediate

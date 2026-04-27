@@ -1,7 +1,7 @@
 ---
 title: Introduction à Rust pour un dev TypeScript
 author: Claude (synthèse)
-digested: 2026-04-25T00:00:00.000Z
+digested: '2026-04-25T12:59:35.267Z'
 format: doc
 domain: rust
 level: beginner

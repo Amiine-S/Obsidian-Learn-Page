@@ -1,7 +1,7 @@
 ---
 title: Clean Architecture hybride — sans over-engineering
 author: Claude (synthèse)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:46:37.429Z'
 format: doc
 domain: architecture
 level: intermediate

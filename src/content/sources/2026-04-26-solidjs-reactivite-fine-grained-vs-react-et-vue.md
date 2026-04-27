@@ -2,7 +2,7 @@
 title: SolidJS — réactivité fine-grained vs React et Vue
 url: 'https://www.solidjs.com/'
 author: Ryan Carniato (créateur) · synthèse Claude
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:34:57.361Z'
 format: doc
 domain: frontend
 level: intermediate

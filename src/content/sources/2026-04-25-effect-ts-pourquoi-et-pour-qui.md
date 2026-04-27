@@ -2,7 +2,7 @@
 title: Effect-TS — pourquoi et pour qui
 url: 'https://effect.website/'
 author: Claude (synthèse) + Effect-TS team
-digested: 2026-04-25T00:00:00.000Z
+digested: '2026-04-25T21:51:27.340Z'
 format: doc
 domain: frontend
 level: intermediate

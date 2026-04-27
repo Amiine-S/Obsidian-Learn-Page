@@ -1,5 +1,5 @@
 ---
-created: 2026-04-27T00:00:00.000Z
+created: '2026-04-27T06:41:46.174Z'
 domain: frontend
 level: intermediate
 tags:

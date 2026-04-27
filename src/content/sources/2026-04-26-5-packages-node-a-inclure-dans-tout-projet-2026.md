@@ -4,7 +4,7 @@ url: >-
   https://medium.com/skillstuff/dont-start-another-node-js-project-without-these-5-packages-e6e00ae40122
 author: CodeByUmar (article original) + sélection Claude
 published: 2026-03
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T21:57:33.954Z'
 format: article
 domain: backend
 level: beginner

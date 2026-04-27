@@ -1,7 +1,7 @@
 ---
 title: JavaScript en profondeur — concepts mal connus
 author: Claude (synthèse)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:53:09.179Z'
 format: doc
 domain: frontend
 level: intermediate

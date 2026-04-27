@@ -2,7 +2,7 @@
 title: Effect-TS — premier serveur HTTP avec @effect/platform
 url: 'https://effect.website/docs/platform/http-server'
 author: Effect-TS team · synthèse Claude
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T15:41:33.366Z'
 format: doc
 domain: backend
 level: intermediate

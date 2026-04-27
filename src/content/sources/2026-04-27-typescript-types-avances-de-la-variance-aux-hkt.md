@@ -1,7 +1,7 @@
 ---
 title: TypeScript types avancés — de la variance aux Higher-Kinded Types
 author: Claude (synthèse)
-digested: 2026-04-27T00:00:00.000Z
+digested: '2026-04-27T06:45:28.504Z'
 format: doc
 domain: frontend
 level: advanced

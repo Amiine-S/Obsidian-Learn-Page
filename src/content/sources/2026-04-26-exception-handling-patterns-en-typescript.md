@@ -1,7 +1,7 @@
 ---
 title: Exception Handling Patterns en TypeScript
 author: Claude (synthèse)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T21:53:56.974Z'
 format: doc
 domain: backend
 level: intermediate

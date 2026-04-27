@@ -1,5 +1,5 @@
 ---
-created: 2026-04-25T00:00:00.000Z
+created: '2026-04-25T13:01:28.078Z'
 domain: rust
 level: beginner
 tags:

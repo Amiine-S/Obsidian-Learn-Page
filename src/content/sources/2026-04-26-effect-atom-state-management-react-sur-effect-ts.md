@@ -2,7 +2,7 @@
 title: Effect Atom — state management React sur Effect-TS
 url: 'https://www.effective.software/courses/effect-atom/introduction'
 author: Hemanta Sundaray (cours) · Tim Smart (lib)
-digested: 2026-04-26T00:00:00.000Z
+digested: '2026-04-26T09:02:10.456Z'
 format: course
 domain: frontend
 level: intermediate
