@@ -83,17 +83,17 @@
     "title": "SolidJS — réactivité fine-grained vs React et Vue",
     "excerpt": "1. **SolidJS** est un framework UI créé par **Ryan Carniato**. Syntaxe JSX quasi-identique à React, mais **moteur d'exécution radicalement différent** : pas de Virtual DOM, pas de re-render de composant, mise à jour fine-grained du DOM réel. 2. Le **composant ne s'exécute qu'une"
   },
-  "2026-04-27 - agents ia autonomes open source - architecture brain-muscles et hosting local": {
-    "slug": "2026-04-27-agents-ia-autonomes-open-source-architecture-brain-muscles-et-hosting-local",
-    "collection": "sources",
-    "title": "Agents IA autonomes open source : architecture brain/muscles et hosting local",
-    "excerpt": "Une vidéo d'Alex Finn (créateur YouTube AI) qui synthétise 300h+ d'usage intensif d'**OpenCode** (et de son concurrent **Hermes Agent**), deux agents IA autonomes open source. L'intérêt n'est pas dans les use cases personnels du créateur — peu transférables — mais dans l'**archit"
-  },
   "2026-04-27 - algos & data structures essentiels en typescript": {
     "slug": "2026-04-27-algos-data-structures-essentiels-en-typescript",
     "collection": "sources",
     "title": "Algos & data structures essentiels en TypeScript (cours Frontend Masters)",
     "excerpt": "1. **Big O** : la métrique qui compte. Identifier les boucles imbriquées, le stockage proportionnel à l'input, le coût caché des opérations courantes (concat de strings, push d'array). 2. **Recursion** : la base pour les arbres, les graphes, le divide-and-conquer. Comprendre la s"
+  },
+  "2026-04-27 - architecture brain-muscles pour agents ia autonomes": {
+    "slug": "2026-04-27-architecture-brain-muscles-pour-agents-ia-autonomes",
+    "collection": "sources",
+    "title": "Architecture brain/muscles pour agents IA autonomes",
+    "excerpt": "Utiliser un seul gros modèle (Opus, GPT-5) pour **toutes** les actions d'un agent autonome a deux défauts massifs :"
   },
   "2026-04-27 - claude code - tips pratiques par boris d'anthropic": {
     "slug": "2026-04-27-claude-code-tips-pratiques-par-boris-d-anthropic",
@@ -107,11 +107,41 @@
     "title": "Comment l'IA pense — une histoire en analogies simples",
     "excerpt": "1. Imagine une **immense bibliothèque mentale** où chaque mot, chaque idée, chaque tournure de phrase est rangée à un emplacement précis dans un espace à des milliers de dimensions. Plus deux idées sont proches, plus elles sont voisines de rayonnage. 2. Quand tu écris une questio"
   },
+  "2026-04-27 - hosting local vs vps pour agents ia autonomes": {
+    "slug": "2026-04-27-hosting-local-vs-vps-pour-agents-ia-autonomes",
+    "collection": "sources",
+    "title": "Hosting local vs VPS pour agents IA autonomes",
+    "excerpt": "Tu installes un agent IA autonome (OpenCode, Hermes, ou autre). **Où le faire tourner ?** Le marketing pousse vers les VPS (Hostinger & co sponsorisent quasi tous les YouTubeurs IA). Le bon choix est l'inverse."
+  },
   "2026-04-27 - javascript - paradigmes fonctionnels et mécanismes runtime": {
     "slug": "2026-04-27-javascript-paradigmes-fonctionnels-et-mecanismes-runtime",
     "collection": "sources",
     "title": "JavaScript — paradigmes fonctionnels et mécanismes runtime",
     "excerpt": "1. **Currying** transforme `f(a, b, c)` en `f(a)(b)(c)` — utile en FP / pipeline, dangereux en code applicatif (illisible si abusé). 2. **Composition** chaîne des fonctions pures `g(f(x))` — la base du style \"data → pipeline\" (RxJS, Effect, lodash/fp). 3. **Iterators / Generators"
+  },
+  "2026-04-27 - mission control - dashboard custom pour son agent ia": {
+    "slug": "2026-04-27-mission-control-dashboard-custom-pour-son-agent-ia",
+    "collection": "sources",
+    "title": "Mission Control : dashboard custom pour son agent IA",
+    "excerpt": "Un agent IA autonome accumule rapidement des **artefacts** : tâches en cours, docs générés, prompts sauvegardés, mémoires partielles, fichiers de config, scripts custom, logs. Sans organisation explicite, ça devient un fouillis dans `~/Documents/` ou `~/.config/agent/`."
+  },
+  "2026-04-27 - modèles locaux comme exécuteurs d'agents ia": {
+    "slug": "2026-04-27-modeles-locaux-comme-executeurs-d-agents-ia",
+    "collection": "sources",
+    "title": "Modèles locaux comme exécuteurs d'agents IA",
+    "excerpt": "Si ton agent IA tourne en boucle (scrape toutes les 20 minutes, lit 100 emails par jour, surveille 5 sites de news), facturer chaque appel à Opus ou GPT-5 te coûte **plusieurs milliers de dollars par mois**. Le même volume sur un modèle local : **0 €** au-delà de l'électricité."
+  },
+  "2026-04-27 - multi-agent ia comme stratégie de résilience": {
+    "slug": "2026-04-27-multi-agent-ia-comme-strategie-de-resilience",
+    "collection": "sources",
+    "title": "Multi-agent IA comme stratégie de résilience",
+    "excerpt": "Un agent IA autonome casse régulièrement, surtout après une mise à jour. Config corrompue, dépendance manquante, format de mémoire qui change, prompt système modifié qui ne match plus tes outils custom. Sans intervention, tu perds des heures de productivité par incident."
+  },
+  "2026-04-27 - reverse prompting - laisser l'agent ia suggérer ses propres use cases": {
+    "slug": "2026-04-27-reverse-prompting-laisser-l-agent-ia-suggerer-ses-propres-use-cases",
+    "collection": "sources",
+    "title": "Reverse prompting : laisser l'agent IA suggérer ses propres use cases",
+    "excerpt": "Tu installes un agent IA autonome (OpenCode, Hermes, Claude Code). Tu ouvres le prompt. Tu te retrouves face à un curseur clignotant. **Que fais-tu ?**"
   },
   "2026-04-27 - réduire la mémoire node.js de 40 sans toucher au code": {
     "slug": "2026-04-27-reduire-la-memoire-nodejs-de-40-sans-toucher-au-code",
