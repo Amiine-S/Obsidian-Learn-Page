@@ -261,6 +261,18 @@ const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = 
       /\bACID\b/, /\bMVCC\b/i, /\bCRUD\b/i,
     ],
   },
+  ai: {
+    patterns: [
+      /\bIA\b/, /\bAI\b/, /\bintelligence artificielle\b/i,
+      /\bLLMs?\b/, /\bGPT\b/, /\bClaude\b/i, /\bAnthropic\b/i, /\bChatGPT\b/i,
+      /\bagentic\b/i, /\bagents? IA\b/i, /\bAI agents?\b/i, /\bagentique\b/i,
+      /\bMCP\b/, /\bmodel context protocol\b/i,
+      /\bClaude Code\b/i, /\bCursor\b/i, /\bCopilot\b/i, /\bAI coding\b/i,
+      /\bembeddings?\b/i, /\btransformers?\b/i, /\battention\b/i,
+      /\bprompt engineering\b/i, /\btokens?\b/i, /\binference\b/i,
+      /\bfine[- ]tuning\b/i, /\bRAG\b/, /\bvector (db|database|store)\b/i,
+    ],
+  },
 }
 
 /**
@@ -318,8 +330,7 @@ const TOPIC_ALIASES: Record<string, string> = {
   vue: 'frontend',
   svelte: 'frontend',
   javascript: 'frontend',
-  ai: 'backend',
-  ia: 'backend',
+  ia: 'ai',
 }
 
 function normalizeTopic(t: string): string | null {

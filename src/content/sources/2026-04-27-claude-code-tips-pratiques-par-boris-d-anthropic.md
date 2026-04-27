@@ -2,6 +2,9 @@
 date: 2026-04-27T00:00:00.000Z
 type: source
 source: Talk Anthropic - Boris (créateur de Claude Code)
+domain: ai
+topics:
+  - ai
 tags:
   - claude-code
   - ai-coding

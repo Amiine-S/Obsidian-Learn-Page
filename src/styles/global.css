@@ -748,7 +748,7 @@ h4:hover .heading-anchor {
   white-space: nowrap;
 }
 
-/* Topics — palette des 9 topics canoniques */
+/* Topics — palette des 10 topics canoniques */
 .badge[data-topic='frontend']    { background: #a855f7; }
 .badge[data-topic='backend']     { background: #2563eb; }
 .badge[data-topic='typescript']  { background: #3178c6; }
@@ -758,6 +758,7 @@ h4:hover .heading-anchor {
 .badge[data-topic='devops']      { background: #84cc16; color: #1f1d1a; }
 .badge[data-topic='architecture']{ background: #b45309; }
 .badge[data-topic='database']    { background: #0d9488; }
+.badge[data-topic='ai']          { background: #dc2626; }
 
 .badge-soft {
   display: inline-flex;
@@ -872,6 +873,7 @@ h4:hover .heading-anchor {
 .filter-pill[data-topic='devops'] .filter-pill-dot       { background: #84cc16; }
 .filter-pill[data-topic='architecture'] .filter-pill-dot { background: #b45309; }
 .filter-pill[data-topic='database'] .filter-pill-dot     { background: #0d9488; }
+.filter-pill[data-topic='ai'] .filter-pill-dot           { background: #dc2626; }
 
 .filter-pill.active .filter-pill-dot {
   background: white !important;

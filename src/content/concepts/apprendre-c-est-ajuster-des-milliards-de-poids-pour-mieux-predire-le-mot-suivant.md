@@ -39,7 +39,7 @@ backlinks:
   - >-
     un-llm-est-entraine-a-predire-le-prochain-mot-et-c-est-de-cette-tache-que-nait-tout-le-reste
 topics:
-  - backend
+  - ai
 ---
 ## Idée en une phrase
 

@@ -43,7 +43,7 @@ backlinks:
   - >-
     les-llm-generent-token-par-token-chacun-conditionne-sur-le-contexte-precedent
 topics:
-  - backend
+  - ai
 ---
 ## Idée en une phrase
 
