@@ -89,6 +89,12 @@
     "title": "Algos & data structures essentiels en TypeScript (cours Frontend Masters)",
     "excerpt": "1. **Big O** : la métrique qui compte. Identifier les boucles imbriquées, le stockage proportionnel à l'input, le coût caché des opérations courantes (concat de strings, push d'array). 2. **Recursion** : la base pour les arbres, les graphes, le divide-and-conquer. Comprendre la s"
   },
+  "2026-04-27 - claude code - tips pratiques par boris d'anthropic": {
+    "slug": "2026-04-27-claude-code-tips-pratiques-par-boris-d-anthropic",
+    "collection": "sources",
+    "title": "Claude Code : tips pratiques par Boris (Anthropic)",
+    "excerpt": "Boris, membre du staff technique chez Anthropic et créateur de Claude Code, a livré un talk dense en conseils pratiques sur la manière d'utiliser efficacement l'outil. Pas d'historique, pas de théorie : du concret, des prompts, des workflows. Voici la synthèse."
+  },
   "2026-04-27 - comment l'ia pense — une histoire en analogies simples": {
     "slug": "2026-04-27-comment-l-ia-pense-une-histoire-en-analogies-simples",
     "collection": "sources",
