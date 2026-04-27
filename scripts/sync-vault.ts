@@ -164,7 +164,8 @@ const TOPIC_RULES: Record<string, { patterns: RegExp[]; implies?: string[] }> = 
   frontend: {
     patterns: [
       // génériques (resserré : pas \bUI\b seul, pas \bcomposant\b / \bcomponent\b seuls)
-      /\bfrontend\b/i, /\bfront[- ]end\b/i, /\binterface utilisateur\b/i,
+      // negative lookahead : "Frontend Masters" est un nom de plateforme, pas un signal frontend
+      /\bfrontend\b(?!\s+masters)/i, /\bfront[- ]end\b(?!\s+masters)/i, /\binterface utilisateur\b/i,
       /\bdesign system\b/i, /\bSPA\b/, /\bSSR\b/, /\bCSS-in-JS\b/i,
       // frameworks JS UI (folded)
       /\breact\b/i, /\bJSX\b/, /\buseState\b/, /\buseEffect\b/, /\buseMemo\b/, /\bvirtual dom\b/i, /\bnext\.?js\b/i,

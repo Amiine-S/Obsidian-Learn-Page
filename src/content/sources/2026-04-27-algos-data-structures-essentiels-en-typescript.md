@@ -35,7 +35,6 @@ backlinks:
   - recursion-cas-de-base-appel-recursif-sur-sous-probleme-plus-petit
 topics:
   - architecture
-  - frontend
   - typescript
 ---
 ## Pourquoi cette source
