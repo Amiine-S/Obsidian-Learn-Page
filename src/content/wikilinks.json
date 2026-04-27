@@ -95,6 +95,12 @@
     "title": "Comment l'IA pense — une histoire en analogies simples",
     "excerpt": "1. Imagine une **immense bibliothèque mentale** où chaque mot, chaque idée, chaque tournure de phrase est rangée à un emplacement précis dans un espace à des milliers de dimensions. Plus deux idées sont proches, plus elles sont voisines de rayonnage. 2. Quand tu écris une questio"
   },
+  "2026-04-27 - javascript - paradigmes fonctionnels et mécanismes runtime": {
+    "slug": "2026-04-27-javascript-paradigmes-fonctionnels-et-mecanismes-runtime",
+    "collection": "sources",
+    "title": "JavaScript — paradigmes fonctionnels et mécanismes runtime",
+    "excerpt": "1. **Currying** transforme `f(a, b, c)` en `f(a)(b)(c)` — utile en FP / pipeline, dangereux en code applicatif (illisible si abusé). 2. **Composition** chaîne des fonctions pures `g(f(x))` — la base du style \"data → pipeline\" (RxJS, Effect, lodash/fp). 3. **Iterators / Generators"
+  },
   "2026-04-27 - réduire la mémoire node.js de 40 sans toucher au code": {
     "slug": "2026-04-27-reduire-la-memoire-nodejs-de-40-sans-toucher-au-code",
     "collection": "sources",
@@ -106,6 +112,12 @@
     "collection": "sources",
     "title": "TypeScript 7.0 Beta — le compilateur Go natif",
     "excerpt": "1. **Compilateur réécrit en Go** : la nouvelle implémentation tourne en binaire natif via `tsgo` (à terme renommé `tsc`). Le speedup mesuré est constant : **5× à 15×** selon les workloads, **~10× moyenne**. 2. **Sémantique TypeScript identique** : 7.0 hérite des defaults et depre"
+  },
+  "2026-04-27 - typescript types avancés - de la variance aux hkt": {
+    "slug": "2026-04-27-typescript-types-avances-de-la-variance-aux-hkt",
+    "collection": "sources",
+    "title": "TypeScript types avancés — de la variance aux Higher-Kinded Types",
+    "excerpt": "1. **Variance** : si `Cat <: Animal`, est-ce que `Container<Cat> <: Container<Animal>` ? Ça dépend de la **position** de `T` (input = contravariant, output = covariant). C'est le coeur des erreurs de génériques. 2. **Types conditionnels** (`T extends U ? X : Y`) : du **if/else**"
   },
   "concept - --max-old-space-size limite la heap v8 et force un comportement oom contrôlé": {
     "slug": "max-old-space-size-limite-la-heap-v8-et-force-un-comportement-oom-controle",
@@ -275,12 +287,26 @@
     "oneLiner": "En JS, **chaque objet pointe vers un autre objet** via `__proto__` (son prototype) — quand on accède à une propriété qui n'existe pas, le moteur **remonte la chaîne** jusqu'à la trouver ou jusqu'à `null` — c'est ce mécanisme de \"**prototype chain**\" qui implémente tout l'héritage, y compris derrière les `class` ES6.",
     "excerpt": "Les `class` ES6 sont du **sucre syntaxique** au-dessus du système de prototypes, qui existe depuis 1995. Comprendre la chaîne de prototypes te permet : - De lire correctement n'importe quel code JS classique (jQuery, libs anciennes) - De comprendre `Object.create`, `Object.getPro"
   },
+  "concept - la composition de fonctions chaîne des transformations en pipeline": {
+    "slug": "la-composition-de-fonctions-chaine-des-transformations-en-pipeline",
+    "collection": "concepts",
+    "title": "Concept - La composition de fonctions chaîne des transformations en pipeline",
+    "oneLiner": "**Composer**, c'est combiner deux ou plusieurs fonctions de sorte que la **sortie de l'une devienne l'entrée de la suivante** — `compose(f, g)(x) = f(g(x))` ou plus lisiblement `pipe(x, g, f)` — afin de modéliser un programme comme un **pipeline de transformations** sur la donnée.",
+    "excerpt": "C'est le pattern qui donne sa lisibilité à RxJS, Effect-TS, lodash/fp, et toute la programmation \"data-flow\". Comprendre la composition te permet : - De lire un pipeline `pipe(x, f, g, h)` comme une recette ligne par ligne - D'écrire du code **plat** plutôt qu'imbriqué - D'isoler"
+  },
   "concept - la réactivité fine-grained met à jour seulement le dom affecté": {
     "slug": "la-reactivite-fine-grained-met-a-jour-seulement-le-dom-affecte",
     "collection": "concepts",
     "title": "Concept - La réactivité fine-grained met à jour seulement le DOM affecté",
     "oneLiner": "La **réactivité fine-grained** consiste à attacher chaque morceau du DOM à ses dépendances réactives précises, de sorte qu'un changement d'état ne déclenche que la mise à jour des nœuds DOM qui dépendent réellement de cette donnée — pas du composant entier, pas d'un sous-arbre, **juste le nœud**.",
     "excerpt": "C'est l'idée centrale qui sépare les frameworks dits \"à signals\" (Solid, Angular ≥17, Vue 3+, Preact Signals, Qwik) du modèle Virtual DOM \"coarse-grained\" (React classique)."
+  },
+  "concept - la variance décrit comment les sous-types se propagent dans les génériques": {
+    "slug": "la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques",
+    "collection": "concepts",
+    "title": "Concept - La variance décrit comment les sous-types se propagent dans les génériques",
+    "oneLiner": "La **variance** est la règle qui décide, **quand `Cat <: Animal`, si `F<Cat>` est un sous-type de `F<Animal>`** — selon que `T` est utilisé en **sortie** (covariant), en **entrée** (contravariant) ou aux deux (invariant).",
+    "excerpt": "Comprendre la variance, c'est comprendre **80% des erreurs cryptiques** de TypeScript : - `Type 'string[]' is not assignable to type '(string | number)[]'` ← invariance - `Argument of type 'X' is not assignable to parameter of type 'Y'` sur des callbacks ← contravariance - `stric"
   },
   "concept - le bon choix de structure de données dépend des opérations dominantes": {
     "slug": "le-bon-choix-de-structure-de-donnees-depend-des-operations-dominantes",
@@ -303,6 +329,13 @@
     "oneLiner": "Plutôt que d'avoir des `try/catch` partout dans les controllers et services, **un seul endroit** (middleware Express, error boundary React, `process.on('uncaughtException')` Node) catch toutes les erreurs et les **traduit** vers le transport (HTTP status, UI fallback, log) — le code métier reste pur, ne sait rien du format de réponse.",
     "excerpt": "Sans centralized handling, chaque controller doit traduire l'erreur en réponse : ```typescript app.get('/users/:id', async (req, res) => { try { const user = await getUser(req.params.id) res.json(user) } catch (e) { if (e instanceof UserNotFoundError) return res.status(404).json("
   },
+  "concept - le currying transforme une fonction n-aire en chaîne unaire": {
+    "slug": "le-currying-transforme-une-fonction-n-aire-en-chaine-unaire",
+    "collection": "concepts",
+    "title": "Concept - Le currying transforme une fonction n-aire en chaîne unaire",
+    "oneLiner": "Le **currying** transforme `f(a, b, c)` en `f(a)(b)(c)` — une chaîne de fonctions à un seul argument — afin de permettre la **préapplication partielle** des arguments et la **composition** dans des pipelines fonctionnels.",
+    "excerpt": "C'est le pattern qui sous-tend **Ramda**, **lodash/fp**, **Effect-TS**, **fp-ts** et indirectement **RxJS**. Comprendre le currying te permet : - De lire ces libs sans confusion (pourquoi `R.map(fn)(arr)` au lieu de `arr.map(fn)`) - D'écrire des fonctions configurables en pipelin"
+  },
   "concept - le déclaratif transfère la complexité d'exécution au moteur sous-jacent": {
     "slug": "le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent",
     "collection": "concepts",
@@ -310,12 +343,26 @@
     "oneLiner": "Programmer en déclaratif ne fait pas disparaître la complexité de l'exécution — ça **la déplace** vers le moteur (compilateur, runtime, query planner) — donc plus le moteur est puissant, plus le déclaratif est utilisable, et plus son **abstraction peut fuir** quand le moteur prend de mauvaises décisions.",
     "excerpt": "C'est le piège classique du déclaratif \"naïf\" : on imagine qu'écrire en haut niveau supprime les considérations de perf, d'allocation, de scheduling. **Ce n'est pas vrai.** Quelque part, **quelqu'un** doit décider comment exécuter ton intent. En déclaratif, ce quelqu'un est le mo"
   },
+  "concept - le global execution context est l'environnement racine de tout module": {
+    "slug": "le-global-execution-context-est-l-environnement-racine-de-tout-module",
+    "collection": "concepts",
+    "title": "Concept - Le Global Execution Context est l'environnement racine de tout module",
+    "oneLiner": "Quand un script ou un module commence à s'exécuter, le moteur crée un **Global Execution Context** : l'environnement racine où vivent les déclarations top-level, où `this` a une valeur particulière (`undefined` en module, `globalThis` en script), et où l'ordre des imports/instructions détermine ce qui est disponible quand.",
+    "excerpt": "Le GEC est invisible la plupart du temps mais il explique : - Pourquoi `this` top-level vaut `undefined` dans un fichier ESM moderne (et pas dans un vieux script) - Pourquoi un import circulaire produit `Cannot access 'X' before initialization` - Pourquoi `var` top-level pollue `"
+  },
   "concept - le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs": {
     "slug": "le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs",
     "collection": "concepts",
     "title": "Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs",
     "oneLiner": "Le **hoisting** est le mécanisme par lequel JS \"remonte\" les **déclarations** de variables et fonctions en haut de leur scope, mais pas leurs **valeurs** — d'où le piège classique : `var` est `undefined` avant son `=`, alors que `let`/`const` lèvent une erreur `ReferenceError` (Temporal Dead Zone) jusqu'à leur déclaration.",
     "excerpt": "Le hoisting cause des bugs subtils, surtout dans : - Des modules avec des cycles d'imports - Des classes où on essaie d'utiliser un field avant son init - Des refactors de `var` → `let` (TDZ apparaît) - Des codes legacy qui utilisaient le hoisting comme feature (`function` declar"
+  },
+  "concept - le module system esm isole les fichiers et lie les imports statiquement": {
+    "slug": "le-module-system-esm-isole-les-fichiers-et-lie-les-imports-statiquement",
+    "collection": "concepts",
+    "title": "Concept - Le module system ESM isole les fichiers et lie les imports statiquement",
+    "oneLiner": "**ESM** (`import` / `export`) lie les dépendances **avant** d'exécuter le code (résolution statique, **live bindings**, tree-shaking naturel) — par opposition à **CommonJS** (`require` / `module.exports`) qui résout les dépendances **au moment de l'appel** (résolution dynamique, copie de valeurs, sync).",
+    "excerpt": "Tu utilises `import` tous les jours en TS, mais comprendre **comment ESM diffère de CommonJS** te permet : - De saisir pourquoi le tree-shaking marche en ESM mais pas (ou mal) en CJS - De ne pas tomber dans les pièges des dual-package npm (CJS + ESM dans le même paquet) - De conf"
   },
   "concept - le pattern result encode l'erreur dans le type de retour pour forcer la gestion": {
     "slug": "le-pattern-result-encode-l-erreur-dans-le-type-de-retour-pour-forcer-la-gestion",
@@ -330,6 +377,13 @@
     "title": "Concept - Le runtime Effect-TS injecte les Layers dans le pipeline du serveur HTTP",
     "oneLiner": "Quand un serveur Effect-TS démarre via `NodeHttpServer.layer` + `NodeRuntime.runMain`, le runtime construit **un graphe de Layers** (DB, logger, services, HttpServer) puis **rend chaque service disponible aux handlers** : tu n'écris jamais `new ServiceX(...)`, tu déclares `yield* ServiceX` dans ton Effect, et le runtime injecte la bonne instance.",
     "excerpt": "C'est le mécanisme qui transpose la **DI Effect-TS** au monde du serveur HTTP. Sans lui, tu aurais soit : - Des singletons globaux (impossibles à tester proprement) - Du React Context-style (fragile) - Une DI à base de classes décorées style NestJS (verbose)"
+  },
+  "concept - le shadow dom encapsule style et structure pour empêcher les fuites": {
+    "slug": "le-shadow-dom-encapsule-style-et-structure-pour-empecher-les-fuites",
+    "collection": "concepts",
+    "title": "Concept - Le Shadow DOM encapsule style et structure pour empêcher les fuites",
+    "oneLiner": "Le **Shadow DOM** est une API navigateur qui crée un **sous-arbre DOM isolé** attaché à un élément hôte — son CSS et son DOM **ne fuient pas** vers le document, et le CSS du document **ne pénètre pas** sauf via les variables CSS et les propriétés héritées — c'est l'**encapsulation native** des Web Components.",
+    "excerpt": "Le DOM est globalement **promiscuous** : un `class=\"button\"` peut entrer en conflit avec un autre, un `:root { color: red }` repeint tout, un `document.querySelector(\"input\")` traverse tout. Pour des composants **réutilisables cross-projet** (design systems, embeds tiers, extensi"
   },
   "concept - le speedup 10x de ts 7.0 vient de go + multi-threading + type-checker réécrit": {
     "slug": "le-speedup-10x-de-ts-70-vient-de-go-multi-threading-type-checker-reecrit",
@@ -366,6 +420,20 @@
     "oneLiner": "Un **embedding** est la représentation d'un mot (ou phrase, image, code…) sous forme de **vecteur de quelques centaines à quelques milliers de nombres** dans un espace géométrique où **la distance entre deux vecteurs reflète la similarité sémantique** — *roi* et *reine* sont voisins, *roi* et *banane* sont éloignés.",
     "excerpt": "C'est la première transformation qu'opère un LLM sur ton texte. Avant tout calcul d'attention ou de prédiction, chaque token de ta phrase est **projeté** dans cet espace de mille dimensions. Sans embeddings, le modèle ne pourrait pas généraliser : il verrait *roi* et *reine* comm"
   },
+  "concept - les generators produisent des valeurs à la demande avec yield": {
+    "slug": "les-generators-produisent-des-valeurs-a-la-demande-avec-yield",
+    "collection": "concepts",
+    "title": "Concept - Les generators produisent des valeurs à la demande avec yield",
+    "oneLiner": "Une fonction **generator** (`function*`) produit une suite de valeurs **paresseusement** : chaque `yield` met l'exécution en pause et la reprend au prochain `next()`, ce qui permet de modéliser des séquences potentiellement **infinies**, des **streams**, et des **co-routines** sans threads.",
+    "excerpt": "Les generators sont la fondation de tout ce qui est \"paresseux\" en JS : - `for..of`, spread `[...x]`, déstructuration : passent par le **protocole iterator** - **Async generators** (`async function*`) : pagination d'API, streams Node - **Effect-TS `Effect.gen`** : utilise `yield*"
+  },
+  "concept - les higher-kinded types abstraient sur le constructeur de type lui-même": {
+    "slug": "les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme",
+    "collection": "concepts",
+    "title": "Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même",
+    "oneLiner": "Un **Higher-Kinded Type (HKT)** est un type qui prend en argument **un autre constructeur de type** plutôt qu'un type concret — `F<_>` au lieu de `T` — ce qui permet de définir des abstractions comme `Functor<F>` ou `Monad<F>` qui marchent pour `Array`, `Promise`, `Option`, `Effect` indifféremment ; **TypeScript ne supporte pas les HKT nativement** mais des libs comme **fp-ts** et **Effect** les **simulent**.",
+    "excerpt": "Tu n'auras **probablement jamais besoin d'implémenter** des HKT. Mais comprendre le concept te permet : - De **lire** les libs FP modernes (Effect, fp-ts) sans rester bloqué sur les abstractions - De saisir **pourquoi** une librairie comme Effect peut écrire `Effect.map`, `Option"
+  },
   "concept - les lifetimes rust expriment la durée de validité d'une référence": {
     "slug": "les-lifetimes-rust-expriment-la-duree-de-validite-d-une-reference",
     "collection": "concepts",
@@ -380,6 +448,13 @@
     "oneLiner": "Quand un LLM \"écrit\", il **n'a pas planifié sa réponse à l'avance** — il génère **un token à la fois**, chaque token étant la suite la plus probable étant donné **tout ce qui précède** (prompt + tokens déjà générés) — le modèle est rigoureusement **autorégressif**.",
     "excerpt": "Comprendre la génération token-par-token désamorce plusieurs malentendus : - Pourquoi on parle de **streaming** : les tokens sortent au fur et à mesure, ils peuvent être affichés au fur et à mesure - Pourquoi un LLM peut \"se contredire\" en cours de phrase : il prédit localement,"
   },
+  "concept - les mapped types transforment chaque clé d'un type en un nouveau type": {
+    "slug": "les-mapped-types-transforment-chaque-cle-d-un-type-en-un-nouveau-type",
+    "collection": "concepts",
+    "title": "Concept - Les mapped types transforment chaque clé d'un type en un nouveau type",
+    "oneLiner": "Un **mapped type** s'écrit `{ [K in keyof T]: ... }` — il **itère sur toutes les clés** de `T` pour produire un nouveau type — avec la possibilité d'ajouter ou retirer `?` (optionalité) et `readonly`, et même de **renommer** la clé via `as`. C'est la base de `Partial`, `Required`, `Readonly`, `Pick`, `Record`.",
+    "excerpt": "Tu utilises `Partial<User>` ou `Pick<User, \"id\" | \"name\">` constamment. Comprendre comment c'est construit te permet : - D'écrire des **utilities métier** spécifiques à ton projet (ex: `WritableFields<T>`, `ApiPayload<T>`) - De **transformer un model** vers une variante (form, pa"
+  },
   "concept - les pwa 2026 ferment l'écart fonctionnel avec les apps natives": {
     "slug": "les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives",
     "collection": "concepts",
@@ -387,12 +462,26 @@
     "oneLiner": "En 2026, l'**écart de capacités** entre PWA et apps natives s'est massivement réduit grâce aux APIs nouvelles ou stabilisées (File System Access, Window Controls Overlay, Web Push iOS, WebAuthn, USB/Bluetooth/Serial, Web Payment) — au point où une **PWA bien faite est fonctionnellement comparable** à une app native pour la plupart des cas B2B et workforce.",
     "excerpt": "Le débat \"PWA vs natif\" en 2018-2020 se tranchait souvent en faveur du natif : trop de capacités manquaient (FS, push iOS, intégration OS). En 2026, l'argument fonctionnel est largement neutralisé. Le critère devient : - **Découvrabilité** (App Store SEO vs URL/PWA) - **Adhérence"
   },
+  "concept - les template literal types manipulent des chaînes au niveau du type": {
+    "slug": "les-template-literal-types-manipulent-des-chaines-au-niveau-du-type",
+    "collection": "concepts",
+    "title": "Concept - Les template literal types manipulent des chaînes au niveau du type",
+    "oneLiner": "Un **template literal type** est une chaîne littérale interpolée **au niveau type** — `` `Hello, ${string}` `` — qui peut contraindre des formats, **distribuer** sur des unions, et **parser des chaînes** via `infer` pour reconstruire des types complexes (paths d'objet, routes HTTP, formats SQL).",
+    "excerpt": "Cette feature (TS 4.1+) a transformé ce qu'on peut typer : - **Paths d'objet** typés (form libs, lodash.get/set, traduction i18n) - **Routes HTTP** typées (Express, tRPC, Hono) - **Format strings** validés (`Uppercase<T>`, masques de date) - **Brand de strings** (UUIDs, emails, I"
+  },
   "concept - les traits rust offrent du polymorphisme à coût zéro grâce au dispatch statique": {
     "slug": "les-traits-rust-offrent-du-polymorphisme-a-cout-zero-grace-au-dispatch-statique",
     "collection": "concepts",
     "title": "Concept - Les traits Rust offrent du polymorphisme à coût zéro grâce au dispatch statique",
     "oneLiner": "Un `trait` Rust ressemble à une `interface` TS, mais l'appel d'une méthode sur un générique compile en **code spécialisé** (monomorphisation) — donc aussi rapide qu'un appel direct, sans vtable.",
     "excerpt": "Les traits sont **le mécanisme de polymorphisme** de Rust. Tout ce que tu fais via classes/héritage/interfaces en TS, tu le fais via traits en Rust. Comprendre les traits, c'est comprendre comment on structure du code Rust idiomatique."
+  },
+  "concept - les types conditionnels font des branchements dans le système de types": {
+    "slug": "les-types-conditionnels-font-des-branchements-dans-le-systeme-de-types",
+    "collection": "concepts",
+    "title": "Concept - Les types conditionnels font des branchements dans le système de types",
+    "oneLiner": "Un **type conditionnel** s'écrit `T extends U ? X : Y` — c'est un **if/else exécuté par le compilateur** sur les types — et combiné à `infer` pour extraire des sous-types, il forme la base de quasi toutes les **utility types** modernes (`ReturnType`, `Awaited`, `Parameters`, `Exclude`, …).",
+    "excerpt": "Tu as utilisé `ReturnType<typeof fetchUser>` mille fois sans regarder comment c'est défini. Comprendre les conditional types te permet : - D'écrire tes propres utilities sans dépendre d'une lib - De saisir la **distribution sur les unions** (le piège #1) - De lire des libs comme"
   },
   "concept - oxlint et oxfmt portent eslint et prettier en rust pour 50-100x la vitesse": {
     "slug": "oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse",
@@ -485,6 +574,13 @@
     "oneLiner": "**`tsx`** est un runner Node qui transpile et exécute des fichiers TypeScript directement, sans étape de build préalable — il utilise **esbuild** sous le capot, ce qui le rend ~10× plus rapide que `ts-node` et en fait l'outil de référence pour `dev` scripts, hooks et CLI en TS.",
     "excerpt": "Quand tu écris du TS en backend / scripts, tu as deux choix historiques : 1. **`tsc` puis `node dist/...`** : build à chaque fois, pénible en dev 2. **`ts-node`** : exécute TS directement, mais lent (parser tsc) et galère ESM"
   },
+  "concept - typescript sacrifie le soundness pour la praticité": {
+    "slug": "typescript-sacrifie-le-soundness-pour-la-praticite",
+    "collection": "concepts",
+    "title": "Concept - TypeScript sacrifie le soundness pour la praticité",
+    "oneLiner": "**Sound** signifie \"si le programme type-check, il ne plante pas au runtime sur un type\" — TypeScript est **délibérément unsound** : `any`, covariance des arrays, bivariance des méthodes, casts non vérifiés, et plus encore — pour rester **ergonomique** et **adoptable** pour des devs JS qui migrent.",
+    "excerpt": "Comprendre ce compromis te permet : - De savoir **où** TS te ment et donc où il faut être prudent (validation runtime, tests, audits) - De **choisir** entre `any` (escape), `unknown` (forcing narrow), et la validation runtime (zod, valibot) - De ne pas être surpris par un `Cannot"
+  },
   "concept - un llm est entraîné à prédire le prochain mot et c'est de cette tâche que naît tout le reste": {
     "slug": "un-llm-est-entraine-a-predire-le-prochain-mot-et-c-est-de-cette-tache-que-nait-tout-le-reste",
     "collection": "concepts",
@@ -552,7 +648,7 @@
     "slug": "architecture-fondamentaux",
     "collection": "mocs",
     "title": "MOC - Architecture & Fondamentaux",
-    "excerpt": "- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation"
+    "excerpt": "- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation - Concept - Le currying transforme une fonction n-aire en chaîne unaire - Concept - La composition de fonctions chaîne des transformations en pip"
   },
   "moc - backend & infra": {
     "slug": "backend-infra",

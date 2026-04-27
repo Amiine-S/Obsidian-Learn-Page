@@ -31,6 +31,17 @@ related:
   - >-
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses
   - la-chaine-de-prototypes-structure-l-heritage-en-javascript
+  - le-module-system-esm-isole-les-fichiers-et-lie-les-imports-statiquement
+  - le-currying-transforme-une-fonction-n-aire-en-chaine-unaire
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
+  - les-generators-produisent-des-valeurs-a-la-demande-avec-yield
+  - le-shadow-dom-encapsule-style-et-structure-pour-empecher-les-fuites
+  - la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques
+  - les-types-conditionnels-font-des-branchements-dans-le-systeme-de-types
+  - les-mapped-types-transforment-chaque-cle-d-un-type-en-un-nouveau-type
+  - les-template-literal-types-manipulent-des-chaines-au-niveau-du-type
+  - typescript-sacrifie-le-soundness-pour-la-praticite
+  - les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme
   - les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives
   - file-system-access-api-donne-aux-pwa-un-vrai-acces-aux-fichiers-locaux
   - >-
@@ -42,6 +53,8 @@ backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
   - 2026-04-26-nouveautes-pwa-en-2026
   - 2026-04-26-solidjs-reactivite-fine-grained-vs-react-et-vue
+  - 2026-04-27-javascript-paradigmes-fonctionnels-et-mecanismes-runtime
+  - 2026-04-27-typescript-types-avances-de-la-variance-aux-hkt
   - atomruntime-branche-les-layers-effect-ts-dans-le-state-management-react
   - >-
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
@@ -50,20 +63,32 @@ backlinks:
   - l-event-loop-traite-les-microtasks-avant-chaque-rendu-et-entre-macrotasks
   - l-ecosysteme-js-migre-vers-des-outils-en-rust-et-go-pour-la-perf
   - la-chaine-de-prototypes-structure-l-heritage-en-javascript
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
   - la-reactivite-fine-grained-met-a-jour-seulement-le-dom-affecte
+  - la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques
+  - le-currying-transforme-une-fonction-n-aire-en-chaine-unaire
+  - le-global-execution-context-est-l-environnement-racine-de-tout-module
   - le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs
+  - le-module-system-esm-isole-les-fichiers-et-lie-les-imports-statiquement
+  - le-shadow-dom-encapsule-style-et-structure-pour-empecher-les-fuites
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
   - >-
     les-atoms-d-effect-atom-se-liberent-automatiquement-avec-keepalive-comme-opt-out
   - >-
     les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses
+  - les-generators-produisent-des-valeurs-a-la-demande-avec-yield
+  - les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme
+  - les-mapped-types-transforment-chaque-cle-d-un-type-en-un-nouveau-type
   - les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives
+  - les-template-literal-types-manipulent-des-chaines-au-niveau-du-type
+  - les-types-conditionnels-font-des-branchements-dans-le-systeme-de-types
   - oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse
   - signal-memo-effect-sont-les-trois-primitives-reactives-de-solidjs
   - signals-contre-virtual-dom-deux-modeles-opposes-de-mise-a-jour-ui
   - solidjs-execute-son-composant-une-seule-fois-et-lie-le-dom-aux-signaux
   - this-en-javascript-depend-du-site-d-appel-pas-de-la-definition
   - tsgo-est-le-portage-go-de-typescript-par-microsoft-pour-10x-la-vitesse
+  - typescript-sacrifie-le-soundness-pour-la-praticite
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - une-closure-capture-son-environnement-lexical-a-la-creation
   - >-
@@ -107,6 +132,24 @@ topics:
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/le-hoisting-deplace-les-declarations-en-haut-du-scope-mais-pas-leurs-valeurs" data-wiki-title="Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs" data-wiki-preview="Le **hoisting** est le mécanisme par lequel JS &quot;remonte&quot; les **déclarations** de variables et fonctions en haut de leur scope, mais pas leurs **valeurs** — d'où le piège classique : `var` est `undefined` avant son `=`, alors que `let`/`cons…">Concept - Le hoisting déplace les déclarations en haut du scope mais pas leurs valeurs</a>
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-coercitions-implicites-de-javascript-suivent-des-regles-precises-mais-piegeuses" data-wiki-title="Concept - Les coercitions implicites de JavaScript suivent des règles précises mais piégeuses" data-wiki-preview="JS effectue des **conversions de type implicites** dans plein d'opérations (`==`, `+`, `-`, `&lt;`, `if (x)`, `!x`) — ces règles sont **déterministes et documentées**, mais leur côté contre-intuitif (`[] == ![]`, `&quot;0&quot; == false`) est la raison…">Concept - Les coercitions implicites de JavaScript suivent des règles précises mais piégeuses</a>
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/la-chaine-de-prototypes-structure-l-heritage-en-javascript" data-wiki-title="Concept - La chaîne de prototypes structure l'héritage en JavaScript" data-wiki-preview="En JS, **chaque objet pointe vers un autre objet** via `__proto__` (son prototype) — quand on accède à une propriété qui n'existe pas, le moteur **remonte la chaîne** jusqu'à la trouver ou jusqu'à `null` — c'est ce mécanisme de &quot;**prototype…">Concept - La chaîne de prototypes structure l'héritage en JavaScript</a>
+- <span class="wikilink-broken" title="Référence non trouvée : Concept - Le Global Execution Context est l'environnement racine où tout module s'exécute">Concept - Le Global Execution Context est l'environnement racine où tout module s'exécute</span>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/le-module-system-esm-isole-les-fichiers-et-lie-les-imports-statiquement" data-wiki-title="Concept - Le module system ESM isole les fichiers et lie les imports statiquement" data-wiki-preview="**ESM** (`import` / `export`) lie les dépendances **avant** d'exécuter le code (résolution statique, **live bindings**, tree-shaking naturel) — par opposition à **CommonJS** (`require` / `module.exports`) qui résout les dépendances **au mom…">Concept - Le module system ESM isole les fichiers et lie les imports statiquement</a>
+
+### JavaScript fonctionnel
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/le-currying-transforme-une-fonction-n-aire-en-chaine-unaire" data-wiki-title="Concept - Le currying transforme une fonction n-aire en chaîne unaire" data-wiki-preview="Le **currying** transforme `f(a, b, c)` en `f(a)(b)(c)` — une chaîne de fonctions à un seul argument — afin de permettre la **préapplication partielle** des arguments et la **composition** dans des pipelines fonctionnels.">Concept - Le currying transforme une fonction n-aire en chaîne unaire</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/la-composition-de-fonctions-chaine-des-transformations-en-pipeline" data-wiki-title="Concept - La composition de fonctions chaîne des transformations en pipeline" data-wiki-preview="**Composer**, c'est combiner deux ou plusieurs fonctions de sorte que la **sortie de l'une devienne l'entrée de la suivante** — `compose(f, g)(x) = f(g(x))` ou plus lisiblement `pipe(x, g, f)` — afin de modéliser un programme comme un **pip…">Concept - La composition de fonctions chaîne des transformations en pipeline</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-generators-produisent-des-valeurs-a-la-demande-avec-yield" data-wiki-title="Concept - Les generators produisent des valeurs à la demande avec yield" data-wiki-preview="Une fonction **generator** (`function*`) produit une suite de valeurs **paresseusement** : chaque `yield` met l'exécution en pause et la reprend au prochain `next()`, ce qui permet de modéliser des séquences potentiellement **infinies**, de…">Concept - Les generators produisent des valeurs à la demande avec yield</a>
+
+### Web Components
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/le-shadow-dom-encapsule-style-et-structure-pour-empecher-les-fuites" data-wiki-title="Concept - Le Shadow DOM encapsule style et structure pour empêcher les fuites" data-wiki-preview="Le **Shadow DOM** est une API navigateur qui crée un **sous-arbre DOM isolé** attaché à un élément hôte — son CSS et son DOM **ne fuient pas** vers le document, et le CSS du document **ne pénètre pas** sauf via les variables CSS et les prop…">Concept - Le Shadow DOM encapsule style et structure pour empêcher les fuites</a>
+
+### TypeScript types avancés
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/la-variance-decrit-comment-les-sous-types-se-propagent-dans-les-generiques" data-wiki-title="Concept - La variance décrit comment les sous-types se propagent dans les génériques" data-wiki-preview="La **variance** est la règle qui décide, **quand `Cat &lt;: Animal`, si `F&lt;Cat&gt;` est un sous-type de `F&lt;Animal&gt;`** — selon que `T` est utilisé en **sortie** (covariant), en **entrée** (contravariant) ou aux deux (invariant).">Concept - La variance décrit comment les sous-types se propagent dans les génériques</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-types-conditionnels-font-des-branchements-dans-le-systeme-de-types" data-wiki-title="Concept - Les types conditionnels font des branchements dans le système de types" data-wiki-preview="Un **type conditionnel** s'écrit `T extends U ? X : Y` — c'est un **if/else exécuté par le compilateur** sur les types — et combiné à `infer` pour extraire des sous-types, il forme la base de quasi toutes les **utility types** modernes (`Re…">Concept - Les types conditionnels font des branchements dans le système de types</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-mapped-types-transforment-chaque-cle-d-un-type-en-un-nouveau-type" data-wiki-title="Concept - Les mapped types transforment chaque clé d'un type en un nouveau type" data-wiki-preview="Un **mapped type** s'écrit `{ [K in keyof T]: ... }` — il **itère sur toutes les clés** de `T` pour produire un nouveau type — avec la possibilité d'ajouter ou retirer `?` (optionalité) et `readonly`, et même de **renommer** la clé via `as`…">Concept - Les mapped types transforment chaque clé d'un type en un nouveau type</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-template-literal-types-manipulent-des-chaines-au-niveau-du-type" data-wiki-title="Concept - Les template literal types manipulent des chaînes au niveau du type" data-wiki-preview="Un **template literal type** est une chaîne littérale interpolée **au niveau type** — `` `Hello, ${string}` `` — qui peut contraindre des formats, **distribuer** sur des unions, et **parser des chaînes** via `infer` pour reconstruire des ty…">Concept - Les template literal types manipulent des chaînes au niveau du type</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/typescript-sacrifie-le-soundness-pour-la-praticite" data-wiki-title="Concept - TypeScript sacrifie le soundness pour la praticité" data-wiki-preview="**Sound** signifie &quot;si le programme type-check, il ne plante pas au runtime sur un type&quot; — TypeScript est **délibérément unsound** : `any`, covariance des arrays, bivariance des méthodes, casts non vérifiés, et plus encore — pour rester **e…">Concept - TypeScript sacrifie le soundness pour la praticité</a>
+- <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme" data-wiki-title="Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même" data-wiki-preview="Un **Higher-Kinded Type (HKT)** est un type qui prend en argument **un autre constructeur de type** plutôt qu'un type concret — `F&lt;_&gt;` au lieu de `T` — ce qui permet de définir des abstractions comme `Functor&lt;F&gt;` ou `Monad&lt;F&gt;` qui marchent…">Concept - Les Higher-Kinded Types abstraient sur le constructeur de type lui-même</a>
 
 ### PWA (Progressive Web Apps)
 - <a class="wikilink" href="/Obsidian-Learn-Page/concepts/les-pwa-2026-ferment-l-ecart-fonctionnel-avec-les-apps-natives" data-wiki-title="Concept - Les PWA 2026 ferment l'écart fonctionnel avec les apps natives" data-wiki-preview="En 2026, l'**écart de capacités** entre PWA et apps natives s'est massivement réduit grâce aux APIs nouvelles ou stabilisées (File System Access, Window Controls Overlay, Web Push iOS, WebAuthn, USB/Bluetooth/Serial, Web Payment) — au point…">Concept - Les PWA 2026 ferment l'écart fonctionnel avec les apps natives</a>

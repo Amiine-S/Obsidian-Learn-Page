@@ -28,6 +28,8 @@ related:
   - le-type-effect-rend-les-dependances-et-erreurs-explicites-dans-la-signature
   - 2026-04-26-exception-handling-patterns-en-typescript
   - backend-infra
+backlinks:
+  - typescript-sacrifie-le-soundness-pour-la-praticite
 topics:
   - backend
 ---

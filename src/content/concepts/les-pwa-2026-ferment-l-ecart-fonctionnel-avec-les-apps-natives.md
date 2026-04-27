@@ -28,6 +28,7 @@ related:
 backlinks:
   - 2026-04-26-nouveautes-pwa-en-2026
   - file-system-access-api-donne-aux-pwa-un-vrai-acces-aux-fichiers-locaux
+  - le-shadow-dom-encapsule-style-et-structure-pour-empecher-les-fuites
   - >-
     window-controls-overlay-donne-aux-pwa-desktop-le-controle-de-la-barre-de-titre
   - frontend

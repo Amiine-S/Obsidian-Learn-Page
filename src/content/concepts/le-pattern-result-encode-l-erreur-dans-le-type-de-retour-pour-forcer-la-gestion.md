@@ -30,6 +30,7 @@ related:
 backlinks:
   - 2026-04-26-exception-handling-patterns-en-typescript
   - try-catch-impose-un-narrow-manuel-et-ne-documente-rien-dans-la-signature
+  - typescript-sacrifie-le-soundness-pour-la-praticite
 topics:
   - backend
 ---

@@ -29,6 +29,7 @@ related:
   - architecture-fondamentaux
 backlinks:
   - 2026-04-26-programmation-imperative-vs-declarative
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
   - le-declaratif-transfere-la-complexite-d-execution-au-moteur-sous-jacent
   - architecture-fondamentaux
 topics:
@@ -174,5 +175,5 @@ Le second est plus court, plus lisible, plus refactorable. Le premier garde plus
 
 ## MOC
 
-<a class="wikilink" href="/Obsidian-Learn-Page/mocs/architecture-fondamentaux" data-wiki-title="MOC - Architecture &amp; Fondamentaux" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation">MOC - Architecture &amp; Fondamentaux</a>
+<a class="wikilink" href="/Obsidian-Learn-Page/mocs/architecture-fondamentaux" data-wiki-title="MOC - Architecture &amp; Fondamentaux" data-wiki-preview="- Concept - Une closure capture son environnement lexical à la création - Concept - Un thunk est une fonction qui retarde l'évaluation - Concept - Le currying transforme une fonction n-aire en chaîne unaire - Concept - La composition de fon…">MOC - Architecture &amp; Fondamentaux</a>
 

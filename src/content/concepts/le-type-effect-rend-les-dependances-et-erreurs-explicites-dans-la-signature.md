@@ -32,8 +32,12 @@ backlinks:
     effect-atom-unifie-state-client-serveur-et-di-dans-des-atomes-bases-sur-effect
   - effect-ts-fait-la-di-via-des-layers-composables-au-lieu-de-classes-annotees
   - httpapi-decrit-un-serveur-effect-ts-comme-un-schema-type-end-to-end
+  - la-composition-de-fonctions-chaine-des-transformations-en-pipeline
+  - le-currying-transforme-une-fonction-n-aire-en-chaine-unaire
   - >-
     le-pattern-result-encode-l-erreur-dans-le-type-de-retour-pour-forcer-la-gestion
+  - les-generators-produisent-des-valeurs-a-la-demande-avec-yield
+  - les-higher-kinded-types-abstraient-sur-le-constructeur-de-type-lui-meme
   - try-catch-impose-un-narrow-manuel-et-ne-documente-rien-dans-la-signature
   - un-thunk-est-une-fonction-qui-retarde-l-evaluation
   - frontend

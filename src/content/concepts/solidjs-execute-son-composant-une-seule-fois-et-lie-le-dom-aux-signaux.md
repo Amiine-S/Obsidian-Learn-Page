@@ -28,6 +28,7 @@ related:
 backlinks:
   - 2026-04-26-solidjs-reactivite-fine-grained-vs-react-et-vue
   - la-reactivite-fine-grained-met-a-jour-seulement-le-dom-affecte
+  - le-shadow-dom-encapsule-style-et-structure-pour-empecher-les-fuites
   - programmation-imperative-decrit-comment-quand-le-declaratif-decrit-quoi
   - signal-memo-effect-sont-les-trois-primitives-reactives-de-solidjs
   - signals-contre-virtual-dom-deux-modeles-opposes-de-mise-a-jour-ui

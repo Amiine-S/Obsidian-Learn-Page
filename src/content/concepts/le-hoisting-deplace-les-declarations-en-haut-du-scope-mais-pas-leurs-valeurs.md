@@ -28,6 +28,8 @@ related:
   - frontend
 backlinks:
   - 2026-04-26-javascript-en-profondeur-concepts-mal-connus
+  - le-global-execution-context-est-l-environnement-racine-de-tout-module
+  - le-module-system-esm-isole-les-fichiers-et-lie-les-imports-statiquement
   - frontend
 topics:
   - frontend

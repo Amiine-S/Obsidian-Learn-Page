@@ -26,6 +26,7 @@ related:
 backlinks:
   - 2026-04-25-tsgo-oxlint-oxfmt-l-ecosysteme-js-passe-au-natif
   - 2026-04-27-typescript-70-beta-le-compilateur-go-natif
+  - le-module-system-esm-isole-les-fichiers-et-lie-les-imports-statiquement
   - le-speedup-10x-de-ts-70-vient-de-go-multi-threading-type-checker-reecrit
   - oxlint-et-oxfmt-portent-eslint-et-prettier-en-rust-pour-50-100x-la-vitesse
   - tsgo-est-le-portage-go-de-typescript-par-microsoft-pour-10x-la-vitesse
