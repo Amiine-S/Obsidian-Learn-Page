@@ -83,6 +83,12 @@
     "title": "SolidJS — réactivité fine-grained vs React et Vue",
     "excerpt": "1. **SolidJS** est un framework UI créé par **Ryan Carniato**. Syntaxe JSX quasi-identique à React, mais **moteur d'exécution radicalement différent** : pas de Virtual DOM, pas de re-render de composant, mise à jour fine-grained du DOM réel. 2. Le **composant ne s'exécute qu'une"
   },
+  "2026-04-27 - agents ia autonomes open source - architecture brain-muscles et hosting local": {
+    "slug": "2026-04-27-agents-ia-autonomes-open-source-architecture-brain-muscles-et-hosting-local",
+    "collection": "sources",
+    "title": "Agents IA autonomes open source : architecture brain/muscles et hosting local",
+    "excerpt": "Une vidéo d'Alex Finn (créateur YouTube AI) qui synthétise 300h+ d'usage intensif d'**OpenCode** (et de son concurrent **Hermes Agent**), deux agents IA autonomes open source. L'intérêt n'est pas dans les use cases personnels du créateur — peu transférables — mais dans l'**archit"
+  },
   "2026-04-27 - algos & data structures essentiels en typescript": {
     "slug": "2026-04-27-algos-data-structures-essentiels-en-typescript",
     "collection": "sources",
